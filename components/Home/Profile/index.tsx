@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box , Center, Flex, Stack, Text, Icon} from 'native-base'
+import { Box , Center, Flex, Stack, Text, Icon, Button} from 'native-base'
 
 export const Profile = () => {
   return (
@@ -12,9 +12,22 @@ export const Profile = () => {
           <Text fontSize={"2xl"} fontWeight="semibold">Papadopoulos</Text>
           <Text fontSize={"md"} fontWeight="hairline">antonios.papadopan@gmail.com</Text>
       </Center>
-      <Stack>
-        <Flex>         <Icon name="home" />
-Language</Flex>
+      <Stack space={4}>
+        <Flex flexDirection="row" justifyContent="space-between" backgroundColor="cyan.50" padding="5" borderRadius="6">
+          <Text>Language</Text>
+          <Flex>
+            Greek arrow
+          </Flex>
+        </Flex>
+        <Flex flexDirection="row" justifyContent="space-between" backgroundColor="cyan.50" padding="5" borderRadius="6">
+          <Text>Theme</Text>
+          <Flex>
+            Dark arrow
+          </Flex>
+        </Flex>
+        <Flex>
+            <Button variant="outline">Sign out</Button>
+        </Flex>
       </Stack>
     </Flex>
   )
