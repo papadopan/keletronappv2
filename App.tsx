@@ -8,18 +8,18 @@
  * @format
  */
 
-import React, {type PropsWithChildren} from 'react';
+import React  from 'react';
 import {
   SafeAreaView,
   StatusBar,
   useColorScheme,
 } from 'react-native';
 
-import { Colors} from 'react-native/Libraries/NewAppScreen';
-import { Login } from "./components/Login"
-import {SignUp} from "./components/SignUp"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Home } from './components/Home';
+import { Welcome } from './components/Welcome';
+import { Login } from './components/Welcome/Login';
+import { SignUp } from './components/Welcome/SignUp';
 []
 const Stack = createNativeStackNavigator();
 
@@ -29,20 +29,29 @@ const App = () => {
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? "blue" : "white",
-    flex: 1
+    flex: 1,
   };
 
-  const user = {}
-
+  const user = null
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
+      {
+        user ?
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
+          <Stack.Screen name="App" component={Home} options={{ headerShown:false }}/>
         </Stack.Navigator>
+        :
+        <Stack.Navigator>
+          <Stack.Screen name="Welcome" component={Welcome} options={{ headerShown:false }}/>
+          <Stack.Screen name="LogIn" component={Login} />
+          <Stack.Screen name="SignUp" component={SignUp} />
+        </Stack.Navigator>
+      }
+
     </SafeAreaView>
   );
 };
