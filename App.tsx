@@ -19,6 +19,7 @@ import { Colors} from 'react-native/Libraries/NewAppScreen';
 import { Login } from "./components/Login"
 import {SignUp} from "./components/SignUp"
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from './components/Home';
 []
 const Stack = createNativeStackNavigator();
 
@@ -31,7 +32,7 @@ const App = () => {
     flex: 1
   };
 
-  const user = null
+  const user = {}
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -39,17 +40,9 @@ const App = () => {
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      {
-        user ?
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={Login}/>
-          <Stack.Screen name="Details" component={SignUp} />
-        </Stack.Navigator> :
-        <Stack.Navigator>
-        <Stack.Screen name="Home" component={Login}/>
-        <Stack.Screen name="Details" component={SignUp} />
-      </Stack.Navigator>
-      }
+          <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
+        </Stack.Navigator>
     </SafeAreaView>
   );
 };
