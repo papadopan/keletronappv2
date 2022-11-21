@@ -3,7 +3,7 @@ import React from 'react'
 import { Button, FlatList, Flex, Text } from 'native-base'
 import Emoji from 'react-native-emoji';
 
-export const HomeScreen = () => {
+export const HomeScreen = ({navigation}) => {
   return (
     <Flex padding="5">
       <Flex flexDirection={"row"} alignItems="center" mb={50}>
@@ -12,7 +12,7 @@ export const HomeScreen = () => {
       </Flex>
       <Flex flexDirection={"row"} justifyContent="space-between" alignItems={"center"}>
         <Text>Your Bookings</Text>
-        <Button>Add</Button>
+        <Button onPress={()=>navigation.navigate("Bookings")}>Add</Button>
       </Flex>
     </Flex>
   )
