@@ -1,6 +1,6 @@
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { Bookings } from './Bookings'
+import { BookingNavigator } from './BookingNavigator'
 import { Profile } from './Profile'
 import { HomeScreen } from './HomeScreen'
 import Icon from 'react-native-vector-icons/AntDesign'
@@ -25,7 +25,7 @@ export const Home = () => {
       />
       <Tab.Screen
         name="Bookings"
-        component={Bookings}
+        component={BookingNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (

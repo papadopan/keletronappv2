@@ -1,9 +1,9 @@
 import { View } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import { Agenda } from 'react-native-calendars'
 import { Box, Button, Flex, ScrollView, Text } from 'native-base'
 
-export const Bookings = () => {
+export const Bookings = ({ navigation }) => {
   const bookings = [
     { time: '08:00', reservation: 'antonios' },
     { time: '09:00', reservation: 'antonios' },
@@ -19,6 +19,11 @@ export const Bookings = () => {
     { time: '19:00', reservation: 'antonios' },
     { time: '20:00', reservation: 'antonios' },
   ]
+  const [currentDay, setCurrentDay] = useState<string>('')
+  const [bookingDate, setBookingDate] = useState<{
+    time: string
+    reservation: string
+  } | null>(null)
   return (
     <Box padding={2} flex={1}>
       <Agenda
@@ -39,6 +44,7 @@ export const Bookings = () => {
         // Callback that gets called on day press
         onDayPress={day => {
           console.log('day pressed')
+          setCurrentDay(day.dateString)
         }}
         // Callback that gets called when day changes while scrolling agenda list
         onDayChange={day => {
@@ -98,7 +104,16 @@ export const Bookings = () => {
                     {booking.time}
                   </Text>
                   <Text m={2}>2 γηπεδα διαθεσιμα</Text>
-                  <Button>Booking</Button>
+                  <Button
+                    onPress={() =>
+                      navigation.navigate('Booking', {
+                        booking: booking,
+                        date: currentDay,
+                      })
+                    }
+                  >
+                    Booking
+                  </Button>
                 </Box>
               ))}
             </ScrollView>
