@@ -4,10 +4,13 @@ import { Bookings } from './Bookings'
 import { Profile } from './Profile'
 import { HomeScreen } from './HomeScreen'
 import Icon from 'react-native-vector-icons/AntDesign'
+import { useProfile } from '../../hooks/useProfile'
 
 const Tab = createBottomTabNavigator()
 
 export const Home = () => {
+  const { data } = useProfile()
+
   return (
     <Tab.Navigator>
       <Tab.Screen

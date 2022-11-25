@@ -1,15 +1,35 @@
 import { View } from 'react-native'
-import React, { useState } from 'react'
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars'
-import { Box, Text } from 'native-base'
-import Icon from 'react-native-vector-icons/AntDesign'
+import React from 'react'
+import { Agenda } from 'react-native-calendars'
+import { Box, Button, Flex, ScrollView, Text } from 'native-base'
 
 export const Bookings = () => {
-  const [selectedDay, setSelectedDay] = useState('')
-
+  const bookings = [
+    { time: '08:00', reservation: 'antonios' },
+    { time: '09:00', reservation: 'antonios' },
+    { time: '10:00', reservation: 'antonios' },
+    { time: '11:00', reservation: 'antonios' },
+    { time: '12:00', reservation: 'antonios' },
+    { time: '13:00', reservation: 'antonios' },
+    { time: '14:00', reservation: 'antonios' },
+    { time: '15:00', reservation: 'antonios' },
+    { time: '16:00', reservation: 'antonios' },
+    { time: '17:00', reservation: 'antonios' },
+    { time: '18:00', reservation: 'antonios' },
+    { time: '19:00', reservation: 'antonios' },
+    { time: '20:00', reservation: 'antonios' },
+  ]
   return (
     <Box padding={2} flex={1}>
       <Agenda
+        // items={{
+        //   '2022-12-23': [{ name: 'item 1 - any js object' }],
+        //   '2022-12-24': [],
+        //   '2022-12-25': [
+        //     { name: 'item 3 - any js object' },
+        //     { name: 'any js object' },
+        //   ],
+        // }}
         loadItemsForMonth={month => {
           console.log('trigger items loading')
         }}
@@ -18,11 +38,11 @@ export const Bookings = () => {
         }}
         // Callback that gets called on day press
         onDayPress={day => {
-          setSelectedDay(day.dateString)
+          console.log('day pressed')
         }}
         // Callback that gets called when day changes while scrolling agenda list
         onDayChange={day => {
-          console.log('day changed', day)
+          console.log('day changed')
         }}
         // Minimum date that can be selected, dates before minDate will be grayed out. Default = undefined
         minDate={'2022-11-20'}
@@ -33,18 +53,57 @@ export const Bookings = () => {
         // Max amount of months allowed to scroll to the future. Default = 50
         futureScrollRange={2}
         // Specify how each item should be rendered in agenda
+        renderItem={(item, firstItemInDay) => {
+          return (
+            <View>
+              <Text>antonios</Text>
+            </View>
+          )
+        }}
+        // Specify how each date should be rendered. day can be undefined if the item is not first in that day
+        renderDay={(day, item) => {
+          return (
+            <View>
+              <Text>antonios</Text>
+            </View>
+          )
+        }}
         // Specify how empty date content with no items should be rendered
         renderEmptyDate={() => {
           return <View />
         }}
         // Specify how agenda knob should look like
         renderKnob={() => {
-          return <Icon name="down" size={18} />
+          return <Text>...</Text>
         }}
         // Override inner list with a custom implemented component
-        // renderList={listProps => {
-        //   return <Text>...</Text>
-        // }}
+        renderList={listProps => {
+          return (
+            <ScrollView p={2}>
+              {bookings.map(booking => (
+                <Box
+                  key={booking.time}
+                  p={4}
+                  backgroundColor="white"
+                  mb={6}
+                  borderRadius="5"
+                >
+                  <Text
+                    fontSize={'3xl'}
+                    letterSpacing={'xl'}
+                    fontWeight={700}
+                    lineHeight="lg"
+                    color="gray.300"
+                  >
+                    {booking.time}
+                  </Text>
+                  <Text m={2}>2 γηπεδα διαθεσιμα</Text>
+                  <Button>Booking</Button>
+                </Box>
+              ))}
+            </ScrollView>
+          )
+        }}
         // Specify what should be rendered instead of ActivityIndicator
         renderEmptyData={() => {
           return <View />
