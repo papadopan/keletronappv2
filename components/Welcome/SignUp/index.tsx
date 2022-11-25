@@ -27,7 +27,7 @@ export const SignUp = () => {
           console.log('>>>>', values);
         }}
       >
-        {({ handleChange, handleSubmit, values, isSubmitting }) => (
+        {({ handleChange, handleSubmit, values, isSubmitting, errors }) => (
           <Stack space={5} justifyContent="space-between" flex={1}>
             <Box>
               <FormControl isRequired mb={4}>

@@ -8,26 +8,28 @@
  * @format
  */
 
-import React from 'react'
-import { SafeAreaView, StatusBar, useColorScheme } from 'react-native'
+import React from 'react';
+import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Home } from './components/Home'
-import { Welcome } from './components/Welcome'
-import { Login } from './components/Welcome/Login'
-import { SignUp } from './components/Welcome/SignUp'
-;[]
-const Stack = createNativeStackNavigator()
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from './components/Home';
+import { Welcome } from './components/Welcome';
+import { Login } from './components/Welcome/Login';
+import { SignUp } from './components/Welcome/SignUp';
+import { ForgotPassword } from './components/Welcome/ForgotPassword';
+import { ActivationEmail } from './components/Welcome/ActivationEmail';
+[];
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark'
+  const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? 'blue' : 'white',
     flex: 1,
-  }
+  };
 
-  const user = null
+  const user = null;
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -51,10 +53,20 @@ const App = () => {
           />
           <Stack.Screen name="LogIn" component={Login} />
           <Stack.Screen name="SignUp" component={SignUp} />
+          <Stack.Screen
+            name="ForgotPassword"
+            component={ForgotPassword}
+            options={{ title: 'Forgot Password' }}
+          />
+          <Stack.Screen
+            name="ActivationEmail"
+            component={ActivationEmail}
+            options={{ title: 'Activation Email' }}
+          />
         </Stack.Navigator>
       )}
     </SafeAreaView>
-  )
-}
+  );
+};
 
-export default App
+export default App;

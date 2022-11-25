@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import {
   Box,
   Button,
@@ -7,11 +7,11 @@ import {
   Input,
   Stack,
   WarningOutlineIcon,
-} from 'native-base'
+} from 'native-base';
 
-export const Login = () => {
-  const [email, setEmail] = useState('')
-  const [pwd, setPwd] = useState('')
+export const Login = ({ navigation }) => {
+  const [email, setEmail] = useState('');
+  const [pwd, setPwd] = useState('');
   return (
     <Flex flex={1} justifyContent="space-between" padding={5}>
       <Stack>
@@ -52,13 +52,23 @@ export const Login = () => {
           </Stack>
         </FormControl>
         <Stack space={2}>
-          <Button variant="link">Forgot Password?</Button>
-          <Button variant="link">Resend Activation email</Button>
+          <Button
+            variant="link"
+            onPress={() => navigation.navigate('ForgotPassword')}
+          >
+            Forgot Password?
+          </Button>
+          <Button
+            variant="link"
+            onPress={() => navigation.navigate('ActivationEmail')}
+          >
+            Resend Activation email
+          </Button>
         </Stack>
       </Stack>
       <Box>
         <Button>Log In</Button>
       </Box>
     </Flex>
-  )
-}
+  );
+};
