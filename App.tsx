@@ -18,8 +18,9 @@ import { Login } from './components/Welcome/Login';
 import { SignUp } from './components/Welcome/SignUp';
 import { ForgotPassword } from './components/Welcome/ForgotPassword';
 import { ActivationEmail } from './components/Welcome/ActivationEmail';
+import type { RootAppParamList } from './types/navigation';
 [];
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootAppParamList>();
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';

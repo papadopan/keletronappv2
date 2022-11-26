@@ -1,11 +1,12 @@
-import React from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { BookingNavigator } from './BookingNavigator'
-import { Profile } from './Profile'
-import { HomeScreen } from './HomeScreen'
-import Icon from 'react-native-vector-icons/AntDesign'
+import React from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { BookingNavigator } from './BookingNavigator';
+import { Profile } from './Profile';
+import { HomeScreen } from './HomeScreen';
+import Icon from 'react-native-vector-icons/AntDesign';
+import type { RootHomeParamList } from '../../types/navigation';
 
-const Tab = createBottomTabNavigator()
+const Tab = createBottomTabNavigator<RootHomeParamList>();
 
 export const Home = () => {
   return (
@@ -41,5 +42,5 @@ export const Home = () => {
         }}
       />
     </Tab.Navigator>
-  )
-}
+  );
+};

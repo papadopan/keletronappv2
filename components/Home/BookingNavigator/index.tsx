@@ -1,9 +1,10 @@
-import React from 'react'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { Bookings } from './Bookings'
-import { Booking } from './Booking'
+import React from 'react';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Bookings } from './Bookings';
+import { Booking } from './Booking';
+import { BookingParamList } from '../../../types/navigation';
 
-const Stack = createNativeStackNavigator()
+const Stack = createNativeStackNavigator<BookingParamList>();
 
 export const BookingNavigator = () => {
   return (
@@ -19,5 +20,5 @@ export const BookingNavigator = () => {
         options={{ title: 'New Booking' }}
       />
     </Stack.Navigator>
-  )
-}
+  );
+};

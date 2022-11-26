@@ -1,10 +1,12 @@
-import { StyleSheet, Text, View } from 'react-native';
 import React from 'react';
+import { Flex, Input, Text } from 'native-base';
 
 export const ForgotPassword = () => {
   return (
-    <View>
-      <Text>ForgotPassword</Text>
-    </View>
+    <Flex p={5}>
+      <Text fontSize={'xl'} letterSpacing="lg" textAlign={'center'}>
+        Give your email to provide a new password
+      </Text>
+    </Flex>
   );
 };
