@@ -1,6 +1,6 @@
-import React from 'react'
-import { Box, Center, Flex, Stack, Text, Button } from 'native-base'
-import Icon from 'react-native-vector-icons/AntDesign'
+import React from 'react';
+import { Box, Center, Flex, Stack, Text, Button } from 'native-base';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 export const Profile = () => {
   return (
@@ -25,7 +25,7 @@ export const Profile = () => {
         <Flex
           flexDirection="row"
           justifyContent="space-between"
-          backgroundColor="cyan.50"
+          backgroundColor="white"
           padding="5"
           borderRadius="6"
         >
@@ -38,7 +38,7 @@ export const Profile = () => {
         <Flex
           flexDirection="row"
           justifyContent="space-between"
-          backgroundColor="cyan.50"
+          backgroundColor="white"
           padding="5"
           borderRadius="6"
         >
@@ -55,5 +55,5 @@ export const Profile = () => {
         </Flex>
       </Stack>
     </Flex>
-  )
-}
+  );
+};
