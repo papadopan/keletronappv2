@@ -29,7 +29,7 @@ const App = () => {
     flex: 1,
   };
 
-  const user = null;
+  const user = {};
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
