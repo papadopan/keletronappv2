@@ -11,6 +11,7 @@
     "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
   },
   "dependencies": {
+    "@apollo/client": "^3.7.1",
     "@react-navigation/bottom-tabs": "^6.4.0",
     "@react-navigation/native": "^6.0.13",
     "@react-navigation/native-stack": "^6.9.1",
@@ -19,6 +20,9 @@
     "@types/react-native-vector-icons": "^6.4.12",
     "axios": "^1.2.0",
     "formik": "^2.2.9",
+    "gql": "^1.1.2",
+    "graphql": "^16.6.0",
+    "graphql-request": "^5.0.0",
     "native-base": "^3.4.22",
     "react": "18.1.0",
     "react-native": "0.70.6",
