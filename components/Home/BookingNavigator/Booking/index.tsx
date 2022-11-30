@@ -10,7 +10,7 @@ import {
 } from 'native-base';
 import { Formik } from 'formik';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { BookingProps } from '../../../../types/navigation';
+import { BookingProps } from 'types/navigation';
 
 export const Booking = ({ route }: BookingProps) => {
   const formikRef = useRef(null);

@@ -2,7 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Bookings } from './Bookings';
 import { Booking } from './Booking';
-import { BookingParamList } from '../../../types/navigation';
+import { BookingParamList } from 'types/navigation';
 
 const Stack = createNativeStackNavigator<BookingParamList>();
 

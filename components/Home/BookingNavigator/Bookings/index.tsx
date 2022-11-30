@@ -2,7 +2,7 @@ import { View } from 'react-native';
 import React, { useState } from 'react';
 import { Agenda } from 'react-native-calendars';
 import { Box, Button, Flex, ScrollView, Text } from 'native-base';
-import { BookingsScreenProps } from '../../../../types/navigation';
+import { BookingsScreenProps } from 'types/navigation';
 
 export const Bookings = ({ navigation }: BookingsScreenProps) => {
   const bookings = [

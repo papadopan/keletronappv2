@@ -18,7 +18,7 @@ import { Login } from './components/Welcome/Login';
 import { SignUp } from './components/Welcome/SignUp';
 import { ForgotPassword } from './components/Welcome/ForgotPassword';
 import { ActivationEmail } from './components/Welcome/ActivationEmail';
-import type { RootAppParamList } from './types/navigation';
+import type { RootAppParamList } from 'types/navigation';
 
 const Stack = createNativeStackNavigator<RootAppParamList>();
 
