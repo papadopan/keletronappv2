@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { BookingNavigator } from './BookingNavigator';
-import { Profile } from './Profile';
+import { ProfileNavigator } from './ProfileNavigator';
 import { HomeScreen } from './HomeScreen';
 import Icon from 'react-native-vector-icons/AntDesign';
 import type { RootHomeParamList } from '../../types/navigation';
@@ -33,7 +33,7 @@ export const Home = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}
+        component={ProfileNavigator}
         options={{
           headerShown: false,
           tabBarIcon: ({ color, size }) => (

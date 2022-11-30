@@ -1,8 +1,8 @@
 import React from 'react';
-import { Box, Center, Flex, Stack, Text, Button } from 'native-base';
+import { Box, Center, Flex, Stack, Text, Button, Pressable } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 
-export const Profile = () => {
+export const Profile = ({ navigation }) => {
   return (
     <Flex padding={5} paddingTop={15} justifyContent="space-between" flex={1}>
       <Center>
@@ -35,6 +35,21 @@ export const Profile = () => {
             <Icon name="right" size={20} />
           </Flex>
         </Flex>
+        <Pressable onPress={() => navigation.navigate('Preview')}>
+          <Flex
+            flexDirection="row"
+            justifyContent="space-between"
+            backgroundColor="white"
+            padding="5"
+            borderRadius="6"
+          >
+            <Text>My Bookings</Text>
+            <Flex flexDirection={'row'}>
+              <Text mr="3">3</Text>
+              <Icon name="right" size={20} />
+            </Flex>
+          </Flex>
+        </Pressable>
         <Flex
           flexDirection="row"
           justifyContent="space-between"

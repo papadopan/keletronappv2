@@ -20,6 +20,11 @@ export type BookingParamList = {
   Booking: { date: string; booking: { time: string; reservation: string } };
 };
 
+export type ProfilePage = {
+  ProfilePage: undefined;
+  Preview: undefined;
+};
+
 export type BookingProps = NativeStackScreenProps<BookingParamList, 'Booking'>;
 export type BookingsScreenProps = NativeStackScreenProps<
   BookingParamList,
