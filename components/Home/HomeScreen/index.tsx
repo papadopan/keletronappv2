@@ -31,7 +31,12 @@ export const HomeScreen = ({ navigation }) => {
           </Button>
         </Flex>
         <Flex my={10}>
-          <MainScreenBookings items={data?.getMyBookings} />
+          <MainScreenBookings
+            items={data?.getMyBookings}
+            onPress={() =>
+              navigation.navigate('Profile', { screen: 'Preview' })
+            }
+          />
         </Flex>
       </Box>
     </Flex>
