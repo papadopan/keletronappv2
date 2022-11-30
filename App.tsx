@@ -19,7 +19,6 @@ import { SignUp } from './components/Welcome/SignUp';
 import { ForgotPassword } from './components/Welcome/ForgotPassword';
 import { ActivationEmail } from './components/Welcome/ActivationEmail';
 import type { RootAppParamList } from './types/navigation';
-import { useGetMyBookings } from './hooks/getMyBookings';
 
 const Stack = createNativeStackNavigator<RootAppParamList>();
 
@@ -30,7 +29,6 @@ const App = () => {
     backgroundColor: isDarkMode ? 'blue' : 'white',
     flex: 1,
   };
-  const { data, isLoading, isFetched } = useGetMyBookings();
 
   const user = {};
   return (
