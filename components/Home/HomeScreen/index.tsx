@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Button, FlatList, Flex, Text } from 'native-base';
+import { Box, Button, Divider, FlatList, Flex, Text } from 'native-base';
 import Emoji from 'react-native-emoji';
 import { MainScreenBookings } from '../../fragmenrs/MainScreenBookings';
 import { useGetMyBookings } from '../../../hooks/getMyBookings';
@@ -15,21 +15,25 @@ export const HomeScreen = ({ navigation }) => {
         </Text>
         <Emoji name="smiley" style={{ fontSize: 30 }} />
       </Flex>
-      <Box p={2} backgroundColor="white">
-        <Flex
-          flexDirection={'row'}
-          justifyContent="space-between"
-          alignItems={'center'}
-          borderRadius={4}
-        >
-          <Text>My Bookings</Text>
-          <Button
-            onPress={() => navigation.navigate('Bookings')}
-            isLoading={isLoading}
+      <Box p={2} backgroundColor="white" borderRadius={4}>
+        <Box>
+          <Flex
+            flexDirection={'row'}
+            justifyContent="space-between"
+            alignItems={'center'}
+            borderRadius={4}
           >
-            Add
-          </Button>
-        </Flex>
+            <Text>My Bookings</Text>
+            <Button
+              onPress={() => navigation.navigate('Bookings')}
+              isLoading={isLoading}
+              size="sm"
+            >
+              Add
+            </Button>
+          </Flex>
+          <Divider mt={3} />
+        </Box>
         <Flex my={10}>
           <MainScreenBookings
             items={data?.getMyBookings}
