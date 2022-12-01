@@ -7,15 +7,10 @@ import { useGetMyBookings } from '../../../../hooks/getMyBookings';
 export const PreviewList = ({ navigation }) => {
   const { data, isLoading } = useGetMyBookings();
 
-  const myList = [
-    { date: 'Mon 12, 2022', time: '08:00', num: 4, status: 'in active' },
-    { date: 'Tue 3, 2022', time: '18:00', num: 4, status: 'active' },
-    { date: 'Fri 6, 2022', time: '13:00', num: 2, status: 'active' },
-  ];
   return (
     <Box p={5} flex={1}>
       <FlatList
-        data={myList}
+        data={data?.getMyBookings}
         renderItem={({ item }) => (
           <Pressable onPress={() => navigation.navigate('Preview')}>
             <Flex
@@ -26,13 +21,16 @@ export const PreviewList = ({ navigation }) => {
               flexDirection="row"
               justifyContent={'space-between'}
             >
-              <Text>{item.date}</Text>
+              <Text>{item.date_booking}</Text>
+              <Text>{item.time_slot}</Text>
               <Flex flexDirection={'row'} alignItems="center">
                 <Badge
                   mr={5}
-                  colorScheme={item.status === 'active' ? 'success' : 'danger'}
+                  colorScheme={
+                    item.date_booking < '2022-12-2' ? 'success' : 'danger'
+                  }
                 >
-                  {item.status}
+                  active
                 </Badge>
                 <Icon name="right" />
               </Flex>
