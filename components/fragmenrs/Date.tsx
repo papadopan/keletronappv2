@@ -8,7 +8,7 @@ type Props = {
 export const MyDate = ({ date }: Props) => {
   return (
     <Box>
-      <Text fontSize={'lg'}>
+      <Text fontSize={'md'}>
         {new Date(date).toLocaleString('en-GB', {
           day: 'numeric',
           month: 'long',

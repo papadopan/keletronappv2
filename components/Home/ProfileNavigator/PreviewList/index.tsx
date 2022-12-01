@@ -3,6 +3,7 @@ import { Badge, Box, FlatList, Flex, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Pressable } from 'react-native';
 import { useGetMyBookings } from '../../../../hooks/getMyBookings';
+import { MyDate } from '../../../fragmenrs/Date';
 
 export const PreviewList = ({ navigation }) => {
   const { data, isLoading } = useGetMyBookings();
@@ -21,7 +22,7 @@ export const PreviewList = ({ navigation }) => {
               flexDirection="row"
               justifyContent={'space-between'}
             >
-              <Text>{item.date_booking}</Text>
+              <MyDate date={item.date_booking} />
               <Text>{item.time_slot}</Text>
               <Flex flexDirection={'row'} alignItems="center">
                 <Badge
