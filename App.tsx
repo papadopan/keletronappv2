@@ -19,6 +19,7 @@ import { SignUp } from './components/Welcome/SignUp';
 import { ForgotPassword } from './components/Welcome/ForgotPassword';
 import { ActivationEmail } from './components/Welcome/ActivationEmail';
 import type { RootAppParamList } from 'types/navigation';
+import { useLogIn } from './hooks/useLogIn';
 
 const Stack = createNativeStackNavigator<RootAppParamList>();
 
@@ -30,14 +31,16 @@ const App = () => {
     flex: 1,
   };
 
-  const user = {};
+  const { data } = useLogIn();
+
+  const isLoggedIn = null;
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      {user ? (
+      {isLoggedIn ? (
         <Stack.Navigator>
           <Stack.Screen
             name="App"

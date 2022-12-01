@@ -12,8 +12,11 @@ export const PreviewList = ({ navigation }) => {
     <Box p={5} flex={1}>
       <FlatList
         data={data?.getMyBookings}
-        renderItem={({ item }) => (
-          <Pressable onPress={() => navigation.navigate('Preview')}>
+        renderItem={({ item, index }) => (
+          <Pressable
+            onPress={() => navigation.navigate('Preview', { item: item })}
+            key={index + item.date_booking + item.time_slot}
+          >
             <Flex
               backgroundColor={'white'}
               mb={6}

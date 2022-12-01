@@ -6,14 +6,33 @@ import {
   FormControl,
   Input,
   Stack,
+  useToast,
   WarningOutlineIcon,
 } from 'native-base';
 import { Formik } from 'formik';
+import { useSignUp } from '../../../hooks/useSignUp';
+import { useEffect } from 'react';
+import Emoji from 'react-native-emoji';
 
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PWD_REGEX = /^[A-Za-z]\w{7,14}$/;
 export const SignUp = () => {
+  const signUp = useSignUp();
+  const toast = useToast();
+
+  useEffect(() => {
+    toast.show({
+      render: () => {
+        return (
+          <Box bg="green.600" p={6} rounded="sm" mb={5}>
+            Congrats <Emoji name="rocket" style={{ fontSize: 30 }} />
+          </Box>
+        );
+      },
+    });
+  }, [signUp.isSuccess]);
+
   return (
     <Flex flex={1} justifyContent="space-between" padding={5}>
       <Formik
@@ -23,11 +42,9 @@ export const SignUp = () => {
           email: '',
           password: '',
         }}
-        onSubmit={values => {
-          console.log('>>>>', values);
-        }}
+        onSubmit={v => signUp.mutate(v)}
       >
-        {({ handleChange, handleSubmit, values, isSubmitting, errors }) => (
+        {({ handleChange, handleSubmit, values, errors }) => (
           <Stack space={5} justifyContent="space-between" flex={1}>
             <Box>
               <FormControl isRequired mb={4}>
@@ -86,7 +103,7 @@ export const SignUp = () => {
                 </FormControl.ErrorMessage>
               </FormControl>
             </Box>
-            <Button onPress={() => handleSubmit()} isLoading={isSubmitting}>
+            <Button onPress={() => handleSubmit()} isLoading={signUp.isLoading}>
               Sign Up
             </Button>
           </Stack>
