@@ -23,6 +23,7 @@ export type BookingParamList = {
 export type ProfilePage = {
   ProfilePage: undefined;
   Preview: undefined;
+  PreviewList: undefined;
 };
 
 export type BookingProps = NativeStackScreenProps<BookingParamList, 'Booking'>;

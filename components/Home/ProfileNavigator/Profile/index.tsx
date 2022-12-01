@@ -35,7 +35,20 @@ export const Profile = ({ navigation }) => {
             <Icon name="right" size={20} />
           </Flex>
         </Flex>
-        <Pressable onPress={() => navigation.navigate('Preview')}>
+        <Flex
+          flexDirection="row"
+          justifyContent="space-between"
+          backgroundColor="white"
+          padding="5"
+          borderRadius="6"
+        >
+          <Text>Theme</Text>
+          <Flex flexDirection={'row'}>
+            <Text mr="3">Dark</Text>
+            <Icon name="right" size={20} />
+          </Flex>
+        </Flex>
+        <Pressable onPress={() => navigation.navigate('PreviewList')}>
           <Flex
             flexDirection="row"
             justifyContent="space-between"
@@ -50,19 +63,6 @@ export const Profile = ({ navigation }) => {
             </Flex>
           </Flex>
         </Pressable>
-        <Flex
-          flexDirection="row"
-          justifyContent="space-between"
-          backgroundColor="white"
-          padding="5"
-          borderRadius="6"
-        >
-          <Text>Theme</Text>
-          <Flex flexDirection={'row'}>
-            <Text mr="3">Dark</Text>
-            <Icon name="right" size={20} />
-          </Flex>
-        </Flex>
         <Flex>
           <Button variant="outline" leftIcon={<Icon name="logout" size={20} />}>
             Sign out
