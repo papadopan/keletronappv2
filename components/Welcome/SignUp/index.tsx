@@ -6,6 +6,7 @@ import {
   FormControl,
   Input,
   Stack,
+  Text,
   useToast,
   WarningOutlineIcon,
 } from 'native-base';
@@ -18,7 +19,7 @@ const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 const PWD_REGEX = /^[A-Za-z]\w{7,14}$/;
 export const SignUp = () => {
-  const signUp = useSignUp();
+  const { mutate, isLoading, error, isSuccess } = useSignUp();
   const toast = useToast();
 
   useEffect(() => {
@@ -31,7 +32,7 @@ export const SignUp = () => {
         );
       },
     });
-  }, [signUp.isSuccess]);
+  }, [isSuccess]);
 
   return (
     <Flex flex={1} justifyContent="space-between" padding={5}>
@@ -42,7 +43,7 @@ export const SignUp = () => {
           email: '',
           password: '',
         }}
-        onSubmit={v => signUp.mutate(v)}
+        onSubmit={v => mutate(v)}
       >
         {({ handleChange, handleSubmit, values, errors }) => (
           <Stack space={5} justifyContent="space-between" flex={1}>
@@ -103,7 +104,7 @@ export const SignUp = () => {
                 </FormControl.ErrorMessage>
               </FormControl>
             </Box>
-            <Button onPress={() => handleSubmit()} isLoading={signUp.isLoading}>
+            <Button onPress={() => handleSubmit()} isLoading={isLoading}>
               Sign Up
             </Button>
           </Stack>
