@@ -7,6 +7,7 @@ export type RootAppParamList = {
   SignUp: undefined;
   ForgotPassword: undefined;
   ActivationEmail: undefined;
+  ValidatePassword: undefined;
 };
 
 export type RootHomeParamList = {

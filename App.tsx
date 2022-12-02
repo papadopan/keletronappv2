@@ -20,6 +20,7 @@ import { ForgotPassword } from './components/Welcome/ForgotPassword';
 import { ActivationEmail } from './components/Welcome/ActivationEmail';
 import type { RootAppParamList } from 'types/navigation';
 import { useLogIn } from './hooks/useLogIn';
+import { ValidatePassword } from './components/Welcome/ValidatePassword';
 
 const Stack = createNativeStackNavigator<RootAppParamList>();
 
@@ -66,6 +67,11 @@ const App = () => {
             name="ActivationEmail"
             component={ActivationEmail}
             options={{ title: 'Activation Email' }}
+          />
+          <Stack.Screen
+            name="ValidatePassword"
+            component={ValidatePassword}
+            options={{ title: 'Validate Password' }}
           />
         </Stack.Navigator>
       )}

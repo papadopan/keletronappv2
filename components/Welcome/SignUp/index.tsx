@@ -6,7 +6,6 @@ import {
   FormControl,
   Input,
   Stack,
-  Text,
   useToast,
   WarningOutlineIcon,
 } from 'native-base';
@@ -14,24 +13,17 @@ import { Formik } from 'formik';
 import { useSignUp } from '../../../hooks/useSignUp';
 import { useEffect } from 'react';
 import Emoji from 'react-native-emoji';
+import { SignupSchema } from '../../../schema/signup';
 
-const EMAIL_REGEX =
-  /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-const PWD_REGEX = /^[A-Za-z]\w{7,14}$/;
-export const SignUp = () => {
+export const SignUp = ({ navigation }) => {
   const { mutate, isLoading, error, isSuccess } = useSignUp();
   const toast = useToast();
 
   useEffect(() => {
-    toast.show({
-      render: () => {
-        return (
-          <Box bg="green.600" p={6} rounded="sm" mb={5}>
-            Congrats <Emoji name="rocket" style={{ fontSize: 30 }} />
-          </Box>
-        );
-      },
-    });
+    if (isSuccess) {
+      // navigate user to the validate password screen
+      navigation.navigate('ValidatePassword');
+    }
   }, [isSuccess]);
 
   return (
@@ -44,11 +36,16 @@ export const SignUp = () => {
           password: '',
         }}
         onSubmit={v => mutate(v)}
+        validationSchema={SignupSchema}
       >
-        {({ handleChange, handleSubmit, values, errors }) => (
+        {({ handleChange, handleSubmit, values, errors, touched }) => (
           <Stack space={5} justifyContent="space-between" flex={1}>
             <Box>
-              <FormControl isRequired mb={4}>
+              <FormControl
+                isRequired
+                mb={6}
+                isInvalid={errors.first_name ? true : undefined}
+              >
                 <FormControl.Label>First Name</FormControl.Label>
                 <Input
                   size={'xl'}
@@ -58,8 +55,17 @@ export const SignUp = () => {
                   onChangeText={handleChange('first_name')}
                   value={values.first_name}
                 />
+                <FormControl.ErrorMessage
+                  leftIcon={<WarningOutlineIcon size="xs" />}
+                >
+                  {errors.first_name}
+                </FormControl.ErrorMessage>
               </FormControl>
-              <FormControl isRequired mb={4}>
+              <FormControl
+                isRequired
+                mb={4}
+                isInvalid={errors.last_name ? true : undefined}
+              >
                 <FormControl.Label>Last Name</FormControl.Label>
                 <Input
                   size={'xl'}
@@ -69,8 +75,17 @@ export const SignUp = () => {
                   value={values.last_name}
                   onChangeText={handleChange('last_name')}
                 />
+                <FormControl.ErrorMessage
+                  leftIcon={<WarningOutlineIcon size="xs" />}
+                >
+                  {errors.last_name}
+                </FormControl.ErrorMessage>
               </FormControl>
-              <FormControl isRequired mb={4}>
+              <FormControl
+                isRequired
+                mb={4}
+                isInvalid={errors.email ? true : undefined}
+              >
                 <FormControl.Label>Email</FormControl.Label>
                 <Input
                   size={'xl'}
@@ -82,8 +97,16 @@ export const SignUp = () => {
                   placeholder="john@doe.com"
                   keyboardType="email-address"
                 />
+                <FormControl.ErrorMessage
+                  leftIcon={<WarningOutlineIcon size="xs" />}
+                >
+                  {errors.email}
+                </FormControl.ErrorMessage>
               </FormControl>
-              <FormControl isRequired>
+              <FormControl
+                isRequired
+                isInvalid={errors.password ? true : undefined}
+              >
                 <FormControl.Label>Password</FormControl.Label>
                 <Input
                   size={'xl'}
@@ -100,7 +123,7 @@ export const SignUp = () => {
                 <FormControl.ErrorMessage
                   leftIcon={<WarningOutlineIcon size="xs" />}
                 >
-                  Atleast 6 characters are required.
+                  {errors.password}
                 </FormControl.ErrorMessage>
               </FormControl>
             </Box>
