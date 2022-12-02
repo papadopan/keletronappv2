@@ -18,10 +18,10 @@ export const ValidatePassword = () => {
   useEffect(() => {
     if (first) secondRef?.current.focus();
     if (second) thirdRef?.current.focus();
-    if (third) fourthref?.current.focus();
+    if (third) fourthRef?.current.focus();
     if (fourth) fifthRef?.current.focus();
     if (fifth) sixthRef?.current.focus();
-  }, [first]);
+  }, [first, second, third, fourth, fifth]);
 
   return (
     <Box p={5}>
@@ -50,7 +50,7 @@ export const ValidatePassword = () => {
           maxLength={1}
           value={third}
           ref={thirdRef}
-          onChangeText={setSecond}
+          onChangeText={setThird}
           width={10}
         />
         <Input
@@ -59,7 +59,7 @@ export const ValidatePassword = () => {
           maxLength={1}
           value={fourth}
           ref={fourthRef}
-          onChangeText={setSecond}
+          onChangeText={setFourth}
           width={10}
         />
         <Input
@@ -68,7 +68,7 @@ export const ValidatePassword = () => {
           maxLength={1}
           value={fifth}
           ref={fifthRef}
-          onChangeText={setSecond}
+          onChangeText={setFifth}
           width={10}
         />
         <Input
