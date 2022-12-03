@@ -11,9 +11,16 @@ import {
 import { Formik } from 'formik';
 import { LoginSchema } from '../../../schema/login';
 import { useLogIn } from '../../../hooks/useLogIn';
+import { useEffect } from 'react';
 
 export const Login = ({ navigation }) => {
   const { mutate, error, isSuccess } = useLogIn();
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigation.navigate('Auth');
+    }
+  }, [isSuccess]);
 
   return (
     <Flex flex={1} justifyContent="space-between" padding={5}>

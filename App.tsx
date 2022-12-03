@@ -11,17 +11,12 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 
+import { Auth } from './components/Auth';
+import { WelcomeNavigator } from './components/Welcome/WelcomeNAvigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { Home } from './components/Home';
-import { Welcome } from './components/Welcome';
-import { Login } from './components/Welcome/Login';
-import { SignUp } from './components/Welcome/SignUp';
-import { ForgotPassword } from './components/Welcome/ForgotPassword';
-import { ActivationEmail } from './components/Welcome/ActivationEmail';
-import type { RootAppParamList } from 'types/navigation';
-import { ValidatePassword } from './components/Welcome/ValidatePassword';
+import { AppNavigator } from 'types/navigation';
 
-const Stack = createNativeStackNavigator<RootAppParamList>();
+const Stack = createNativeStackNavigator<AppNavigator>();
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -31,47 +26,17 @@ const App = () => {
     flex: 1,
   };
 
-  const isLoggedIn = null;
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
         barStyle={isDarkMode ? 'light-content' : 'dark-content'}
         backgroundColor={backgroundStyle.backgroundColor}
       />
-      {isLoggedIn ? (
-        <Stack.Navigator>
-          <Stack.Screen
-            name="App"
-            component={Home}
-            options={{ headerShown: false }}
-          />
-        </Stack.Navigator>
-      ) : (
-        <Stack.Navigator>
-          <Stack.Screen
-            name="Welcome"
-            component={Welcome}
-            options={{ headerShown: false }}
-          />
-          <Stack.Screen name="LogIn" component={Login} />
-          <Stack.Screen name="SignUp" component={SignUp} />
-          <Stack.Screen
-            name="ForgotPassword"
-            component={ForgotPassword}
-            options={{ title: 'Forgot Password' }}
-          />
-          <Stack.Screen
-            name="ActivationEmail"
-            component={ActivationEmail}
-            options={{ title: 'Activation Email' }}
-          />
-          <Stack.Screen
-            name="ValidatePassword"
-            component={ValidatePassword}
-            options={{ title: 'Validate Password' }}
-          />
-        </Stack.Navigator>
-      )}
+
+      <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="WelcomeNavigator" component={WelcomeNavigator} />
+        <Stack.Screen name="Auth" component={Auth} />
+      </Stack.Navigator>
     </SafeAreaView>
   );
 };
