@@ -1,7 +1,24 @@
-import React from 'react'
-import { Button, Center, Flex, Text, VStack, Image } from 'native-base'
+import React, { useEffect } from 'react';
+import { Button, Center, Flex, Text, VStack, Image } from 'native-base';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Welcome = ({ navigation }) => {
+  const checkIfUserExists = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@userId');
+      // it means that the user is already logged inf
+      if (value) {
+        navigation.navigate('Auth');
+      }
+    } catch (e) {
+      // error reading value
+    }
+  };
+
+  useEffect(() => {
+    checkIfUserExists();
+  }, []);
+
   return (
     <Flex flex={1} justifyContent="space-between" padding={10}>
       <Center>
@@ -29,5 +46,5 @@ export const Welcome = ({ navigation }) => {
         </Button>
       </VStack>
     </Flex>
-  )
-}
+  );
+};

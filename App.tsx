@@ -15,7 +15,6 @@ import { Auth } from './components/Auth';
 import { WelcomeNavigator } from './components/Welcome/WelcomeNAvigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppNavigator } from 'types/navigation';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Stack = createNativeStackNavigator<AppNavigator>();
 
@@ -26,22 +25,6 @@ const App = ({ navigation }) => {
     backgroundColor: isDarkMode ? 'blue' : 'white',
     flex: 1,
   };
-
-  const checkIfUserExists = async () => {
-    try {
-      const value = await AsyncStorage.getItem('@userId');
-      // it means that the user is already logged inf
-      if (value) {
-        navigation.navigate('Auth');
-      }
-    } catch (e) {
-      // error reading value
-    }
-  };
-
-  useEffect(() => {
-    checkIfUserExists();
-  }, []);
 
   return (
     <SafeAreaView style={backgroundStyle}>
