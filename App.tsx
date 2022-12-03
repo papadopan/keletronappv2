@@ -19,7 +19,6 @@ import { SignUp } from './components/Welcome/SignUp';
 import { ForgotPassword } from './components/Welcome/ForgotPassword';
 import { ActivationEmail } from './components/Welcome/ActivationEmail';
 import type { RootAppParamList } from 'types/navigation';
-import { useLogIn } from './hooks/useLogIn';
 import { ValidatePassword } from './components/Welcome/ValidatePassword';
 
 const Stack = createNativeStackNavigator<RootAppParamList>();
@@ -31,8 +30,6 @@ const App = () => {
     backgroundColor: isDarkMode ? 'blue' : 'white',
     flex: 1,
   };
-
-  const { data } = useLogIn();
 
   const isLoggedIn = null;
   return (
