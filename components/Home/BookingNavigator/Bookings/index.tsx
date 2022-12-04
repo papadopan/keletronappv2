@@ -1,8 +1,10 @@
 import { View } from 'react-native';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Agenda } from 'react-native-calendars';
 import { Box, Button, Flex, ScrollView, Text } from 'native-base';
 import { BookingsScreenProps } from 'types/navigation';
+import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
+import { useGetSchedule } from '../../../../hooks/getSchedule';
 
 const AVAILABLE_COURTS_FOR_BOOKING = 2;
 
@@ -10,24 +12,18 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   const bookings = {
     monday: [
       { time: '08:00', reservations: [] },
-      {
-        time: '09:00',
-        reservations: [
-          { court: 1, booking: {} },
-          { court: 2, booking: {} },
-        ],
-      },
-      { time: '10:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '11:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '12:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '13:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '14:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '15:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '16:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '17:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '18:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '19:00', reservations: [{ court: 1, booking: {} }] },
-      { time: '20:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '09:00', reservations: [] },
+      { time: '10:00', reservations: [] },
+      { time: '11:00', reservations: [] },
+      { time: '12:00', reservations: [] },
+      { time: '13:00', reservations: [] },
+      { time: '14:00', reservations: [] },
+      { time: '15:00', reservations: [] },
+      { time: '16:00', reservations: [] },
+      { time: '17:00', reservations: [] },
+      { time: '18:00', reservations: [] },
+      { time: '19:00', reservations: [] },
+      { time: '20:00', reservations: [] },
     ],
   };
   const today = new Date().toLocaleString('sv-SE', {
@@ -36,10 +32,32 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
     year: 'numeric',
   });
   const [currentDay, setCurrentDay] = useState<string>(today);
+  const [currentBookings, setCurrentBookings] = useState(bookings.monday);
   const [bookingDate, setBookingDate] = useState<{
     time: string;
     reservation: string;
   } | null>(null);
+
+  const { data, isError, isLoading, isFetched } =
+    useGetBookingsByDate(currentDay);
+  const { data: scheduleData } = useGetSchedule();
+  const updateBookingsinAgenda = (bkgs, daySchedule) => {
+    bkgs.map(item => {
+      const tim = daySchedule.find(element => element.time === item.time_slot);
+      tim?.reservations.push(item);
+    });
+
+    setCurrentBookings(daySchedule);
+  };
+
+  useEffect(() => {
+    if (isFetched || (data && scheduleData)) {
+      updateBookingsinAgenda(
+        data.getBookingsByDate,
+        JSON.parse(scheduleData.getSchedule.monday)
+      );
+    }
+  }, [isFetched, data]);
 
   return (
     <Box padding={2} flex={1}>
@@ -79,7 +97,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
         renderList={listProps => {
           return (
             <ScrollView p={2} mt={5}>
-              {bookings.monday.map(booking => (
+              {currentBookings.map(booking => (
                 <Box
                   key={booking.time}
                   p={4}

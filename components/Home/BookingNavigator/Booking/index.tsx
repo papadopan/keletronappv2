@@ -21,22 +21,30 @@ export const Booking = ({ route }: BookingProps) => {
   });
 
   const { booking, date } = route.params;
+
+  const handleBooking = v => {
+    console.log('--', {
+      time_slot: booking.time,
+      date_booking: date,
+      userId: '20',
+      opponents: v.players,
+      num_players: v.players.length + 1,
+      court: 'court1',
+    });
+  };
   return (
     <Formik
       innerRef={formikRef}
       initialValues={{
         players: [
           {
-            name: 'antonios',
-          },
-          {
-            name: 'kostas',
+            name: '',
           },
         ],
       }}
-      onSubmit={() => console.log('-0-')}
+      onSubmit={v => handleBooking(v)}
     >
-      {({ handleChange, values, setFieldValue }) => (
+      {({ handleChange, values, setFieldValue, handleSubmit }) => (
         <Flex p={5} justifyContent="space-between" flex={1}>
           <Box>
             <Flex flexDirection={'row'} justifyContent="space-between">
@@ -60,15 +68,17 @@ export const Booking = ({ route }: BookingProps) => {
             </Text>
             <Box p={4} backgroundColor="white" borderRadius={6}>
               {values.players.map((player, index) => (
-                <Flex key={player.name + index} mb={3}>
+                <Flex key={index} mb={3}>
                   <FormControl mb={4}>
                     <FormControl.Label>Player {index + 1}</FormControl.Label>
                     <Input
                       size={'xl'}
                       variant="underlined"
                       type="text"
+                      onChangeText={handleChange(`players[${index}].name`)}
                       p={2}
                       placeholder="John Doe"
+                      value={values.players[index].name}
                       InputRightElement={
                         <Icon
                           name="delete"
@@ -102,7 +112,7 @@ export const Booking = ({ route }: BookingProps) => {
               )}
             </Box>
           </Box>
-          <Button>Book</Button>
+          <Button onPress={() => handleSubmit()}>Book</Button>
         </Flex>
       )}
     </Formik>
