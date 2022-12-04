@@ -4,22 +4,32 @@ import { Agenda } from 'react-native-calendars';
 import { Box, Button, Flex, ScrollView, Text } from 'native-base';
 import { BookingsScreenProps } from 'types/navigation';
 
+const AVAILABLE_COURTS_FOR_BOOKING = 2;
+
 export const Bookings = ({ navigation }: BookingsScreenProps) => {
-  const bookings = [
-    { time: '08:00', reservation: 'antonios' },
-    { time: '09:00', reservation: 'antonios' },
-    { time: '10:00', reservation: 'antonios' },
-    { time: '11:00', reservation: 'antonios' },
-    { time: '12:00', reservation: 'antonios' },
-    { time: '13:00', reservation: 'antonios' },
-    { time: '14:00', reservation: 'antonios' },
-    { time: '15:00', reservation: 'antonios' },
-    { time: '16:00', reservation: 'antonios' },
-    { time: '17:00', reservation: 'antonios' },
-    { time: '18:00', reservation: 'antonios' },
-    { time: '19:00', reservation: 'antonios' },
-    { time: '20:00', reservation: 'antonios' },
-  ];
+  const bookings = {
+    monday: [
+      { time: '08:00', reservations: [] },
+      {
+        time: '09:00',
+        reservations: [
+          { court: 1, booking: {} },
+          { court: 2, booking: {} },
+        ],
+      },
+      { time: '10:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '11:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '12:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '13:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '14:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '15:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '16:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '17:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '18:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '19:00', reservations: [{ court: 1, booking: {} }] },
+      { time: '20:00', reservations: [{ court: 1, booking: {} }] },
+    ],
+  };
   const today = new Date().toLocaleString('sv-SE', {
     day: 'numeric',
     month: 'numeric',
@@ -69,7 +79,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
         renderList={listProps => {
           return (
             <ScrollView p={2} mt={5}>
-              {bookings.map(booking => (
+              {bookings.monday.map(booking => (
                 <Box
                   key={booking.time}
                   p={4}
@@ -86,13 +96,21 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                   >
                     {booking.time}
                   </Text>
-                  <Text m={2}>2 γηπεδα διαθεσιμα</Text>
+                  <Text m={2}>
+                    {AVAILABLE_COURTS_FOR_BOOKING - booking.reservations.length}{' '}
+                    γηπεδα διαθεσιμα
+                  </Text>
                   <Button
                     onPress={() =>
                       navigation.navigate('Booking', {
                         booking: booking,
                         date: currentDay,
                       })
+                    }
+                    isDisabled={
+                      AVAILABLE_COURTS_FOR_BOOKING -
+                        booking.reservations.length ===
+                      0
                     }
                   >
                     Booking
