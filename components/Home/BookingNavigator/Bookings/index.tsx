@@ -63,7 +63,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
       const schedule = JSON.parse(scheduleData?.getSchedule.monday);
       updateBookingsinAgenda(data.getBookingsByDate, schedule || []);
     }
-  }, [isFetched, isScheduleFetched]);
+  }, [isFetched, isScheduleFetched, currentDay]);
 
   if (isLoading || isScheduleLoading) {
     return (
@@ -76,7 +76,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   return (
     <Box padding={2} flex={1}>
       <Agenda
-        selected={today}
+        selected={currentDay}
         loadItemsForMonth={month => {
           console.log('trigger items loading');
         }}
