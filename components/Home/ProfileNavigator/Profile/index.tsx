@@ -1,10 +1,26 @@
 import React from 'react';
-import { Box, Center, Flex, Stack, Text, Button, Pressable } from 'native-base';
+import {
+  Box,
+  Center,
+  Flex,
+  Stack,
+  Text,
+  Button,
+  Pressable,
+  Spinner,
+} from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useGetInfo } from '../../../../hooks/getInfo';
 
 export const Profile = ({ navigation }) => {
-  const { data } = useGetInfo(20);
+  const { data, isLoading } = useGetInfo();
+
+  if (isLoading)
+    return (
+      <Box flex={1} alignItems="center" justifyContent={'center'}>
+        <Spinner accessibilityLabel="Loading posts" />
+      </Box>
+    );
 
   const user = data?.getInfo;
   return (

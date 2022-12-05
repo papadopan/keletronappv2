@@ -34,8 +34,8 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   const [currentDay, setCurrentDay] = useState<string>(today);
   const [currentBookings, setCurrentBookings] = useState(bookings.monday);
 
-  const { data, isFetched } = useGetBookingsByDate(currentDay);
-  const { data: scheduleData } = useGetSchedule();
+  const { data, isFetched, isLoading } = useGetBookingsByDate(currentDay);
+  const { data: scheduleData, isLoading: isScheduleLoading } = useGetSchedule();
 
   const updateBookingsinAgenda = (bkgs, daySchedule) => {
     bkgs.map(item => {
@@ -52,6 +52,14 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
       updateBookingsinAgenda(data.getBookingsByDate, schedule || []);
     }
   }, [isFetched, data]);
+
+  if (isLoading || isScheduleLoading) {
+    return (
+      <Box padding={2} flex={1}>
+        <Text>Loading....</Text>
+      </Box>
+    );
+  }
 
   return (
     <Box padding={2} flex={1}>
