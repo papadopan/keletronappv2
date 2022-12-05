@@ -1,7 +1,7 @@
 import { View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Agenda } from 'react-native-calendars';
-import { Box, Button, Flex, ScrollView, Text } from 'native-base';
+import { Box, Button, Flex, ScrollView, SectionList, Text } from 'native-base';
 import { BookingsScreenProps } from 'types/navigation';
 import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
 import { useGetSchedule } from '../../../../hooks/getSchedule';
@@ -33,14 +33,10 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   });
   const [currentDay, setCurrentDay] = useState<string>(today);
   const [currentBookings, setCurrentBookings] = useState(bookings.monday);
-  const [bookingDate, setBookingDate] = useState<{
-    time: string;
-    reservation: string;
-  } | null>(null);
 
-  const { data, isError, isLoading, isFetched } =
-    useGetBookingsByDate(currentDay);
+  const { data, isFetched } = useGetBookingsByDate(currentDay);
   const { data: scheduleData } = useGetSchedule();
+
   const updateBookingsinAgenda = (bkgs, daySchedule) => {
     bkgs.map(item => {
       const tim = daySchedule.find(element => element.time === item.time_slot);
@@ -52,10 +48,8 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
 
   useEffect(() => {
     if (isFetched || (data && scheduleData)) {
-      updateBookingsinAgenda(
-        data.getBookingsByDate,
-        JSON.parse(scheduleData.getSchedule.monday)
-      );
+      const schedule = JSON.parse(scheduleData?.getSchedule.monday);
+      updateBookingsinAgenda(data.getBookingsByDate, schedule || []);
     }
   }, [isFetched, data]);
 

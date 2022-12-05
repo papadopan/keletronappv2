@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Bookings } from './Bookings';
 import { Booking } from './Booking';
 import { BookingParamList } from 'types/navigation';
+import { Preview } from '../ProfileNavigator/Preview';
 
 const Stack = createNativeStackNavigator<BookingParamList>();
 
@@ -19,6 +20,7 @@ export const BookingNavigator = () => {
         component={Booking}
         options={{ title: 'New Booking' }}
       />
+      <Stack.Screen name="Preview" component={Preview} />
     </Stack.Navigator>
   );
 };

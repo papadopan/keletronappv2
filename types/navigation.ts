@@ -1,5 +1,5 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-
+import type { Details } from '../types/navigation';
 export type AppNavigator = {
   WelcomeNavigator: undefined;
   Auth: undefined;
@@ -27,11 +27,12 @@ export type RootHomeParamList = {
 export type BookingParamList = {
   BookingsScreen: undefined;
   Booking: { date: string; booking: { time: string; reservation: string } };
+  Preview: Details;
 };
 
 export type ProfilePage = {
   ProfilePage: undefined;
-  Preview: undefined;
+  Preview: Details;
   PreviewList: undefined;
 };
 

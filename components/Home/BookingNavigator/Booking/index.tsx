@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import {
   Box,
   Button,
@@ -11,8 +11,9 @@ import {
 import { Formik } from 'formik';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { BookingProps } from 'types/navigation';
+import { useAddBooking } from '../../../../hooks/addBooking';
 
-export const Booking = ({ route }: BookingProps) => {
+export const Booking = ({ route, navigation }: BookingProps) => {
   const formikRef = useRef(null);
   const removeUserFromList = (players, indexToDelete) =>
     players.filter((_, index) => index !== indexToDelete);
@@ -21,13 +22,20 @@ export const Booking = ({ route }: BookingProps) => {
   });
 
   const { booking, date } = route.params;
+  const { mutate, isSuccess, isError, data } = useAddBooking();
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigation.navigate('Preview', { item: data?.addBooking });
+    }
+  }, [isSuccess, isError]);
 
   const handleBooking = v => {
-    console.log('--', {
+    mutate({
       time_slot: booking.time,
       date_booking: date,
-      userId: '20',
-      opponents: v.players,
+      userId: 20,
+      opponents: v.players.map(player => player.name),
       num_players: v.players.length + 1,
       court: 'court1',
     });

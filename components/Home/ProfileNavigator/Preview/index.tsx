@@ -4,8 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 
 export const Preview = ({ route }) => {
   const { item } = route.params;
-  const opponents = ['Antonios', 'Kostas', 'George'];
-  console.log('--', item);
+
   return (
     <Flex p={5} justifyContent="space-between" flex={1}>
       <Box>
