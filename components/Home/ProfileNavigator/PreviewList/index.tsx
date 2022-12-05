@@ -2,16 +2,18 @@ import React from 'react';
 import { Badge, Box, FlatList, Flex, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Pressable } from 'react-native';
-import { useGetMyBookings } from '../../../../hooks/getMyBookings';
 import { MyDate } from '../../../fragmenrs/Date';
 
-export const PreviewList = ({ navigation }) => {
-  const { data, isLoading } = useGetMyBookings();
+export const PreviewList = ({ navigation, route }) => {
+  const { bookings } = route.params;
+
+  // if the route does not contain bookings
+  if (!bookings) navigation.navigate('Profile');
 
   return (
     <Box p={5} flex={1}>
       <FlatList
-        data={data?.getMyBookings}
+        data={bookings}
         renderItem={({ item, index }) => (
           <Pressable
             onPress={() => navigation.navigate('Preview', { item: item })}

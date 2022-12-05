@@ -1,7 +1,6 @@
 import { gql } from '@apollo/client';
 import { useMutation } from '@tanstack/react-query';
 import request from 'graphql-request';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export type Details = {
   court: string;
