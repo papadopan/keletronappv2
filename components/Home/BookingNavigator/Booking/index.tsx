@@ -25,8 +25,13 @@ export const Booking = ({ route, navigation }: BookingProps) => {
   const { mutate, isSuccess, isError, data } = useAddBooking();
 
   useEffect(() => {
-    if (isSuccess) {
-      navigation.navigate('Preview', { item: data?.addBooking });
+    if (isSuccess && data) {
+      navigation.navigate('Profile', {
+        screen: 'Preview',
+        params: {
+          item: data.addBooking,
+        },
+      });
     }
   }, [isSuccess, isError]);
 
