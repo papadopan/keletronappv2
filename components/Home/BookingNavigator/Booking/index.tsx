@@ -10,11 +10,13 @@ import {
 } from 'native-base';
 import { Formik } from 'formik';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { BookingProps } from 'types/navigation';
+import { BookingProps } from '../../../../types/navigation';
 import { useAddBooking } from '../../../../hooks/addBooking';
+import { useQueryClient } from '@tanstack/react-query';
 
 export const Booking = ({ route, navigation }: BookingProps) => {
   const formikRef = useRef(null);
+  const queryClient = useQueryClient();
   const removeUserFromList = (players, indexToDelete) =>
     players.filter((_, index) => index !== indexToDelete);
   const addNewUser = () => ({
@@ -31,6 +33,9 @@ export const Booking = ({ route, navigation }: BookingProps) => {
         params: {
           item: data.addBooking,
         },
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['bookings', data.addBooking.date_booking],
       });
     }
   }, [isSuccess, isError]);

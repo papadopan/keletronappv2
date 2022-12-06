@@ -31,8 +31,5 @@ export const useAddBooking = () => {
       request('http://localhost:4000/graphql', mutation, {
         details: values,
       }),
-    onSuccess(data, variables, context) {
-      console.log('----', data, variables, context);
-    },
   });
 };
