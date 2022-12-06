@@ -27,6 +27,7 @@ export type RootHomeParamList = {
 export type BookingParamList = {
   BookingsScreen: undefined;
   Booking: { date: string; booking: { time: string; reservation: string } };
+  Preview: Details;
 };
 
 export type ProfilePage = {

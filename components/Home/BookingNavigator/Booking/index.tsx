@@ -1,13 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import {
-  Box,
-  Button,
-  Flex,
-  FormControl,
-  Input,
-  ScrollView,
-  Text,
-} from 'native-base';
+import { Box, Button, Flex, FormControl, Input, Text } from 'native-base';
 import { Formik } from 'formik';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { BookingProps } from '../../../../types/navigation';
@@ -30,11 +22,8 @@ export const Booking = ({ route, navigation }: BookingProps) => {
 
   useEffect(() => {
     if (isSuccess && data) {
-      navigation.navigate('Profile', {
-        screen: 'Preview',
-        params: {
-          item: data.addBooking,
-        },
+      navigation.navigate('Preview', {
+        item: data.addBooking,
       });
       queryClient.invalidateQueries({
         queryKey: ['bookings', data.addBooking.date_booking],
