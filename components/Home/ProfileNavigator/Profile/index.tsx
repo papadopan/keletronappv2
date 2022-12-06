@@ -11,9 +11,17 @@ import {
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useGetInfo } from '../../../../hooks/getInfo';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Profile = ({ navigation }) => {
   const { data, isLoading } = useGetInfo();
+
+  const signOut = async () => {
+    try {
+      await AsyncStorage.removeItem('@userId');
+      navigation.navigate('WelcomeNavigator', { screen: 'Welcome' });
+    } catch (e) {}
+  };
 
   if (isLoading)
     return (
@@ -65,7 +73,7 @@ export const Profile = ({ navigation }) => {
         >
           <Text>Theme</Text>
           <Flex flexDirection={'row'}>
-            <Text mr="3">Dark</Text>
+            <Text mr="3">Light</Text>
             <Icon name="right" size={20} />
           </Flex>
         </Flex>
@@ -89,7 +97,11 @@ export const Profile = ({ navigation }) => {
           </Flex>
         </Pressable>
         <Flex>
-          <Button variant="outline" leftIcon={<Icon name="logout" size={20} />}>
+          <Button
+            onPress={signOut}
+            variant="outline"
+            leftIcon={<Icon name="logout" size={20} />}
+          >
             Sign out
           </Button>
         </Flex>
