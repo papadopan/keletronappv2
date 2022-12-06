@@ -5,6 +5,10 @@ import Icon from 'react-native-vector-icons/AntDesign';
 export const Preview = ({ route }) => {
   const { item } = route.params;
 
+  const now = new Date().getTime()
+  const bookingTime = new Date(`${item.date_booking}T${item.time_slot}Z`).getTime()
+  const isBookingActive = now-bookingTime > 0
+
   return (
     <Flex p={5} justifyContent="space-between" flex={1}>
       <Box>
@@ -36,7 +40,7 @@ export const Preview = ({ route }) => {
           ))}
         </Box>
       </Box>
-      <Button colorScheme={'danger'}>Delete</Button>
+      <Button colorScheme={'danger'} isDisabled={isBookingActive}>Delete</Button>
     </Flex>
   );
 };

@@ -7,6 +7,16 @@ import { MyDate } from '../../../fragmenrs/Date';
 export const PreviewList = ({ navigation, route }) => {
   const { bookings } = route.params;
 
+  const now = new Date().getTime();
+
+  const isActiveBooking = item => {
+    const bookingTime = new Date(
+      item.date_booking + 'T' + item.time_slot + 'Z'
+    ).getTime();
+
+    return bookingTime - now > 0;
+  };
+
   // if the route does not contain bookings
   if (!bookings) navigation.navigate('Profile');
 
@@ -16,7 +26,11 @@ export const PreviewList = ({ navigation, route }) => {
         data={bookings}
         renderItem={({ item, index }) => (
           <Pressable
-            onPress={() => navigation.navigate('Preview', { item: item })}
+            onPress={() =>
+              navigation.navigate('Preview', {
+                item: item,
+              })
+            }
             key={index + item.date_booking + item.time_slot}
           >
             <Flex
@@ -32,11 +46,9 @@ export const PreviewList = ({ navigation, route }) => {
               <Flex flexDirection={'row'} alignItems="center">
                 <Badge
                   mr={5}
-                  colorScheme={
-                    item.date_booking < '2022-12-2' ? 'success' : 'danger'
-                  }
+                  colorScheme={isActiveBooking(item) ? 'success' : 'danger'}
                 >
-                  active
+                  {isActiveBooking(item) ? 'active' : 'non active'}
                 </Badge>
                 <Icon name="right" />
               </Flex>
