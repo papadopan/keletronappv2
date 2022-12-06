@@ -10,7 +10,7 @@ import {
   Spinner,
   Text,
 } from 'native-base';
-import { BookingsScreenProps } from 'types/navigation';
+import { BookingsScreenProps } from '../../../../types/navigation';
 import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
 import { useGetSchedule } from '../../../../hooks/getSchedule';
 
