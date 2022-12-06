@@ -10,11 +10,20 @@ export const PreviewList = ({ navigation, route }) => {
   const now = new Date().getTime();
 
   const isActiveBooking = item => {
+    const now = new Date().getTime();
     const bookingTime = new Date(
-      item.date_booking + 'T' + item.time_slot + 'Z'
+      `${item.date_booking}T${item.time_slot}Z`
     ).getTime();
+    const isBookingActive = now - bookingTime < 0;
 
-    return bookingTime - now > 0;
+    return isBookingActive;
+  };
+
+  const sortTime = (a, b) => {
+    return (
+      new Date(`${b.date_booking}T${b.time_slot}Z`).getTime() -
+      new Date(`${a.date_booking}T${a.time_slot}Z`).getTime()
+    );
   };
 
   // if the route does not contain bookings
@@ -23,12 +32,15 @@ export const PreviewList = ({ navigation, route }) => {
   return (
     <Box p={5} flex={1}>
       <FlatList
-        data={bookings}
+        data={bookings.sort(sortTime)}
         renderItem={({ item, index }) => (
           <Pressable
             onPress={() =>
               navigation.navigate('Preview', {
-                item: item,
+                item: {
+                  ...item,
+                  status: isActiveBooking(item),
+                },
               })
             }
             key={index + item.date_booking + item.time_slot}
