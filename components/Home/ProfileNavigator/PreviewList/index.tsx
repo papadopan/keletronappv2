@@ -3,13 +3,13 @@ import { Badge, Box, FlatList, Flex, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Pressable } from 'react-native';
 import { MyDate } from '../../../fragmenrs/Date';
+import type { BookingType } from '../../../../types/bookings';
+import type { PreviewListProps } from '../../../../types/navigation';
 
-export const PreviewList = ({ navigation, route }) => {
+export const PreviewList = ({ navigation, route }: PreviewListProps) => {
   const { bookings } = route.params;
 
-  const now = new Date().getTime();
-
-  const isActiveBooking = item => {
+  const isActiveBooking = (item: BookingType) => {
     const now = new Date().getTime();
     const bookingTime = new Date(
       `${item.date_booking}T${item.time_slot}Z`
@@ -19,7 +19,7 @@ export const PreviewList = ({ navigation, route }) => {
     return isBookingActive;
   };
 
-  const sortTime = (a, b) => {
+  const sortTime = (a: BookingType, b: BookingType) => {
     return (
       new Date(`${b.date_booking}T${b.time_slot}Z`).getTime() -
       new Date(`${a.date_booking}T${a.time_slot}Z`).getTime()
@@ -27,13 +27,13 @@ export const PreviewList = ({ navigation, route }) => {
   };
 
   // if the route does not contain bookings
-  if (!bookings) navigation.navigate('Profile');
+  if (!bookings) navigation.navigate('ProfilePage');
 
   return (
     <Box p={5} flex={1}>
       <FlatList
         data={bookings.sort(sortTime)}
-        renderItem={({ item, index }) => (
+        renderItem={({ item, index }: { item: BookingType; index: number }) => (
           <Pressable
             onPress={() =>
               navigation.navigate('Preview', {

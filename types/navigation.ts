@@ -1,5 +1,6 @@
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
-import type { Details } from '../types/navigation';
+import type { BookingType } from './bookings';
+
 export type AppNavigator = {
   WelcomeNavigator: undefined;
   Auth: undefined;
@@ -27,16 +28,20 @@ export type RootHomeParamList = {
 export type BookingParamList = {
   BookingsScreen: undefined;
   Booking: { date: string; booking: { time: string; reservation: string } };
-  Preview: Details;
+  Preview: { item: BookingType };
 };
 
 export type ProfilePage = {
   ProfilePage: undefined;
-  Preview: Details;
-  PreviewList: undefined;
+  Preview: { item: BookingType };
+  PreviewList: { bookings: BookingType[] };
 };
 
 export type BookingProps = NativeStackScreenProps<BookingParamList, 'Booking'>;
+export type PreviewListProps = NativeStackScreenProps<
+  ProfilePage,
+  'PreviewList'
+>;
 export type BookingsScreenProps = NativeStackScreenProps<
   BookingParamList,
   'BookingsScreen'
