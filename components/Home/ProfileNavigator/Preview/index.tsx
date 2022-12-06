@@ -1,9 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Button, Divider, Flex, Text } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
+import { useDeleteBooking } from '../../../../hooks/useDeleteBooking';
+import { useQueryClient } from '@tanstack/react-query';
 
-export const Preview = ({ route }) => {
+export const Preview = ({ route, navigation }) => {
   const { item } = route.params;
+
+  const { mutate, isLoading, isSuccess } = useDeleteBooking();
+  const queryClient = useQueryClient();
+
+  useEffect(() => {
+    if (isSuccess) {
+      navigation.navigate('ProfilePage');
+      queryClient.invalidateQueries({ queryKey: ['user'] });
+    }
+  }, [isSuccess]);
 
   return (
     <Flex p={5} justifyContent="space-between" flex={1}>
@@ -36,7 +48,12 @@ export const Preview = ({ route }) => {
           ))}
         </Box>
       </Box>
-      <Button colorScheme={'danger'} isDisabled={!item.status}>
+      <Button
+        colorScheme={'danger'}
+        isDisabled={!item.status}
+        onPress={() => mutate(item.id)}
+        isLoading={isLoading}
+      >
         Delete
       </Button>
     </Flex>
