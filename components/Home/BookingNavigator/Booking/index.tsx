@@ -17,8 +17,10 @@ import { useQueryClient } from '@tanstack/react-query';
 export const Booking = ({ route, navigation }: BookingProps) => {
   const formikRef = useRef(null);
   const queryClient = useQueryClient();
-  const removeUserFromList = (players, indexToDelete) =>
-    players.filter((_, index) => index !== indexToDelete);
+  const removeUserFromList = (
+    players: { name: string }[],
+    indexToDelete: number
+  ) => players.filter((_, index: number) => index !== indexToDelete);
   const addNewUser = () => ({
     name: '',
   });
@@ -40,12 +42,12 @@ export const Booking = ({ route, navigation }: BookingProps) => {
     }
   }, [isSuccess, isError]);
 
-  const handleBooking = v => {
+  const handleBooking = (v: { players: { name: string }[] }) => {
     mutate({
       time_slot: booking.time,
       date_booking: date,
       userId: 20,
-      opponents: v.players.map(player => player.name),
+      opponents: v.players.map((player: { name: string }) => player.name),
       num_players: v.players.length + 1,
       court: 'court1',
     });
