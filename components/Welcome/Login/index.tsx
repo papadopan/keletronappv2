@@ -6,6 +6,7 @@ import {
   FormControl,
   Input,
   Stack,
+  Text,
   WarningOutlineIcon,
 } from 'native-base';
 import { Formik } from 'formik';
@@ -14,7 +15,7 @@ import { useLogIn } from '../../../hooks/useLogIn';
 import { useEffect } from 'react';
 
 export const Login = ({ navigation }) => {
-  const { mutate, error, isSuccess } = useLogIn();
+  const { mutate, error, isSuccess, isError } = useLogIn();
 
   useEffect(() => {
     if (isSuccess) {
@@ -87,6 +88,13 @@ export const Login = ({ navigation }) => {
                 </FormControl.ErrorMessage>
               </FormControl>
             </Box>
+            {isError && (
+              <Box my={4}>
+                <Text color={'red.600'}>
+                  {error.response.errors.map(i => i.message)}
+                </Text>
+              </Box>
+            )}
             <Stack space={2} mt={8}>
               <Button
                 variant="link"
