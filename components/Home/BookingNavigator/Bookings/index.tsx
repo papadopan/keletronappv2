@@ -1,15 +1,7 @@
 import { View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Agenda } from 'react-native-calendars';
-import {
-  Box,
-  Button,
-  Flex,
-  ScrollView,
-  SectionList,
-  Spinner,
-  Text,
-} from 'native-base';
+import { Box, Button, ScrollView, Spinner, Text } from 'native-base';
 import { BookingsScreenProps } from '../../../../types/navigation';
 import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
 import { useGetSchedule } from '../../../../hooks/getSchedule';

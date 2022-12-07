@@ -21,7 +21,7 @@ const query = gql`
   }
 `;
 
-export const useGetInfo = () =>
-  useQuery(['user'], id =>
-    request('http://localhost:4000/graphql', query, { userId: '20' })
+export const useGetInfo = (id: string) =>
+  useQuery(['user'], () =>
+    request('http://localhost:4000/graphql', query, { userId: id })
   );
