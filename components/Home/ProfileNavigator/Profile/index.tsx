@@ -14,7 +14,7 @@ import { useGetInfo } from '../../../../hooks/getInfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Profile = ({ navigation }) => {
-  const { data, isLoading } = useGetInfo('21');
+  const { data, isLoading, isError } = useGetInfo('21');
 
   const signOut = async () => {
     try {
@@ -30,7 +30,15 @@ export const Profile = ({ navigation }) => {
       </Box>
     );
 
-  const user = data?.getInfo;
+  if (isError)
+    return (
+      <Box flex={1} alignItems="center" justifyContent={'center'}>
+        Error while fetching
+      </Box>
+    );
+
+  const user = data.getInfo;
+
   return (
     <Flex padding={5} paddingTop={15} justifyContent="space-between" flex={1}>
       <Center>
