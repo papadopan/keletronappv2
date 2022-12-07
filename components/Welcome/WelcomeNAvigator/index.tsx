@@ -7,7 +7,7 @@ import { SignUp } from '../SignUp';
 import { ForgotPassword } from '../ForgotPassword';
 import { ActivationEmail } from '../ActivationEmail';
 import { ValidatePassword } from '../ValidatePassword';
-import type { WelcomeScreen } from 'types/navigation';
+import type { WelcomeScreen } from '../../../types/navigation';
 
 export const WelcomeNavigator = () => {
   const Stack = createNativeStackNavigator<WelcomeScreen>();

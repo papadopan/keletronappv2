@@ -14,7 +14,7 @@ import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 import { Auth } from './components/Auth';
 import { WelcomeNavigator } from './components/Welcome/WelcomeNAvigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { AppNavigator } from 'types/navigation';
+import { AppNavigator } from './types/navigation';
 
 const Stack = createNativeStackNavigator<AppNavigator>();
 
