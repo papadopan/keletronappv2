@@ -7,6 +7,7 @@ import {
   Input,
   Stack,
   Text,
+  Alert,
   WarningOutlineIcon,
 } from 'native-base';
 import { Formik } from 'formik';
@@ -89,11 +90,14 @@ export const Login = ({ navigation }) => {
               </FormControl>
             </Box>
             {isError && (
-              <Box my={4}>
-                <Text color={'red.600'}>
-                  {error.response.errors.map(i => i.message)}
-                </Text>
-              </Box>
+              <Alert status="error" mt={5}>
+                <Flex flexDirection={'row'} alignItems="center">
+                  <Alert.Icon mr={2} />
+                  {error.response.errors.map((e: { message: string }) => (
+                    <Text>{e.message}</Text>
+                  ))}
+                </Flex>
+              </Alert>
             )}
             <Stack space={2} mt={8}>
               <Button
