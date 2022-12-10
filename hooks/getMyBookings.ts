@@ -1,21 +1,24 @@
 import { gql } from '@apollo/client';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery } from '@tanstack/react-query';
 import request from 'graphql-request';
 
 const query = gql`
-  query GetMyBookings {
-    getMyBookings(userId: 21) {
-      id
-      date_booking
+  query Query($userId: String!) {
+    getMyBookings(userId: $userId) {
       court
-      time_slot
+      date_booking
       opponents
+      time_slot
+      userId
       num_players
+      id
     }
   }
 `;
 
 export const useGetMyBookings = () =>
-  useQuery(['myBookings'], () =>
-    request('http://localhost:4000/graphql', query)
-  );
+  useQuery(['myBookings'], async () => {
+    const id = await AsyncStorage.getItem('@userId');
+    return request('http://localhost:4000/graphql', query, { userId: id });
+  });

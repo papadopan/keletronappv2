@@ -1,5 +1,13 @@
 import React from 'react';
-import { Box, Button, Divider, FlatList, Flex, Text } from 'native-base';
+import {
+  Box,
+  Button,
+  Divider,
+  FlatList,
+  Flex,
+  Spinner,
+  Text,
+} from 'native-base';
 import Emoji from 'react-native-emoji';
 import { MainScreenBookings } from '../../fragmenrs/MainScreenBookings';
 import { useGetMyBookings } from '../../../hooks/getMyBookings';
@@ -35,12 +43,14 @@ export const HomeScreen = ({ navigation }) => {
           <Divider mt={3} />
         </Box>
         <Flex my={10}>
-          <MainScreenBookings
-            items={data?.getMyBookings}
-            onPress={() =>
-              navigation.navigate('Profile', { screen: 'Preview' })
-            }
-          />
+          {isLoading ? (
+            <Spinner />
+          ) : (
+            <MainScreenBookings
+              items={data?.getMyBookings}
+              onPress={() => navigation.navigate('Profile')}
+            />
+          )}
         </Flex>
       </Box>
     </Flex>
