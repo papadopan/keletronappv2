@@ -4,7 +4,7 @@ import request from 'graphql-request';
 
 const query = gql`
   query GetMyBookings {
-    getMyBookings(userId: 1) {
+    getMyBookings(userId: 21) {
       id
       date_booking
       court

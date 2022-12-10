@@ -14,7 +14,7 @@ import { useGetInfo } from '../../../../hooks/getInfo';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Profile = ({ navigation }) => {
-  const { data, isLoading, isError } = useGetInfo('21');
+  const { data, isLoading, isError } = useGetInfo();
 
   const signOut = async () => {
     try {

@@ -1,4 +1,5 @@
 import { gql } from '@apollo/client';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery } from '@tanstack/react-query';
 import request from 'graphql-request';
 
@@ -21,7 +22,8 @@ const query = gql`
   }
 `;
 
-export const useGetInfo = (id: string) =>
-  useQuery(['user'], () =>
-    request('http://localhost:4000/graphql', query, { userId: id })
-  );
+export const useGetInfo = () =>
+  useQuery(['user'], async () => {
+    const id = await AsyncStorage.getItem('@userId');
+    return request('http://localhost:4000/graphql', query, { userId: id });
+  });
