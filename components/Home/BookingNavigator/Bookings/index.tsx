@@ -10,31 +10,45 @@ import { useIsFocused } from '@react-navigation/native';
 
 const AVAILABLE_COURTS_FOR_BOOKING = 2;
 
+type Bookings = {
+  court?: string;
+  date_booking: string;
+  id: number;
+  num_players: number;
+  opponents: string[];
+  userId: number;
+  time_slot: string;
+};
+
+type DAILY_SCHEDULE = {
+  time: string;
+  reservations: Bookings[];
+};
+
 export const Bookings = ({ navigation }: BookingsScreenProps) => {
-  const bookings = {
-    monday: [
-      { time: '08:00', reservations: [] },
-      { time: '09:00', reservations: [] },
-      { time: '10:00', reservations: [] },
-      { time: '11:00', reservations: [] },
-      { time: '12:00', reservations: [] },
-      { time: '13:00', reservations: [] },
-      { time: '14:00', reservations: [] },
-      { time: '15:00', reservations: [] },
-      { time: '16:00', reservations: [] },
-      { time: '17:00', reservations: [] },
-      { time: '18:00', reservations: [] },
-      { time: '19:00', reservations: [] },
-      { time: '20:00', reservations: [] },
-    ],
-  };
+  const bookings = [
+    { time: '08:00', reservations: [] },
+    { time: '09:00', reservations: [] },
+    { time: '10:00', reservations: [] },
+    { time: '11:00', reservations: [] },
+    { time: '12:00', reservations: [] },
+    { time: '13:00', reservations: [] },
+    { time: '14:00', reservations: [] },
+    { time: '15:00', reservations: [] },
+    { time: '16:00', reservations: [] },
+    { time: '17:00', reservations: [] },
+    { time: '18:00', reservations: [] },
+    { time: '19:00', reservations: [] },
+    { time: '20:00', reservations: [] },
+  ];
   const today = new Date().toLocaleString('sv-SE', {
     day: 'numeric',
     month: 'numeric',
     year: 'numeric',
   });
   const [currentDay, setCurrentDay] = useState<string>(today);
-  const [currentBookings, setCurrentBookings] = useState(bookings.monday);
+  const [currentBookings, setCurrentBookings] =
+    useState<DAILY_SCHEDULE[]>(bookings);
   const isFocused = useIsFocused();
 
   const { data, isFetched, isLoading } = useGetBookingsByDate(currentDay);
@@ -44,7 +58,10 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
     isFetched: isScheduleFetched,
   } = useGetSchedule();
 
-  const updateBookingsinAgenda = (bkgs, daySchedule) => {
+  const updateBookingsinAgenda = (
+    bkgs: Bookings[],
+    daySchedule: DAILY_SCHEDULE[]
+  ) => {
     bkgs.map(item => {
       const tim = daySchedule.find(element => element.time === item.time_slot);
       tim?.reservations.push(item);
@@ -54,7 +71,6 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
 
   useEffect(() => {
     if (isFetched && isScheduleFetched && isFocused) {
-      console.log('--->>>>>');
       const schedule = JSON.parse(scheduleData?.getSchedule.monday);
       updateBookingsinAgenda(data.getBookingsByDate, schedule);
     }
