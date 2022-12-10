@@ -5,6 +5,7 @@ import { Box, Button, ScrollView, Spinner, Text } from 'native-base';
 import { BookingsScreenProps } from '../../../../types/navigation';
 import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
 import { useGetSchedule } from '../../../../hooks/getSchedule';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const AVAILABLE_COURTS_FOR_BOOKING = 2;
 
@@ -96,7 +97,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
         }}
         // Specify how agenda knob should look like
         renderKnob={() => {
-          return <Text>...</Text>;
+          return <Icon name="down" />;
         }}
         // Override inner list with a custom implemented component
         renderList={listProps => {
