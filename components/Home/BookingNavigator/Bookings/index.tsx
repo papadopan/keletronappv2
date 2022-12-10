@@ -6,6 +6,7 @@ import { BookingsScreenProps } from '../../../../types/navigation';
 import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
 import { useGetSchedule } from '../../../../hooks/getSchedule';
 import Icon from 'react-native-vector-icons/AntDesign';
+import { useIsFocused } from '@react-navigation/native';
 
 const AVAILABLE_COURTS_FOR_BOOKING = 2;
 
@@ -34,6 +35,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   });
   const [currentDay, setCurrentDay] = useState<string>(today);
   const [currentBookings, setCurrentBookings] = useState(bookings.monday);
+  const isFocused = useIsFocused();
 
   const { data, isFetched, isLoading } = useGetBookingsByDate(currentDay);
   const {
@@ -51,11 +53,12 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   };
 
   useEffect(() => {
-    if (isFetched && isScheduleFetched) {
+    if (isFetched && isScheduleFetched && isFocused) {
+      console.log('--->>>>>');
       const schedule = JSON.parse(scheduleData?.getSchedule.monday);
-      updateBookingsinAgenda(data.getBookingsByDate, schedule || []);
+      updateBookingsinAgenda(data.getBookingsByDate, schedule);
     }
-  }, [isFetched, isScheduleFetched, currentDay]);
+  }, [isFetched, isScheduleFetched, currentDay, isFocused]);
 
   if (isLoading || isScheduleLoading) {
     return (
@@ -166,11 +169,11 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
         refreshing={false}
         // Agenda theme
         theme={{
-          agendaDayTextColor: 'yellow',
+          agendaDayTextColor: 'yellow.100',
           textDayFontFamily: 'Helvetica Neue',
           textMonthFontFamily: 'Helvetica Neue',
           textDayHeaderFontFamily: 'Helvetica Neue',
-          textDayFontWeight: '400',
+          textDayFontWeight: '500',
           textMonthFontWeight: '400',
           textDayHeaderFontWeight: '400',
           textDayHeaderFontSize: 16,
