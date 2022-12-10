@@ -6,25 +6,16 @@ import {
   FormControl,
   Input,
   Stack,
-  useToast,
   WarningOutlineIcon,
+  Alert,
+  Text,
 } from 'native-base';
 import { Formik } from 'formik';
 import { useSignUp } from '../../../hooks/useSignUp';
-import { useEffect } from 'react';
-import Emoji from 'react-native-emoji';
 import { SignupSchema } from '../../../schema/signup';
 
 export const SignUp = ({ navigation }) => {
-  const { mutate, isLoading, error, isSuccess } = useSignUp();
-  const toast = useToast();
-
-  useEffect(() => {
-    if (isSuccess) {
-      // navigate user to the validate password screen
-      navigation.navigate('ValidatePassword');
-    }
-  }, [isSuccess]);
+  const { mutate, isLoading, error, isSuccess, isError } = useSignUp();
 
   return (
     <Flex flex={1} justifyContent="space-between" padding={5}>
@@ -126,6 +117,16 @@ export const SignUp = ({ navigation }) => {
                   {errors.password}
                 </FormControl.ErrorMessage>
               </FormControl>
+              {isError && (
+                <Alert mt={4} status="error">
+                  <Flex flexDirection={'row'} alignItems="center">
+                    <Alert.Icon mr={2} />
+                    {error.response.errors.map((e: { message: string }) => (
+                      <Text>{e.message}</Text>
+                    ))}
+                  </Flex>
+                </Alert>
+              )}
             </Box>
             <Button onPress={() => handleSubmit()} isLoading={isLoading}>
               Sign Up

@@ -46,7 +46,6 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
       const tim = daySchedule.find(element => element.time === item.time_slot);
       tim?.reservations.push(item);
     });
-
     setCurrentBookings(daySchedule);
   };
 

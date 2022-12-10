@@ -87,7 +87,9 @@ export const Profile = ({ navigation }) => {
         </Flex>
         <Pressable
           onPress={() =>
-            navigation.navigate('PreviewList', { bookings: user.bookings })
+            user.bookings.length > 0
+              ? navigation.navigate('PreviewList', { bookings: user.bookings })
+              : null
           }
         >
           <Flex

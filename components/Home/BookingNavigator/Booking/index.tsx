@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { BookingProps } from '../../../../types/navigation';
 import { useAddBooking } from '../../../../hooks/addBooking';
 import { useQueryClient } from '@tanstack/react-query';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Booking = ({ route, navigation }: BookingProps) => {
   const formikRef = useRef(null);
@@ -31,11 +32,18 @@ export const Booking = ({ route, navigation }: BookingProps) => {
     }
   }, [isSuccess, isError]);
 
-  const handleBooking = (v: { players: { name: string }[] }) => {
+  const getUsersId = async () => {
+    try {
+      return await AsyncStorage.getItem('@userId');
+    } catch (e) {}
+  };
+
+  const handleBooking = async (v: { players: { name: string }[] }) => {
+    const userId = await getUsersId();
     mutate({
       time_slot: booking.time,
       date_booking: date,
-      userId: 20,
+      userId: Number(userId),
       opponents: v.players.map((player: { name: string }) => player.name),
       num_players: v.players.length + 1,
       court: 'court1',
