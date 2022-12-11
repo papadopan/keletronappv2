@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -9,6 +9,7 @@ import {
   WarningOutlineIcon,
   Alert,
   Text,
+  useToast,
 } from 'native-base';
 import { Formik } from 'formik';
 import { useSignUp } from '../../../hooks/useSignUp';
@@ -16,8 +17,57 @@ import { SignupSchema } from '../../../schema/signup';
 
 export const SignUp = ({ navigation }) => {
   const { mutate, isLoading, error, isSuccess, isError } = useSignUp();
+  const toast = useToast();
+  useEffect(() => {
+    if (isSuccess) {
+      toast.show({
+        render: () => (
+          <Alert status={'success'}>
+            <Flex flexDirection={'row'} alignItems="center">
+              <Alert.Icon mr={2} />
+              <Box>
+                <Text>You received a code in your email</Text>
+                <Text>Provide the code to activate your account</Text>
+              </Box>
+            </Flex>
+          </Alert>
+        ),
+      });
+    }
+  }, [isSuccess]);
 
-  return (
+  return isSuccess ? (
+    <Flex flex={1} justifyContent="space-between" padding={5}>
+      <Formik
+        initialValues={{
+          code: '',
+        }}
+        onSubmit={v => mutate(v)}
+        validationSchema={SignupSchema}
+      >
+        {({ handleChange, handleSubmit, values, errors, touched }) => (
+          <Stack space={5} justifyContent="space-between" flex={1}>
+            <Box>
+              <FormControl isRequired mb={6}>
+                <FormControl.Label>Code</FormControl.Label>
+                <Input
+                  size={'xl'}
+                  variant="underlined"
+                  p={2}
+                  placeholder="123456"
+                  onChangeText={handleChange('code')}
+                  value={values.code}
+                />
+              </FormControl>
+            </Box>
+            <Button onPress={() => handleSubmit()} isLoading={isLoading}>
+              Activate Account
+            </Button>
+          </Stack>
+        )}
+      </Formik>
+    </Flex>
+  ) : (
     <Flex flex={1} justifyContent="space-between" padding={5}>
       <Formik
         initialValues={{
