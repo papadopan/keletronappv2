@@ -16,9 +16,15 @@ import {
   ForgotWithCodeSchema,
 } from '../../../schema/forgotPassword';
 import { useAddForgotPassword } from '../../../hooks/useAddForgotPassword';
+import { useUpdateForgottenPassword } from '../../../hooks/useUpdateForgottenPassword';
 
-export const ForgotPassword = () => {
+export const ForgotPassword = ({ navigation }) => {
   const { mutate, isSuccess, data } = useAddForgotPassword();
+  const {
+    mutate: update,
+    data: updatedData,
+    isSuccess: isDataUpdated,
+  } = useUpdateForgottenPassword();
   const [hasAlreadyPassword, setHasAlreadyPassword] = useState(false);
   const [email, setEmail] = useState(data?.forgotPassword.email);
   const toast = useToast();
@@ -38,7 +44,21 @@ export const ForgotPassword = () => {
         ),
       });
     }
-  }, [isSuccess]);
+    if (isDataUpdated) {
+      toast.show({
+        render: () => (
+          <Alert status={'success'}>
+            <Flex flexDirection={'row'} alignItems="center">
+              <Alert.Icon mr={3} />
+              <Text>Your password has been updated</Text>
+            </Flex>
+          </Alert>
+        ),
+      });
+
+      navigation.navigate('LogIn');
+    }
+  }, [isSuccess, isDataUpdated]);
 
   return isSuccess || hasAlreadyPassword ? (
     <Formik
@@ -47,7 +67,7 @@ export const ForgotPassword = () => {
         code: '',
         password: '',
       }}
-      onSubmit={v => mutate(v.email)}
+      onSubmit={v => update(v)}
       validationSchema={ForgotWithCodeSchema}
     >
       {({ handleChange, handleSubmit, values, errors, touched }) => (
@@ -89,7 +109,7 @@ export const ForgotPassword = () => {
                   onChangeText={handleChange('code')}
                   placeholder="123456"
                   keyboardType="number-pad"
-                  maxLength={6}
+                  maxLength={9}
                 />
                 <FormControl.ErrorMessage
                   leftIcon={<WarningOutlineIcon size="xs" />}
@@ -97,15 +117,7 @@ export const ForgotPassword = () => {
                   {errors.code}
                 </FormControl.ErrorMessage>
               </FormControl>
-              <FormControl
-                isRequired
-                mb={4}
-                isInvalid={
-                  errors.password && values.password.length > 0
-                    ? true
-                    : undefined
-                }
-              >
+              <FormControl isRequired mb={4}>
                 <FormControl.Label>Password</FormControl.Label>
                 <Input
                   size={'xl'}
@@ -125,7 +137,7 @@ export const ForgotPassword = () => {
             </Box>
           </Box>
           <Button onPress={() => handleSubmit()} isLoading={false}>
-            Recover
+            Update Password
           </Button>
         </Flex>
       )}
