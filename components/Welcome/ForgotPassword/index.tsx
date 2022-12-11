@@ -45,6 +45,7 @@ export const ForgotPassword = () => {
       initialValues={{
         email: email,
         code: '',
+        password: '',
       }}
       onSubmit={v => mutate(v.email)}
       validationSchema={ForgotWithCodeSchema}
@@ -77,13 +78,7 @@ export const ForgotPassword = () => {
                   {errors.email}
                 </FormControl.ErrorMessage>
               </FormControl>
-              <FormControl
-                isRequired
-                mb={4}
-                isInvalid={
-                  errors.code && values.code.length > 0 ? true : undefined
-                }
-              >
+              <FormControl isRequired mb={4}>
                 <FormControl.Label>Code</FormControl.Label>
                 <Input
                   size={'xl'}
@@ -100,6 +95,31 @@ export const ForgotPassword = () => {
                   leftIcon={<WarningOutlineIcon size="xs" />}
                 >
                   {errors.code}
+                </FormControl.ErrorMessage>
+              </FormControl>
+              <FormControl
+                isRequired
+                mb={4}
+                isInvalid={
+                  errors.password && values.password.length > 0
+                    ? true
+                    : undefined
+                }
+              >
+                <FormControl.Label>Password</FormControl.Label>
+                <Input
+                  size={'xl'}
+                  variant="underlined"
+                  type="password"
+                  p={2}
+                  value={values.password}
+                  onChangeText={handleChange('password')}
+                  placeholder="Password"
+                />
+                <FormControl.ErrorMessage
+                  leftIcon={<WarningOutlineIcon size="xs" />}
+                >
+                  {errors.password}
                 </FormControl.ErrorMessage>
               </FormControl>
             </Box>
