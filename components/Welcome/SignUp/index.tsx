@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -14,11 +14,13 @@ import {
 import { Formik } from 'formik';
 import { useSignUp } from '../../../hooks/useSignUp';
 import { SignupSchema } from '../../../schema/signup';
+import { useActivateAccount } from '../../../hooks/useActivateAccount';
 
 export const SignUp = ({ navigation }) => {
   const { mutate, isLoading, error, data, isSuccess, isError } = useSignUp();
-  const [email, setemail] = useState(data?.signup.email);
+  const { isSuccess: isActivated, mutate: activate } = useActivateAccount();
   const toast = useToast();
+
   useEffect(() => {
     if (isSuccess) {
       toast.show({
@@ -35,20 +37,31 @@ export const SignUp = ({ navigation }) => {
         ),
       });
     }
-  }, [isSuccess]);
-
-  console.log('-0---', email);
+    if (isActivated) {
+      toast.show({
+        render: () => (
+          <Alert status={'success'}>
+            <Flex flexDirection={'row'} alignItems="center">
+              <Alert.Icon mr={2} />
+              <Text>Account activated</Text>
+            </Flex>
+          </Alert>
+        ),
+      });
+      navigation.navigate('LogIn');
+    }
+  }, [isSuccess, isActivated]);
 
   return isSuccess ? (
     <Flex flex={1} justifyContent="space-between" padding={5}>
       <Formik
         initialValues={{
           code: '',
-          email: email,
+          email: data?.signup.email,
         }}
-        onSubmit={v => mutate(v)}
+        onSubmit={v => activate(v)}
       >
-        {({ handleChange, handleSubmit, values, errors, touched }) => (
+        {({ handleChange, handleSubmit, values }) => (
           <Stack space={5} justifyContent="space-between" flex={1}>
             <Box>
               <FormControl isRequired mb={6}>
