@@ -6,7 +6,6 @@ import { Login } from '../Login';
 import { SignUp } from '../SignUp';
 import { ForgotPassword } from '../ForgotPassword';
 import { ActivationEmail } from '../ActivationEmail';
-import { ValidatePassword } from '../ValidatePassword';
 import type { WelcomeScreen } from '../../../types/navigation';
 
 export const WelcomeNavigator = () => {
@@ -29,11 +28,6 @@ export const WelcomeNavigator = () => {
         name="ActivationEmail"
         component={ActivationEmail}
         options={{ title: 'Activation Email' }}
-      />
-      <Stack.Screen
-        name="ValidatePassword"
-        component={ValidatePassword}
-        options={{ title: 'Validate Password' }}
       />
     </Stack.Navigator>
   );

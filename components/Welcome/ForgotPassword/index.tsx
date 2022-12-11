@@ -109,7 +109,7 @@ export const ForgotPassword = ({ navigation }) => {
                   onChangeText={handleChange('code')}
                   placeholder="123456"
                   keyboardType="number-pad"
-                  maxLength={9}
+                  maxLength={7}
                 />
                 <FormControl.ErrorMessage
                   leftIcon={<WarningOutlineIcon size="xs" />}

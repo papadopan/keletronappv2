@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -16,7 +16,8 @@ import { useSignUp } from '../../../hooks/useSignUp';
 import { SignupSchema } from '../../../schema/signup';
 
 export const SignUp = ({ navigation }) => {
-  const { mutate, isLoading, error, isSuccess, isError } = useSignUp();
+  const { mutate, isLoading, error, data, isSuccess, isError } = useSignUp();
+  const [email, setemail] = useState(data?.signup.email);
   const toast = useToast();
   useEffect(() => {
     if (isSuccess) {
@@ -36,14 +37,16 @@ export const SignUp = ({ navigation }) => {
     }
   }, [isSuccess]);
 
+  console.log('-0---', email);
+
   return isSuccess ? (
     <Flex flex={1} justifyContent="space-between" padding={5}>
       <Formik
         initialValues={{
           code: '',
+          email: email,
         }}
         onSubmit={v => mutate(v)}
-        validationSchema={SignupSchema}
       >
         {({ handleChange, handleSubmit, values, errors, touched }) => (
           <Stack space={5} justifyContent="space-between" flex={1}>
@@ -57,6 +60,7 @@ export const SignUp = ({ navigation }) => {
                   placeholder="123456"
                   onChangeText={handleChange('code')}
                   value={values.code}
+                  maxLength={7}
                 />
               </FormControl>
             </Box>

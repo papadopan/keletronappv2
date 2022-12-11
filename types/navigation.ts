@@ -12,7 +12,6 @@ export type WelcomeScreen = {
   SignUp: undefined;
   ForgotPassword: undefined;
   ActivationEmail: undefined;
-  ValidatePassword: undefined;
 };
 
 export type AuthScreen = {
