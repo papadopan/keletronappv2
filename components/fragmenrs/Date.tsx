@@ -11,8 +11,8 @@ export const MyDate = ({ date }: Props) => {
       <Text>
         {new Date(date).toLocaleString('el-Gr', {
           day: 'numeric',
-          month: 'long',
-          weekday: 'long',
+          month: 'short',
+          weekday: 'short',
         })}
       </Text>
     </Box>
