@@ -7,6 +7,7 @@ import {
   Flex,
   Spinner,
   Text,
+  useColorModeValue
 } from 'native-base';
 import Emoji from 'react-native-emoji';
 import { MainScreenBookings } from '../../fragmenrs/MainScreenBookings';
@@ -14,16 +15,19 @@ import { useGetMyBookings } from '../../../hooks/getMyBookings';
 
 export const HomeScreen = ({ navigation }) => {
   const { data, isLoading } = useGetMyBookings();
+  const bg = useColorModeValue('warmGray.200', 'trueGray.800');
+  const box = useColorModeValue('light.100', 'trueGray.700');
+  const text = useColorModeValue('darkText', 'lightText');
 
   return (
-    <Flex padding="5">
+    <Flex padding="5" bg={bg} flex={1}>
       <Flex flexDirection={'row'} alignItems="center" mb={50}>
-        <Text fontSize={'2xl'} mr="3">
+        <Text fontSize={'2xl'} mr="3" color={text}>
           Hey Antonios
         </Text>
         <Emoji name="smiley" style={{ fontSize: 30 }} />
       </Flex>
-      <Box p={2} backgroundColor="white" borderRadius={4}>
+      <Box p={2} bg={box} borderRadius={4}>
         <Box>
           <Flex
             flexDirection={'row'}
@@ -31,7 +35,7 @@ export const HomeScreen = ({ navigation }) => {
             alignItems={'center'}
             borderRadius={4}
           >
-            <Text>My Bookings</Text>
+            <Text color={text}>My Bookings</Text>
             <Button
               onPress={() => navigation.navigate('Bookings')}
               isLoading={isLoading}
