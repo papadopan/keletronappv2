@@ -23,14 +23,17 @@ export const Booking = ({ route, navigation }: BookingProps) => {
 
   useEffect(() => {
     if (isSuccess && data) {
-      navigation.navigate('Preview', {
-        item: data.addBooking,
+      queryClient.invalidateQueries({
+        queryKey: ['myBookings'],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['user'],
       });
       queryClient.invalidateQueries({
         queryKey: ['bookings', data.addBooking.date_booking],
       });
-      queryClient.invalidateQueries({
-        queryKey: ['myBookings'],
+      navigation.navigate('Preview', {
+        item: data.addBooking,
       });
     }
   }, [isSuccess, isError]);
