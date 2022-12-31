@@ -28,8 +28,6 @@ const App = ({ navigation }) => {
     flex: 1
   };
 
-  console.log(text);
-
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
