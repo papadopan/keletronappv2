@@ -8,6 +8,8 @@ import {
   Button,
   Pressable,
   Spinner,
+  Switch,
+  useColorMode
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useGetInfo } from '../../../../hooks/getInfo';
@@ -38,6 +40,8 @@ export const Profile = ({ navigation }) => {
     );
 
   const user = data.getInfo;
+
+  const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <Flex padding={5} paddingTop={15} justifyContent="space-between" flex={1}>
@@ -80,9 +84,13 @@ export const Profile = ({ navigation }) => {
           borderRadius="6"
         >
           <Text>Theme</Text>
-          <Flex flexDirection={'row'}>
-            <Text mr="3">Light</Text>
-            <Icon name="right" size={20} />
+          <Flex flexDirection={'row'} alignItems="center">
+            <Text mr="3">{colorMode === 'light' ? 'Light' : 'Dark'}</Text>
+            <Switch
+              size="sm"
+              isChecked={colorMode === 'light'}
+              onToggle={toggleColorMode}
+            />
           </Flex>
         </Flex>
         <Pressable
