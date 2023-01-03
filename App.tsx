@@ -16,6 +16,7 @@ import { WelcomeNavigator } from './components/Welcome/WelcomeNAvigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppNavigator } from './types/navigation';
 import { useColorModeValue } from 'native-base';
+import { NavigationContainer } from '@react-navigation/native';
 
 const Stack = createNativeStackNavigator<AppNavigator>();
 
@@ -31,10 +32,24 @@ const App = ({ navigation }) => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="WelcomeNavigator" component={WelcomeNavigator} />
-        <Stack.Screen name="Auth" component={Auth} />
-      </Stack.Navigator>
+      <NavigationContainer
+        theme={{
+          dark: isDarkMode,
+          colors: {
+            primary: '#0e7490',
+            card: isDarkMode ? '#262626' : 'rgb(255, 255, 255)',
+            text: isDarkMode ? 'white' : 'rgb(28, 28, 30)',
+            border: isDarkMode ? '#0e7490' : 'rgb(199, 199, 204)',
+            background: 'rgb(242, 242, 242)',
+            notification: 'rgb(255, 69, 58)'
+          }
+        }}
+      >
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="WelcomeNavigator" component={WelcomeNavigator} />
+          <Stack.Screen name="Auth" component={Auth} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SafeAreaView>
   );
 };

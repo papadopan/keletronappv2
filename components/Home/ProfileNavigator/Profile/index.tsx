@@ -41,9 +41,7 @@ export const Profile = ({ navigation }) => {
     );
 
   const user = data.getInfo;
-
   const { colorMode, toggleColorMode } = useColorMode();
-
   const bg = useColorModeValue('white', 'warmGray.700');
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
   const circlebg = useColorModeValue('yellow.100', 'yellow.600');

@@ -1,7 +1,14 @@
 import { View } from 'react-native';
 import React, { useEffect, useState } from 'react';
 import { Agenda } from 'react-native-calendars';
-import { Box, Button, ScrollView, Spinner, Text } from 'native-base';
+import {
+  Box,
+  Button,
+  ScrollView,
+  Spinner,
+  Text,
+  useColorModeValue
+} from 'native-base';
 import { BookingsScreenProps } from '../../../../types/navigation';
 import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
 import { useGetSchedule } from '../../../../hooks/getSchedule';
@@ -39,12 +46,12 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
     { time: '17:00', reservations: [] },
     { time: '18:00', reservations: [] },
     { time: '19:00', reservations: [] },
-    { time: '20:00', reservations: [] },
+    { time: '20:00', reservations: [] }
   ];
   const today = new Date().toLocaleString('sv-SE', {
     day: 'numeric',
     month: 'numeric',
-    year: 'numeric',
+    year: 'numeric'
   });
   const [currentDay, setCurrentDay] = useState<string>(today);
   const [currentBookings, setCurrentBookings] =
@@ -55,7 +62,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   const {
     data: scheduleData,
     isLoading: isScheduleLoading,
-    isFetched: isScheduleFetched,
+    isFetched: isScheduleFetched
   } = useGetSchedule();
 
   const updateBookingsinAgenda = (
@@ -83,9 +90,11 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
       </Box>
     );
   }
+  const bg = useColorModeValue('white', 'warmGray.700');
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
 
   return (
-    <Box padding={2} flex={1}>
+    <Box padding={2} flex={1} bg={bg}>
       <Agenda
         selected={currentDay}
         loadItemsForMonth={month => {
@@ -121,15 +130,9 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
         // Override inner list with a custom implemented component
         renderList={listProps => {
           return (
-            <ScrollView p={2} mt={5}>
+            <ScrollView p={2} mt={5} bg={screenbg}>
               {currentBookings.map(booking => (
-                <Box
-                  key={booking.time}
-                  p={4}
-                  backgroundColor="white"
-                  mb={6}
-                  borderRadius="5"
-                >
+                <Box key={booking.time} p={4} bg={bg} mb={6} borderRadius="5">
                   <Text
                     fontSize={'3xl'}
                     letterSpacing={'xl'}
@@ -147,7 +150,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                     onPress={() =>
                       navigation.navigate('Booking', {
                         booking: booking,
-                        date: currentDay,
+                        date: currentDay
                       })
                     }
                     isDisabled={
@@ -192,7 +195,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
           textDayFontWeight: '500',
           textMonthFontWeight: '400',
           textDayHeaderFontWeight: '400',
-          textDayHeaderFontSize: 16,
+          textDayHeaderFontSize: 16
         }}
         // Agenda container style
         style={{}}
