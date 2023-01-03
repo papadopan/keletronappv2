@@ -83,15 +83,22 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
     }
   }, [isFetched, isScheduleFetched, currentDay, isFocused]);
 
+  const bg = useColorModeValue('white', 'warmGray.700');
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+
   if (isLoading || isScheduleLoading) {
     return (
-      <Box padding={2} flex={1} alignItems="center" justifyContent={'center'}>
+      <Box
+        padding={2}
+        flex={1}
+        alignItems="center"
+        justifyContent={'center'}
+        bg={screenbg}
+      >
         <Spinner size={'lg'} />
       </Box>
     );
   }
-  const bg = useColorModeValue('white', 'warmGray.700');
-  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
 
   return (
     <Box padding={2} flex={1} bg={bg}>

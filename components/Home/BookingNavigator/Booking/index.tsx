@@ -1,5 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { Box, Button, Flex, FormControl, Input, Text } from 'native-base';
+import {
+  Box,
+  Button,
+  Flex,
+  FormControl,
+  Input,
+  Text,
+  useColorModeValue
+} from 'native-base';
 import { Formik } from 'formik';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { BookingProps } from '../../../../types/navigation';
@@ -15,7 +23,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
     indexToDelete: number
   ) => players.filter((_, index: number) => index !== indexToDelete);
   const addNewUser = () => ({
-    name: '',
+    name: ''
   });
 
   const { booking, date } = route.params;
@@ -24,16 +32,16 @@ export const Booking = ({ route, navigation }: BookingProps) => {
   useEffect(() => {
     if (isSuccess && data) {
       queryClient.invalidateQueries({
-        queryKey: ['myBookings'],
+        queryKey: ['myBookings']
       });
       queryClient.invalidateQueries({
-        queryKey: ['user'],
+        queryKey: ['user']
       });
       queryClient.invalidateQueries({
-        queryKey: ['bookings', data.addBooking.date_booking],
+        queryKey: ['bookings', data.addBooking.date_booking]
       });
       navigation.navigate('Preview', {
-        item: data.addBooking,
+        item: data.addBooking
       });
     }
   }, [isSuccess, isError]);
@@ -52,23 +60,26 @@ export const Booking = ({ route, navigation }: BookingProps) => {
       userId: Number(userId),
       opponents: v.players.map((player: { name: string }) => player.name),
       num_players: v.players.length + 1,
-      court: 'court1',
+      court: 'court1'
     });
   };
+
+  const bg = useColorModeValue('white', 'warmGray.700');
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
   return (
     <Formik
       innerRef={formikRef}
       initialValues={{
         players: [
           {
-            name: '',
-          },
-        ],
+            name: ''
+          }
+        ]
       }}
       onSubmit={v => handleBooking(v)}
     >
       {({ handleChange, values, setFieldValue, handleSubmit }) => (
-        <Flex p={5} justifyContent="space-between" flex={1}>
+        <Flex p={5} justifyContent="space-between" flex={1} bg={screenbg}>
           <Box>
             <Flex flexDirection={'row'} justifyContent="space-between">
               <Flex mb={5}>
@@ -89,7 +100,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
             <Text textAlign={'center'} fontSize="xl" mb={8} letterSpacing="xl">
               Players
             </Text>
-            <Box p={4} backgroundColor="white" borderRadius={6}>
+            <Box p={4} bg={bg} borderRadius={6}>
               {values.players.map((player, index) => (
                 <Flex key={index} mb={3}>
                   <FormControl mb={4}>
@@ -125,7 +136,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
                     onPress={() =>
                       setFieldValue('players', [
                         ...values.players,
-                        addNewUser(),
+                        addNewUser()
                       ])
                     }
                   >

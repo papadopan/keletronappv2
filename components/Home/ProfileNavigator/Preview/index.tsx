@@ -1,5 +1,12 @@
 import React, { useEffect } from 'react';
-import { Box, Button, Divider, Flex, Text } from 'native-base';
+import {
+  Box,
+  Button,
+  Divider,
+  Flex,
+  Text,
+  useColorModeValue
+} from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useDeleteBooking } from '../../../../hooks/useDeleteBooking';
 import { useQueryClient } from '@tanstack/react-query';
@@ -16,9 +23,11 @@ export const Preview = ({ route, navigation }) => {
       queryClient.invalidateQueries({ queryKey: ['user'] });
     }
   }, [isSuccess]);
-
+  const bg = useColorModeValue('white', 'warmGray.700');
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+  const iconbg = useColorModeValue('black', 'white');
   return (
-    <Flex p={5} justifyContent="space-between" flex={1}>
+    <Flex p={5} justifyContent="space-between" flex={1} bg={screenbg}>
       <Box>
         <Flex flexDirection={'row'} justifyContent="space-between">
           <Flex mb={5}>
@@ -36,11 +45,11 @@ export const Preview = ({ route, navigation }) => {
             </Text>
           </Flex>
         </Flex>
-        <Box p={4} backgroundColor="white" borderRadius={6}>
+        <Box p={4} bg={bg} borderRadius={6}>
           {item.opponents.map((user, index) => (
             <Flex mb={2} p={2} key={user + index}>
               <Flex flexDirection={'row'} alignItems="center">
-                <Icon name="user" />
+                <Icon name="user" color={iconbg} />
                 <Text ml={4}>{user}</Text>
               </Flex>
               <Divider mt={2} />
