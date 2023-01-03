@@ -10,6 +10,7 @@ import {
   Alert,
   Text,
   useToast,
+  useColorModeValue
 } from 'native-base';
 import { Formik } from 'formik';
 import { useSignUp } from '../../../hooks/useSignUp';
@@ -34,7 +35,7 @@ export const SignUp = ({ navigation }) => {
               </Box>
             </Flex>
           </Alert>
-        ),
+        )
       });
     }
     if (isActivated) {
@@ -46,18 +47,20 @@ export const SignUp = ({ navigation }) => {
               <Text>Account activated</Text>
             </Flex>
           </Alert>
-        ),
+        )
       });
       navigation.navigate('LogIn');
     }
   }, [isSuccess, isActivated]);
 
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+
   return isSuccess ? (
-    <Flex flex={1} justifyContent="space-between" padding={5}>
+    <Flex flex={1} justifyContent="space-between" padding={5} bg={screenbg}>
       <Formik
         initialValues={{
           code: '',
-          email: data?.signup.email,
+          email: data?.signup.email
         }}
         onSubmit={v => activate(v)}
       >
@@ -85,13 +88,13 @@ export const SignUp = ({ navigation }) => {
       </Formik>
     </Flex>
   ) : (
-    <Flex flex={1} justifyContent="space-between" padding={5}>
+    <Flex flex={1} justifyContent="space-between" padding={5} bg={screenbg}>
       <Formik
         initialValues={{
           first_name: '',
           last_name: '',
           email: '',
-          password: '',
+          password: ''
         }}
         onSubmit={v => mutate(v)}
         validationSchema={SignupSchema}

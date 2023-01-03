@@ -9,11 +9,12 @@ import {
   useToast,
   WarningOutlineIcon,
   Alert,
+  useColorModeValue
 } from 'native-base';
 import { Formik } from 'formik';
 import {
   ForgotPasswordSchema,
-  ForgotWithCodeSchema,
+  ForgotWithCodeSchema
 } from '../../../schema/forgotPassword';
 import { useAddForgotPassword } from '../../../hooks/useAddForgotPassword';
 import { useUpdateForgottenPassword } from '../../../hooks/useUpdateForgottenPassword';
@@ -23,7 +24,7 @@ export const ForgotPassword = ({ navigation }) => {
   const {
     mutate: update,
     data: updatedData,
-    isSuccess: isDataUpdated,
+    isSuccess: isDataUpdated
   } = useUpdateForgottenPassword();
   const [hasAlreadyPassword, setHasAlreadyPassword] = useState(false);
   const [email, setEmail] = useState(data?.forgotPassword.email);
@@ -41,7 +42,7 @@ export const ForgotPassword = ({ navigation }) => {
               </Box>
             </Flex>
           </Alert>
-        ),
+        )
       });
     }
     if (isDataUpdated) {
@@ -53,25 +54,30 @@ export const ForgotPassword = ({ navigation }) => {
               <Text>Your password has been updated</Text>
             </Flex>
           </Alert>
-        ),
+        )
       });
 
       navigation.navigate('LogIn');
     }
   }, [isSuccess, isDataUpdated]);
 
+  const bg = useColorModeValue('white', 'warmGray.700');
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+  const circlebg = useColorModeValue('yellow.100', 'yellow.600');
+  const iconbg = useColorModeValue('black', 'white');
+
   return isSuccess || hasAlreadyPassword ? (
     <Formik
       initialValues={{
         email: email,
         code: '',
-        password: '',
+        password: ''
       }}
       onSubmit={v => update(v)}
       validationSchema={ForgotWithCodeSchema}
     >
       {({ handleChange, handleSubmit, values, errors, touched }) => (
-        <Flex justifyContent="space-between" p={5} flex={1}>
+        <Flex justifyContent="space-between" p={5} flex={1} bg={screenbg}>
           <Box>
             <Box>
               <FormControl
@@ -145,13 +151,13 @@ export const ForgotPassword = ({ navigation }) => {
   ) : (
     <Formik
       initialValues={{
-        email: '',
+        email: ''
       }}
       onSubmit={v => mutate(v.email)}
       validationSchema={ForgotPasswordSchema}
     >
       {({ handleChange, handleSubmit, values, errors, touched }) => (
-        <Flex justifyContent="space-between" p={5} flex={1}>
+        <Flex justifyContent="space-between" p={5} flex={1} bg={screenbg}>
           <Box>
             <Box>
               <FormControl

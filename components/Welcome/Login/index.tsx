@@ -9,6 +9,7 @@ import {
   Text,
   Alert,
   WarningOutlineIcon,
+  useColorModeValue
 } from 'native-base';
 import { Formik } from 'formik';
 import { LoginSchema } from '../../../schema/login';
@@ -24,17 +25,19 @@ export const Login = ({ navigation }) => {
     }
   }, [isSuccess]);
 
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+
   return (
     <Formik
       initialValues={{
         email: '',
-        password: '',
+        password: ''
       }}
       onSubmit={v => mutate(v)}
       validationSchema={LoginSchema}
     >
       {({ handleChange, handleSubmit, values, errors, touched }) => (
-        <Flex justifyContent="space-between" p={5} flex={1}>
+        <Flex justifyContent="space-between" p={5} flex={1} bg={screenbg}>
           <Box>
             <Box>
               <FormControl

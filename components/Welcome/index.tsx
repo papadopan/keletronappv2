@@ -1,5 +1,13 @@
 import React, { useEffect } from 'react';
-import { Button, Center, Flex, Text, VStack, Image } from 'native-base';
+import {
+  Button,
+  Center,
+  Flex,
+  Text,
+  VStack,
+  Image,
+  useColorModeValue
+} from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Welcome = ({ navigation }) => {
@@ -19,12 +27,14 @@ export const Welcome = ({ navigation }) => {
     checkIfUserExists();
   }, []);
 
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+
   return (
-    <Flex flex={1} justifyContent="space-between" padding={10}>
+    <Flex flex={1} justifyContent="space-between" padding={10} bg={screenbg}>
       <Center>
         <Image
           source={{
-            uri: 'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80',
+            uri: 'https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'
           }}
           alt="Alternate Text"
           size="2xl"
