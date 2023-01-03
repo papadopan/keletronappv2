@@ -9,7 +9,8 @@ import {
   Pressable,
   Spinner,
   Switch,
-  useColorMode
+  useColorMode,
+  useColorModeValue
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useGetInfo } from '../../../../hooks/getInfo';
@@ -43,10 +44,21 @@ export const Profile = ({ navigation }) => {
 
   const { colorMode, toggleColorMode } = useColorMode();
 
+  const bg = useColorModeValue('white', 'warmGray.700');
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+  const circlebg = useColorModeValue('yellow.100', 'yellow.600');
+  const iconbg = useColorModeValue('black', 'white');
+
   return (
-    <Flex padding={5} paddingTop={15} justifyContent="space-between" flex={1}>
+    <Flex
+      padding={5}
+      paddingTop={15}
+      justifyContent="space-between"
+      flex={1}
+      bg={screenbg}
+    >
       <Center>
-        <Box backgroundColor="yellow.100" borderRadius={50} padding="5" mb={8}>
+        <Box bg={circlebg} borderRadius={50} padding="5" mb={8}>
           <Text fontSize={'4xl'} fontWeight="bold">
             {user.first_name[0]}
             {user.last_name[0]}
@@ -69,17 +81,19 @@ export const Profile = ({ navigation }) => {
           backgroundColor="white"
           padding="5"
           borderRadius="6"
+          bg={bg}
         >
           <Text>Language</Text>
           <Flex flexDirection={'row'}>
             <Text mr="3">Greek</Text>
-            <Icon name="right" size={20} />
+            <Icon name="right" size={20} color={iconbg} />
           </Flex>
         </Flex>
         <Flex
           flexDirection="row"
           justifyContent="space-between"
-          backgroundColor="white"
+          alignItems={'center'}
+          bg={bg}
           padding="5"
           borderRadius="6"
         >
@@ -105,12 +119,13 @@ export const Profile = ({ navigation }) => {
             justifyContent="space-between"
             backgroundColor="white"
             padding="5"
+            bg={bg}
             borderRadius="6"
           >
             <Text>My Bookings</Text>
             <Flex flexDirection={'row'}>
               <Text mr="3">{user.bookings.length}</Text>
-              <Icon name="right" size={20} />
+              <Icon name="right" size={20} color={iconbg} />
             </Flex>
           </Flex>
         </Pressable>
@@ -118,7 +133,7 @@ export const Profile = ({ navigation }) => {
           <Button
             onPress={signOut}
             variant="outline"
-            leftIcon={<Icon name="logout" size={20} />}
+            leftIcon={<Icon name="logout" size={20} color={iconbg} />}
           >
             Sign out
           </Button>
