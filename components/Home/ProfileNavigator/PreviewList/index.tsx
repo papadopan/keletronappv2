@@ -1,5 +1,12 @@
 import React from 'react';
-import { Badge, Box, FlatList, Flex, Text } from 'native-base';
+import {
+  Badge,
+  Box,
+  FlatList,
+  Flex,
+  Text,
+  useColorModeValue
+} from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Pressable } from 'react-native';
 import { MyDate } from '../../../fragmenrs/Date';
@@ -29,8 +36,13 @@ export const PreviewList = ({ navigation, route }: PreviewListProps) => {
   // if the route does not contain bookings
   if (!bookings) navigation.navigate('ProfilePage');
 
+  const bg = useColorModeValue('white', 'warmGray.700');
+  const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
+  const circlebg = useColorModeValue('yellow.100', 'yellow.600');
+  const iconbg = useColorModeValue('black', 'white');
+
   return (
-    <Box p={5} flex={1}>
+    <Box p={5} flex={1} bg={screenbg}>
       <FlatList
         data={bookings.sort(sortTime)}
         renderItem={({ item, index }: { item: BookingType; index: number }) => (
@@ -39,14 +51,14 @@ export const PreviewList = ({ navigation, route }: PreviewListProps) => {
               navigation.navigate('Preview', {
                 item: {
                   ...item,
-                  status: isActiveBooking(item),
-                },
+                  status: isActiveBooking(item)
+                }
               })
             }
             key={index + item.date_booking + item.time_slot}
           >
             <Flex
-              backgroundColor={'white'}
+              bg={bg}
               mb={6}
               p={4}
               borderRadius={4}
@@ -62,7 +74,7 @@ export const PreviewList = ({ navigation, route }: PreviewListProps) => {
                 >
                   {isActiveBooking(item) ? 'active' : 'non active'}
                 </Badge>
-                <Icon name="right" />
+                <Icon name="right" color={iconbg} />
               </Flex>
             </Flex>
           </Pressable>

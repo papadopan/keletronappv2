@@ -61,10 +61,7 @@ export const ForgotPassword = ({ navigation }) => {
     }
   }, [isSuccess, isDataUpdated]);
 
-  const bg = useColorModeValue('white', 'warmGray.700');
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
-  const circlebg = useColorModeValue('yellow.100', 'yellow.600');
-  const iconbg = useColorModeValue('black', 'white');
 
   return isSuccess || hasAlreadyPassword ? (
     <Formik
