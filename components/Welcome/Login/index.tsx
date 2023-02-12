@@ -113,7 +113,7 @@ export const Login = ({ navigation }) => {
                 variant="link"
                 onPress={() => navigation.navigate('ActivationEmail')}
               >
-                Resend Activation email
+                Resend Activation code
               </Button>
             </Stack>
           </Box>
