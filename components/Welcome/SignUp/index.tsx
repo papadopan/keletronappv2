@@ -10,7 +10,8 @@ import {
   Alert,
   Text,
   useToast,
-  useColorModeValue
+  useColorModeValue,
+  ScrollView
 } from 'native-base';
 import { Formik } from 'formik';
 import { useSignUp } from '../../../hooks/useSignUp';
@@ -56,7 +57,14 @@ export const SignUp = ({ navigation }) => {
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
 
   return isSuccess ? (
-    <Flex flex={1} justifyContent="space-between" padding={5} bg={screenbg}>
+    <ScrollView
+      _contentContainerStyle={{
+        justifyContent: 'space-between',
+        flex: 1
+      }}
+      padding={5}
+      bg={screenbg}
+    >
       <Formik
         initialValues={{
           code: '',
@@ -86,9 +94,16 @@ export const SignUp = ({ navigation }) => {
           </Stack>
         )}
       </Formik>
-    </Flex>
+    </ScrollView>
   ) : (
-    <Flex flex={1} justifyContent="space-between" padding={5} bg={screenbg}>
+    <ScrollView
+      _contentContainerStyle={{
+        justifyContent: 'space-between',
+        flex: 1
+      }}
+      padding={5}
+      bg={screenbg}
+    >
       <Formik
         initialValues={{
           first_name: '',
@@ -204,6 +219,6 @@ export const SignUp = ({ navigation }) => {
           </Stack>
         )}
       </Formik>
-    </Flex>
+    </ScrollView>
   );
 };
