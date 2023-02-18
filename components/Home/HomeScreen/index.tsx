@@ -15,7 +15,7 @@ import { useGetInfo } from '../../../hooks/getInfo';
 
 export const HomeScreen = ({ navigation }) => {
   const { data, isLoading } = useGetMyBookings();
-  const { data: user } = useGetInfo();
+  const { data: user, isSuccess: isUserFetched } = useGetInfo();
   const bg = useColorModeValue('warmGray.200', 'trueGray.800');
   const box = useColorModeValue('light.100', 'trueGray.700');
   const text = useColorModeValue('darkText', 'lightText');
@@ -24,7 +24,7 @@ export const HomeScreen = ({ navigation }) => {
     <Flex padding="5" bg={bg} flex={1}>
       <Flex flexDirection={'row'} alignItems="center" mb={50}>
         <Text fontSize={'2xl'} mr="3" color={text}>
-          Hey {user.getInfo?.first_name}
+          Hey {isUserFetched ? user.getInfo.first_name : ''}
         </Text>
         <Emoji name="smiley" style={{ fontSize: 30 }} />
       </Flex>
