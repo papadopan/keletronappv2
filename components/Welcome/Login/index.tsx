@@ -48,7 +48,7 @@ export const Login = ({ navigation }) => {
           validationSchema={LoginSchema}
         >
           {({ handleChange, handleSubmit, values, errors, touched }) => (
-            <Stack justifyContent="space-between" p={5} flex={1} bg={screenbg}>
+            <Stack justifyContent="space-between" flex={1} bg={screenbg}>
               <Box>
                 <Box>
                   <FormControl
