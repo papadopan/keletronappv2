@@ -86,25 +86,25 @@ export const Booking = ({ route, navigation }: BookingProps) => {
                 <Text fontSize={'lg'} fontWeight={700}>
                   {booking.time}
                 </Text>
-                <Text fontSize={'sm'}>Booking Time</Text>
+                <Text fontSize={'sm'}>Ώρα </Text>
               </Flex>
               <Flex mb={5}>
                 <Text fontSize={'lg'} fontWeight={700}>
                   {date}
                 </Text>
                 <Text fontSize={'sm'} textAlign="right">
-                  Booking Date
+                  Ημερομηνία
                 </Text>
               </Flex>
             </Flex>
             <Text textAlign={'center'} fontSize="xl" mb={8} letterSpacing="xl">
-              Players
+              Αντίπαλοι
             </Text>
             <Box p={4} bg={bg} borderRadius={6}>
               {values.players.map((player, index) => (
                 <Flex key={index} mb={3}>
                   <FormControl mb={4}>
-                    <FormControl.Label>Player {index + 1}</FormControl.Label>
+                    <FormControl.Label>Παίκτης {index + 1}</FormControl.Label>
                     <Input
                       size={'xl'}
                       variant="underlined"
@@ -140,13 +140,13 @@ export const Booking = ({ route, navigation }: BookingProps) => {
                       ])
                     }
                   >
-                    add player
+                    νέος παίκτης
                   </Button>
                 </Box>
               )}
             </Box>
           </Box>
-          <Button onPress={() => handleSubmit()}>Book</Button>
+          <Button onPress={() => handleSubmit()}>Κράτηση</Button>
         </Flex>
       )}
     </Formik>

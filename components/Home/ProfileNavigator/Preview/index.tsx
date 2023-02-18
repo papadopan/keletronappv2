@@ -48,14 +48,14 @@ export const Preview = ({ route, navigation }) => {
             <Text fontSize={'lg'} fontWeight={700}>
               {item.time_slot}
             </Text>
-            <Text fontSize={'sm'}>Booking Time</Text>
+            <Text fontSize={'sm'}>Ώρα</Text>
           </Flex>
           <Flex mb={5}>
             <Text fontSize={'lg'} fontWeight={700}>
               {item.date_booking}
             </Text>
             <Text fontSize={'sm'} textAlign="right">
-              Booking Date
+              Ημερομηνία
             </Text>
           </Flex>
         </Flex>
@@ -77,7 +77,7 @@ export const Preview = ({ route, navigation }) => {
         onPress={() => mutate(item.id)}
         isLoading={isLoading}
       >
-        Delete
+        Διαγραφή
       </Button>
     </Flex>
   );
