@@ -18,7 +18,7 @@ export const Home = () => {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="home" color={color} size={size} />
-          ),
+          )
         }}
       />
       <Tab.Screen
@@ -28,7 +28,7 @@ export const Home = () => {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="calendar" color={color} size={size} />
-          ),
+          )
         }}
       />
       <Tab.Screen
@@ -38,7 +38,7 @@ export const Home = () => {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Icon name="user" color={color} size={size} />
-          ),
+          )
         }}
       />
     </Tab.Navigator>
