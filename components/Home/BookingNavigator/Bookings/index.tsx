@@ -161,9 +161,11 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                       })
                     }
                     isDisabled={
+                      new Date(`${currentDay}T${booking.time}Z`).getTime() <
+                        new Date().getTime() ||
                       AVAILABLE_COURTS_FOR_BOOKING -
                         booking.reservations.length ===
-                      0
+                        0
                     }
                   >
                     Booking
