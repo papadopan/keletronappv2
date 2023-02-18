@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 import {
+  Alert,
   Box,
   Button,
   Divider,
   Flex,
   Text,
+  Toast,
   useColorModeValue
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
@@ -21,6 +23,18 @@ export const Preview = ({ route, navigation }) => {
     if (isSuccess) {
       navigation.navigate('ProfilePage');
       queryClient.invalidateQueries({ queryKey: ['user'] });
+      Toast.show({
+        render: () => (
+          <Alert status={'success'}>
+            <Flex flexDirection={'row'} alignItems="center">
+              <Alert.Icon mr={3} />
+              <Box>
+                <Text>Η κράτηση σας διεγράφη επιτυχώς</Text>
+              </Box>
+            </Flex>
+          </Alert>
+        )
+      });
     }
   }, [isSuccess]);
   const bg = useColorModeValue('white', 'warmGray.700');
