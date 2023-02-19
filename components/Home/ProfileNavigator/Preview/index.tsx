@@ -13,8 +13,16 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { useDeleteBooking } from '../../../../hooks/useDeleteBooking';
 import { useQueryClient } from '@tanstack/react-query';
 
+type ItemProps = {
+  time_slot: string;
+  date_booking: string;
+  opponents: Array<string>;
+  id: number;
+  status?: boolean;
+};
+
 export const Preview = ({ route, navigation }) => {
-  const { item } = route.params;
+  const { item }: { item: ItemProps } = route.params;
 
   const { mutate, isLoading, isSuccess } = useDeleteBooking();
   const queryClient = useQueryClient();
