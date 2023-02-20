@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { useMutation } from '@tanstack/react-query';
 import request from 'graphql-request';
+import { useGetApi } from './useGetApi';
 
 type ForgotDetails = {
   email: string;
@@ -19,9 +20,10 @@ const mutation = gql`
 `;
 
 export const useUpdateForgottenPassword = () => {
+  const api = useGetApi();
   return useMutation({
     mutationFn: (details: ForgotDetails) =>
-      request(`${process.env.API_URL}/graphql`, mutation, {
+      request(`${api()}/graphql`, mutation, {
         details: details
       })
   });

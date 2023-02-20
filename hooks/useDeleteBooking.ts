@@ -1,3 +1,4 @@
+import { useGetApi } from './useGetApi';
 import { gql } from '@apollo/client';
 import { useMutation } from '@tanstack/react-query';
 import request from 'graphql-request';
@@ -15,9 +16,10 @@ const mutation = gql`
 `;
 
 export const useDeleteBooking = () => {
+  const api = useGetApi();
   return useMutation({
     mutationFn: (id: number) =>
-      request(`${process.env.API_URL}/graphql`, mutation, {
+      request(`${api()}/graphql`, mutation, {
         deleteBookingId: Number(id)
       })
   });

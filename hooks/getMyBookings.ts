@@ -2,6 +2,7 @@ import { gql } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery } from '@tanstack/react-query';
 import request from 'graphql-request';
+import { useGetApi } from './useGetApi';
 
 const query = gql`
   query Query($userId: String!) {
@@ -17,10 +18,12 @@ const query = gql`
   }
 `;
 
-export const useGetMyBookings = () =>
-  useQuery(['myBookings'], async () => {
+export const useGetMyBookings = () => {
+  const api = useGetApi();
+  return useQuery(['myBookings'], async () => {
     const id = await AsyncStorage.getItem('@userId');
-    return request(`${process.env.API_URL}/graphql`, query, {
+    return request(`${api()}/graphql`, query, {
       userId: id
     });
   });
+};

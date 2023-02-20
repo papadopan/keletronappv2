@@ -1,3 +1,4 @@
+import { useGetApi } from './useGetApi';
 import { gql } from '@apollo/client';
 import { useQuery } from '@tanstack/react-query';
 import request from 'graphql-request';
@@ -16,7 +17,7 @@ const query = gql`
   }
 `;
 
-export const useGetSchedule = () =>
-  useQuery(['schedule'], () =>
-    request(`${process.env.API_URL}/graphql`, query)
-  );
+export const useGetSchedule = () => {
+  const api = useGetApi();
+  return useQuery(['schedule'], () => request(`${api()}/graphql`, query));
+};

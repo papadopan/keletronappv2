@@ -1,3 +1,4 @@
+import { useGetApi } from './useGetApi';
 import { gql } from '@apollo/client';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useQuery } from '@tanstack/react-query';
@@ -22,10 +23,12 @@ const query = gql`
   }
 `;
 
-export const useGetInfo = () =>
-  useQuery(['user'], async () => {
+export const useGetInfo = () => {
+  const api = useGetApi();
+  return useQuery(['user'], async () => {
     const id = await AsyncStorage.getItem('@userId');
-    return request(`${process.env.API_URL}/graphql`, query, {
+    return request(`${api()}/graphql`, query, {
       userId: id
     });
   });
+};

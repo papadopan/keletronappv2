@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { useMutation } from '@tanstack/react-query';
 import request from 'graphql-request';
+import { useGetApi } from './useGetApi';
 
 const mutation = gql`
   mutation GetActivationCode($email: String!) {
@@ -11,9 +12,10 @@ const mutation = gql`
 `;
 
 export const useGetActivationCode = () => {
+  const api = useGetApi();
   return useMutation({
     mutationFn: (email: string) =>
-      request(`${process.env.API_URL}/graphql`, mutation, {
+      request(`${api()}/graphql`, mutation, {
         email
       })
   });

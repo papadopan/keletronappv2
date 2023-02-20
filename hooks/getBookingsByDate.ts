@@ -1,3 +1,4 @@
+import { useGetApi } from './useGetApi';
 import { gql } from '@apollo/client';
 import { useQuery } from '@tanstack/react-query';
 import request from 'graphql-request';
@@ -16,9 +17,11 @@ const query = gql`
   }
 `;
 
-export const useGetBookingsByDate = (newDate: string) =>
-  useQuery(['bookings', newDate], () =>
-    request(`${process.env.API_URL}/graphql`, query, {
+export const useGetBookingsByDate = (newDate: string) => {
+  const api = useGetApi();
+  return useQuery(['bookings', newDate], () =>
+    request(`${api()}/graphql`, query, {
       date: newDate
     })
   );
+};
