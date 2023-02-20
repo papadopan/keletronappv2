@@ -28,8 +28,8 @@ const mutation = gql`
 export const useAddBooking = () => {
   return useMutation({
     mutationFn: (values: Details) =>
-      request('http://localhost:4000/graphql', mutation, {
-        details: values,
-      }),
+      request(`${process.env.API_URL}/graphql`, mutation, {
+        details: values
+      })
   });
 };

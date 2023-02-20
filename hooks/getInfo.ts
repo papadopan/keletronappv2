@@ -25,5 +25,7 @@ const query = gql`
 export const useGetInfo = () =>
   useQuery(['user'], async () => {
     const id = await AsyncStorage.getItem('@userId');
-    return request('http://localhost:4000/graphql', query, { userId: id });
+    return request(`${process.env.API_URL}/graphql`, query, {
+      userId: id
+    });
   });

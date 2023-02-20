@@ -18,7 +18,7 @@ const query = gql`
 
 export const useGetBookingsByDate = (newDate: string) =>
   useQuery(['bookings', newDate], () =>
-    request('http://localhost:4000/graphql', query, {
-      date: newDate,
+    request(`${process.env.API_URL}/graphql`, query, {
+      date: newDate
     })
   );

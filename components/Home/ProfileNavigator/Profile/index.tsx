@@ -33,14 +33,14 @@ export const Profile = ({ navigation }) => {
       </Box>
     );
 
-  if (isError)
+  const user = data.getInfo;
+  if (isError || !user)
     return (
       <Box flex={1} alignItems="center" justifyContent={'center'}>
         Error while fetching
       </Box>
     );
 
-  const user = data.getInfo;
   const { colorMode, toggleColorMode } = useColorMode();
   const bg = useColorModeValue('white', 'warmGray.700');
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');

@@ -15,8 +15,8 @@ const mutation = gql`
 export const useActivateAccount = () => {
   return useMutation({
     mutationFn: (values: { email: string; code: string }) =>
-      request('http://localhost:4000/graphql', mutation, {
-        ...values,
-      }),
+      request(`${process.env.API_URL}/graphql`, mutation, {
+        ...values
+      })
   });
 };

@@ -21,8 +21,8 @@ const mutation = gql`
 export const useUpdateForgottenPassword = () => {
   return useMutation({
     mutationFn: (details: ForgotDetails) =>
-      request('http://localhost:4000/graphql', mutation, {
-        details: details,
-      }),
+      request(`${process.env.API_URL}/graphql`, mutation, {
+        details: details
+      })
   });
 };

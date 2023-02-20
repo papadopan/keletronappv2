@@ -23,8 +23,8 @@ const mutation = gql`
 export const useSignUp = () => {
   return useMutation({
     mutationFn: (values: Credentials) =>
-      request('http://localhost:4000/graphql', mutation, {
-        credentials: values,
-      }),
+      request(`${process.env.API_URL}/graphql`, mutation, {
+        credentials: values
+      })
   });
 };

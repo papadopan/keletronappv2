@@ -17,4 +17,6 @@ const query = gql`
 `;
 
 export const useGetSchedule = () =>
-  useQuery(['schedule'], () => request('http://localhost:4000/graphql', query));
+  useQuery(['schedule'], () =>
+    request(`${process.env.API_URL}/graphql`, query)
+  );

@@ -31,12 +31,12 @@ const storeData = async (value: string) => {
 export const useLogIn = () => {
   return useMutation({
     mutationFn: (values: Credentials) =>
-      request('http://localhost:4000/graphql', mutation, {
-        credentials: values,
+      request(`${process.env.API_URL}/graphql`, mutation, {
+        credentials: values
       }),
     onSuccess: data => {
       const { login } = data;
       storeData(login.id);
-    },
+    }
   });
 };

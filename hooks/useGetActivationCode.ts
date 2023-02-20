@@ -13,7 +13,7 @@ const mutation = gql`
 export const useGetActivationCode = () => {
   return useMutation({
     mutationFn: (email: string) =>
-      request('http://localhost:4000/graphql', mutation, {
+      request(`${process.env.API_URL}/graphql`, mutation, {
         email
       })
   });

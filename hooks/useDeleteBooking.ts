@@ -17,8 +17,8 @@ const mutation = gql`
 export const useDeleteBooking = () => {
   return useMutation({
     mutationFn: (id: number) =>
-      request('http://localhost:4000/graphql', mutation, {
-        deleteBookingId: Number(id),
-      }),
+      request(`${process.env.API_URL}/graphql`, mutation, {
+        deleteBookingId: Number(id)
+      })
   });
 };

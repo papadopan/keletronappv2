@@ -14,8 +14,8 @@ const mutation = gql`
 export const useAddForgotPassword = () => {
   return useMutation({
     mutationFn: (email: string) =>
-      request('http://localhost:4000/graphql', mutation, {
-        email: email,
-      }),
+      request(`${process.env.API_URL}/graphql`, mutation, {
+        email: email
+      })
   });
 };
