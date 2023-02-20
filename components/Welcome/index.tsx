@@ -9,7 +9,6 @@ import {
   useColorModeValue
 } from 'native-base';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useGetApi } from '../../hooks/useGetApi';
 
 export const Welcome = ({ navigation }) => {
   const checkIfUserExists = async () => {
@@ -29,7 +28,6 @@ export const Welcome = ({ navigation }) => {
   }, []);
 
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
-  const api = useGetApi();
 
   return (
     <Flex flex={1} justifyContent="space-between" padding={10} bg={screenbg}>
@@ -44,7 +42,6 @@ export const Welcome = ({ navigation }) => {
           mb="10"
         />
         <Text fontSize={'xl'}>Keletron Tennis Academy</Text>
-        <Text fontSize={'xl'}>{api()}</Text>
       </Center>
       <VStack space={5} mt={10}>
         <Button size={'lg'} onPress={() => navigation.navigate('SignUp')}>
