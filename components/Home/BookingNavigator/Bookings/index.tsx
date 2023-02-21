@@ -149,27 +149,33 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                   >
                     {booking.time}
                   </Text>
-                  <Text m={2}>
-                    {AVAILABLE_COURTS_FOR_BOOKING - booking.reservations.length}{' '}
-                    γηπεδα διαθεσιμα
-                  </Text>
-                  <Button
-                    onPress={() =>
-                      navigation.navigate('Booking', {
-                        booking: booking,
-                        date: currentDay
-                      })
-                    }
-                    isDisabled={
-                      new Date(`${currentDay}T${booking.time}Z`).getTime() <
-                        new Date().getTime() ||
-                      AVAILABLE_COURTS_FOR_BOOKING -
-                        booking.reservations.length ===
-                        0
-                    }
-                  >
-                    Booking
-                  </Button>
+                  {new Date(`${currentDay}T${booking.time}Z`).getTime() <
+                  new Date().getTime() ? (
+                    <Text m={2}>Η συγκεκριμενη ώρα δεν είναι διαθέσιμη</Text>
+                  ) : (
+                    <>
+                      <Text m={2}>
+                        {AVAILABLE_COURTS_FOR_BOOKING -
+                          booking.reservations.length}{' '}
+                        γηπεδα διαθεσιμα
+                      </Text>
+                      <Button
+                        onPress={() =>
+                          navigation.navigate('Booking', {
+                            booking: booking,
+                            date: currentDay
+                          })
+                        }
+                        isDisabled={
+                          AVAILABLE_COURTS_FOR_BOOKING -
+                            booking.reservations.length ===
+                          0
+                        }
+                      >
+                        Booking
+                      </Button>
+                    </>
+                  )}
                 </Box>
               ))}
             </ScrollView>
