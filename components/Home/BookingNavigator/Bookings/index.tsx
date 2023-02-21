@@ -14,6 +14,7 @@ import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
 import { useGetSchedule } from '../../../../hooks/getSchedule';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useIsFocused } from '@react-navigation/native';
+import { getDayFromNumber } from '../helpers';
 
 const AVAILABLE_COURTS_FOR_BOOKING = 2;
 
@@ -30,6 +31,7 @@ type Bookings = {
 type DAILY_SCHEDULE = {
   time: string;
   reservations: Bookings[];
+  isKeletron?: boolean;
 };
 
 export const Bookings = ({ navigation }: BookingsScreenProps) => {
@@ -58,7 +60,11 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
     useState<DAILY_SCHEDULE[]>(bookings);
   const isFocused = useIsFocused();
 
-  const { data, isFetched, isLoading } = useGetBookingsByDate(currentDay);
+  const {
+    data: bookingsOfToday,
+    isFetched: isBookingsOfTodayFetched,
+    isLoading: isBookingsOfTodayLoading
+  } = useGetBookingsByDate(currentDay);
   const {
     data: scheduleData,
     isLoading: isScheduleLoading,
@@ -77,16 +83,17 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   };
 
   useEffect(() => {
-    if (isFetched && isScheduleFetched && isFocused) {
-      const schedule = JSON.parse(scheduleData?.getSchedule.monday);
-      updateBookingsinAgenda(data.getBookingsByDate, schedule);
+    if (isBookingsOfTodayFetched && isScheduleFetched && isFocused) {
+      const todayIs = getDayFromNumber(new Date(currentDay).getDay());
+      const schedule = JSON.parse(scheduleData?.getSchedule[todayIs]);
+      updateBookingsinAgenda(bookingsOfToday.getBookingsByDate, schedule);
     }
-  }, [isFetched, isScheduleFetched, currentDay, isFocused]);
+  }, [isBookingsOfTodayFetched, isScheduleFetched, currentDay, isFocused]);
 
   const bg = useColorModeValue('white', 'warmGray.700');
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
-
-  if (isLoading || isScheduleLoading) {
+  const text = useColorModeValue('darkText', 'lightText');
+  if (isBookingsOfTodayLoading || isScheduleLoading) {
     return (
       <Box
         padding={2}
@@ -149,8 +156,14 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                   >
                     {booking.time}
                   </Text>
-                  {new Date(`${currentDay}T${booking.time}Z`).getTime() <
-                  new Date().getTime() ? (
+                  {booking.isKeletron ? (
+                    <Box>
+                      <Text mt={2} textAlign="center" color={text}>
+                        Προπονήσεις Κέλετρον
+                      </Text>
+                    </Box>
+                  ) : new Date(`${currentDay}T${booking.time}Z`).getTime() <
+                    new Date().getTime() ? (
                     <Text m={2}>Η συγκεκριμενη ώρα δεν είναι διαθέσιμη</Text>
                   ) : (
                     <>
