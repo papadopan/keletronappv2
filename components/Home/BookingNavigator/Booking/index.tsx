@@ -14,6 +14,7 @@ import { BookingProps } from '../../../../types/navigation';
 import { useAddBooking } from '../../../../hooks/addBooking';
 import { useQueryClient } from '@tanstack/react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { StackActions } from '@react-navigation/native';
 
 export const Booking = ({ route, navigation }: BookingProps) => {
   const formikRef = useRef(null);
@@ -40,6 +41,9 @@ export const Booking = ({ route, navigation }: BookingProps) => {
       queryClient.invalidateQueries({
         queryKey: ['bookings']
       });
+      // remove the screen from stack, so the back button will end up
+      // in bookings screen
+      navigation.dispatch(StackActions.replace('BookingsScreen'));
       navigation.navigate('Preview', {
         item: data.addBooking
       });
