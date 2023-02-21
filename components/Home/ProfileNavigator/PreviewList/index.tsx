@@ -68,8 +68,8 @@ export const PreviewList = ({ navigation, route }: PreviewListProps) => {
       <FlatList
         data={
           validBookings
-            ? bookings.sort(sortTime)
-            : bookings.sort(sortTime).filter(v => !isActiveBooking(v))
+            ? bookings.sort(sortTime).filter(v => isActiveBooking(v))
+            : bookings.sort(sortTime)
         }
         renderItem={({ item, index }: { item: BookingType; index: number }) => (
           <Pressable
