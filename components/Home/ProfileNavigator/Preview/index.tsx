@@ -30,7 +30,17 @@ export const Preview = ({ route, navigation }) => {
   useEffect(() => {
     if (isSuccess) {
       navigation.navigate('ProfilePage');
-      queryClient.invalidateQueries({ queryKey: ['user'] });
+
+      queryClient.invalidateQueries({
+        queryKey: ['user']
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['bookings']
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['myBookings']
+      });
+
       Toast.show({
         render: () => (
           <Alert status={'success'}>

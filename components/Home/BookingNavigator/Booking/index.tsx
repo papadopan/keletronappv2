@@ -38,7 +38,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
         queryKey: ['user']
       });
       queryClient.invalidateQueries({
-        queryKey: ['bookings', data.addBooking.date_booking]
+        queryKey: ['bookings']
       });
       navigation.navigate('Preview', {
         item: data.addBooking
