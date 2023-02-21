@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Badge,
   Box,
+  Divider,
   FlatList,
   Flex,
+  Switch,
   Text,
   useColorModeValue
 } from 'native-base';
@@ -41,10 +43,34 @@ export const PreviewList = ({ navigation, route }: PreviewListProps) => {
   const circlebg = useColorModeValue('yellow.100', 'yellow.600');
   const iconbg = useColorModeValue('black', 'white');
 
+  const [validBookings, setValidBookings] = useState(true);
+
   return (
     <Box p={5} flex={1} bg={screenbg}>
+      <Flex
+        mb={1}
+        bg={bg}
+        p={2}
+        borderRadius={4}
+        justifyContent="space-between"
+        alignItems={'center'}
+        direction="row"
+      >
+        <Text>Ενεργές κρατήσεις</Text>
+        <Switch
+          size="sm"
+          isChecked={validBookings}
+          onToggle={setValidBookings}
+        />
+      </Flex>
+      <Divider my={2} />
+
       <FlatList
-        data={bookings.sort(sortTime)}
+        data={
+          validBookings
+            ? bookings.sort(sortTime)
+            : bookings.sort(sortTime).filter(v => !isActiveBooking(v))
+        }
         renderItem={({ item, index }: { item: BookingType; index: number }) => (
           <Pressable
             onPress={() =>
