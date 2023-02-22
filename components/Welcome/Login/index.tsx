@@ -15,7 +15,7 @@ import {
 } from 'native-base';
 import { Formik } from 'formik';
 import { LoginSchema } from '../../../schema/login';
-import { useLogIn } from '../../../hooks/useLogIn';
+import { useLogIn } from 'hooks';
 import { useEffect } from 'react';
 
 export const Login = ({ navigation }) => {

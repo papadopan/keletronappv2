@@ -6,6 +6,10 @@
 
     /* Completeness */
     "skipLibCheck": true,                                 /* Skip type checking all .d.ts files. */
-    "typeRoots": ["node"]
+    "typeRoots": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "hooks": ["hooks/index.ts"],
+    }
   }
 }

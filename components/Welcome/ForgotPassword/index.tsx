@@ -16,8 +16,7 @@ import {
   ForgotPasswordSchema,
   ForgotWithCodeSchema
 } from '../../../schema/forgotPassword';
-import { useAddForgotPassword } from '../../../hooks/useAddForgotPassword';
-import { useUpdateForgottenPassword } from '../../../hooks/useUpdateForgottenPassword';
+import { useAddForgotPassword, useUpdateForgottenPassword } from 'hooks';
 
 export const ForgotPassword = ({ navigation }) => {
   const { mutate, isSuccess, data } = useAddForgotPassword();

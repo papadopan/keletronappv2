@@ -10,7 +10,7 @@ import {
   useColorModeValue
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { useDeleteBooking } from '../../../../hooks/useDeleteBooking';
+import { useDeleteBooking } from 'hooks';
 import { useQueryClient } from '@tanstack/react-query';
 
 type ItemProps = {

@@ -13,7 +13,7 @@ import {
   useColorModeValue
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { useGetInfo } from '../../../../hooks/getInfo';
+import { useGetInfo } from 'hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Profile = ({ navigation }) => {

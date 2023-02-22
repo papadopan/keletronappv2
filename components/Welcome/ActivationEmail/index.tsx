@@ -13,8 +13,7 @@ import {
   WarningOutlineIcon
 } from 'native-base';
 import { ActivationSchema, GetCodeSchema } from '../../../schema/activation';
-import { useGetActivationCode } from '../../../hooks/useGetActivationCode';
-import { useActivateAccount } from '../../../hooks/useActivateAccount';
+import { useActivateAccount, useGetActivationCode } from 'hooks';
 
 export const ActivationEmail = ({ navigation }) => {
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');

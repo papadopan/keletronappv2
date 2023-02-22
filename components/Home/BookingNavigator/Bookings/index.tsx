@@ -10,8 +10,7 @@ import {
   useColorModeValue
 } from 'native-base';
 import { BookingsScreenProps } from '../../../../types/navigation';
-import { useGetBookingsByDate } from '../../../../hooks/getBookingsByDate';
-import { useGetSchedule } from '../../../../hooks/getSchedule';
+import { useGetSchedule, useGetBookingsByDate } from 'hooks';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useIsFocused } from '@react-navigation/native';
 import { getDayFromNumber } from '../helpers';

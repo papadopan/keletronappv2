@@ -10,8 +10,7 @@ import {
 } from 'native-base';
 import Emoji from 'react-native-emoji';
 import { MainScreenBookings } from '../../fragmenrs/MainScreenBookings';
-import { useGetMyBookings } from '../../../hooks/getMyBookings';
-import { useGetInfo } from '../../../hooks/getInfo';
+import { useGetInfo, useGetMyBookings } from 'hooks';
 
 export const HomeScreen = ({ navigation }) => {
   const { data, isLoading } = useGetMyBookings();

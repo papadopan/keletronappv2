@@ -15,9 +15,9 @@ import {
   KeyboardAvoidingView
 } from 'native-base';
 import { Formik } from 'formik';
-import { useSignUp } from '../../../hooks/useSignUp';
+
 import { SignupSchema } from '../../../schema/signup';
-import { useActivateAccount } from '../../../hooks/useActivateAccount';
+import { useActivateAccount, useSignUp } from 'hooks';
 
 export const SignUp = ({ navigation }) => {
   const { mutate, isLoading, error, data, isSuccess, isError } = useSignUp();
