@@ -66,11 +66,11 @@ export const PreviewList = ({ navigation, route }: PreviewListProps) => {
       <Divider my={2} />
 
       <FlatList
-        data={
-          validBookings
-            ? bookings.sort(sortTime).filter(v => isActiveBooking(v))
-            : bookings.sort(sortTime)
-        }
+        data={bookings
+          .sort(sortTime)
+          .filter(v =>
+            validBookings ? isActiveBooking(v) : !isActiveBooking(v)
+          )}
         renderItem={({ item, index }: { item: BookingType; index: number }) => (
           <Pressable
             onPress={() =>
