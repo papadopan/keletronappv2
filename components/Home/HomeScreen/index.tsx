@@ -36,13 +36,13 @@ export const HomeScreen = ({ navigation }) => {
             alignItems={'center'}
             borderRadius={4}
           >
-            <Text color={text}>My Bookings</Text>
+            <Text color={text}>Οι Κρατήσεις μου</Text>
             <Button
               onPress={() => navigation.navigate('Bookings')}
               isLoading={isLoading}
               size="sm"
             >
-              Add
+              νέα κράτηση
             </Button>
           </Flex>
           <Divider mt={3} />

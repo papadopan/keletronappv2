@@ -185,7 +185,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                           0
                         }
                       >
-                        Booking
+                        Κράτηση
                       </Button>
                     </>
                   )}
