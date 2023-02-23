@@ -18,6 +18,13 @@ import { AppNavigator } from './types/navigation';
 import { useColorModeValue } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 
+import * as Sentry from '@sentry/react-native';
+
+Sentry.init({
+  dsn: 'https://321e1c02f53e4b93877f2fd9faca2685@o4504728769921024.ingest.sentry.io/4504729015615488',
+  enableNative: false
+});
+
 const Stack = createNativeStackNavigator<AppNavigator>();
 
 const App = ({ navigation }) => {
@@ -54,4 +61,4 @@ const App = ({ navigation }) => {
   );
 };
 
-export default App;
+export default Sentry.wrap(App);
