@@ -62,7 +62,9 @@ export const Booking = ({ route, navigation }: BookingProps) => {
       time_slot: booking.time,
       date_booking: date,
       userId: Number(userId),
-      opponents: v.players.map((player: { name: string }) => player.name),
+      opponents: v.players.map((player: { name: string }) =>
+        player.name.trim()
+      ),
       num_players: v.players.length + 1,
       court: 'court1'
     });

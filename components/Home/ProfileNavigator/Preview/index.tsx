@@ -80,15 +80,19 @@ export const Preview = ({ route, navigation }) => {
           </Flex>
         </Flex>
         <Box p={4} bg={bg} borderRadius={6}>
-          {item.opponents.map((user, index) => (
-            <Flex mb={2} p={2} key={user + index}>
-              <Flex flexDirection={'row'} alignItems="center">
-                <Icon name="user" color={iconbg} />
-                <Text ml={4}>{user}</Text>
-              </Flex>
-              <Divider mt={2} />
-            </Flex>
-          ))}
+          {item.opponents.filter(Boolean).length > 0 &&
+            item.opponents.map(
+              (user, index) =>
+                user.length > 0 && (
+                  <Flex mb={2} p={2} key={user + index}>
+                    <Flex flexDirection={'row'} alignItems="center">
+                      <Icon name="user" color={iconbg} />
+                      <Text ml={4}>{user}</Text>
+                    </Flex>
+                    <Divider mt={2} />
+                  </Flex>
+                )
+            )}
           <Center>
             <Image
               source={require('assets/success.png')}
