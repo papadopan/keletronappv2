@@ -3,6 +3,7 @@ import {
   Alert,
   Box,
   Button,
+  Center,
   Divider,
   Flex,
   Text,
@@ -12,6 +13,7 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useDeleteBooking } from 'hooks';
 import { useQueryClient } from '@tanstack/react-query';
+import { Image } from 'react-native';
 
 type ItemProps = {
   time_slot: string;
@@ -87,6 +89,13 @@ export const Preview = ({ route, navigation }) => {
               <Divider mt={2} />
             </Flex>
           ))}
+          <Center>
+            <Image
+              source={require('assets/success.png')}
+              style={{ width: 150, height: 150 }}
+            />
+            <Text>Καλή διασκέδαση</Text>
+          </Center>
         </Box>
       </Box>
       <Button
