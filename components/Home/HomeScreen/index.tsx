@@ -11,8 +11,9 @@ import {
 import Emoji from 'react-native-emoji';
 import { MainScreenBookings } from '../../fragmenrs/MainScreenBookings';
 import { useGetInfo, useGetMyBookings } from 'hooks';
+import { HomeScreenProps } from 'types/navigation';
 
-export const HomeScreen = ({ navigation }) => {
+export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { data, isLoading } = useGetMyBookings();
   const { data: user, isSuccess: isUserFetched } = useGetInfo();
   const bg = useColorModeValue('warmGray.200', 'trueGray.800');
