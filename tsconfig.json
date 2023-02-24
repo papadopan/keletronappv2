@@ -11,6 +11,7 @@
     "paths": {
       "hooks": ["hooks/index.ts"],
       "assets": ["assets"],
+      "types":["types"]
     }
   }
 }

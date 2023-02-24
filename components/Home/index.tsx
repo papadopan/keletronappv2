@@ -4,7 +4,7 @@ import { BookingNavigator } from './BookingNavigator';
 import { ProfileNavigator } from './ProfileNavigator';
 import { HomeScreen } from './HomeScreen';
 import Icon from 'react-native-vector-icons/AntDesign';
-import type { RootHomeParamList } from '../../types/navigation';
+import type { RootHomeParamList } from 'types/navigation';
 
 const Tab = createBottomTabNavigator<RootHomeParamList>();
 

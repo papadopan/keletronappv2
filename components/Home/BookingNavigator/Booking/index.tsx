@@ -10,7 +10,7 @@ import {
 } from 'native-base';
 import { Formik } from 'formik';
 import Icon from 'react-native-vector-icons/AntDesign';
-import { BookingProps } from '../../../../types/navigation';
+import { BookingProps } from 'types/navigation';
 import { useAddBooking } from 'hooks';
 import { useQueryClient } from '@tanstack/react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';

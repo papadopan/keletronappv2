@@ -8,7 +8,8 @@ module.exports = function (api) {
         {
           alias: {
             hooks: './hooks/index.ts',
-            assets: './assets'
+            assets: './assets',
+            types: './types'
           }
         }
       ]

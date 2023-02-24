@@ -45,3 +45,5 @@ export type BookingsScreenProps = NativeStackScreenProps<
   BookingParamList,
   'BookingsScreen'
 >;
+
+export type HomeScreenProps = NativeStackScreenProps<RootHomeParamList, 'Home'>;

@@ -9,7 +9,7 @@ import {
   Text,
   useColorModeValue
 } from 'native-base';
-import { BookingsScreenProps } from '../../../../types/navigation';
+import { BookingsScreenProps } from 'types/navigation';
 import { useGetSchedule, useGetBookingsByDate } from 'hooks';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useIsFocused } from '@react-navigation/native';

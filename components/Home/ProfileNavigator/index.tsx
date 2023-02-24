@@ -2,7 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Profile } from './Profile';
 
-import { ProfilePage } from '../../../types/navigation';
+import { ProfilePage } from 'types/navigation';
 import { Preview } from './Preview';
 import { PreviewList } from './PreviewList';
 

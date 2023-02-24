@@ -13,7 +13,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { Pressable } from 'react-native';
 import { MyDate } from '../../../fragmenrs/Date';
 import type { BookingType } from '../../../../types/bookings';
-import type { PreviewListProps } from '../../../../types/navigation';
+import type { PreviewListProps } from 'types/navigation';
 
 export const PreviewList = ({ navigation, route }: PreviewListProps) => {
   const { bookings } = route.params;
