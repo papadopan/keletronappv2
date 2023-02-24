@@ -8,6 +8,7 @@ import { name as appName } from './app.json';
 import { NativeBaseProvider } from 'native-base';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
+import './i18n';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 // Create a client
