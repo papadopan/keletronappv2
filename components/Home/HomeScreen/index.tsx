@@ -26,8 +26,7 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
     <Flex padding="5" bg={bg} flex={1}>
       <Flex flexDirection={'row'} alignItems="center" mb={50}>
         <Text fontSize={'2xl'} mr="3" color={text}>
-          {t('hey')}
-          {isUserFetched ? user.getInfo?.first_name : ''}
+          {t('hey')} {isUserFetched ? user.getInfo?.first_name : ''}
         </Text>
         <Emoji name="smiley" style={{ fontSize: 30 }} />
       </Flex>
