@@ -15,6 +15,7 @@ import {
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useGetInfo } from 'hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTranslation } from 'react-i18next';
 
 export const Profile = ({ navigation }) => {
   const { data, isLoading, isError } = useGetInfo();
@@ -46,6 +47,7 @@ export const Profile = ({ navigation }) => {
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
   const circlebg = useColorModeValue('yellow.100', 'yellow.600');
   const iconbg = useColorModeValue('black', 'white');
+  const { t } = useTranslation();
 
   return (
     <Flex
@@ -81,7 +83,7 @@ export const Profile = ({ navigation }) => {
           borderRadius="6"
           bg={bg}
         >
-          <Text>Language</Text>
+          <Text>{t('language')}</Text>
           <Flex flexDirection={'row'}>
             <Text mr="3">Greek</Text>
             <Icon name="right" size={20} color={iconbg} />
@@ -95,7 +97,7 @@ export const Profile = ({ navigation }) => {
           padding="5"
           borderRadius="6"
         >
-          <Text>Theme</Text>
+          <Text>{t('theme')}</Text>
           <Flex flexDirection={'row'} alignItems="center">
             <Text mr="3">{colorMode === 'light' ? 'Light' : 'Dark'}</Text>
             <Switch
@@ -120,7 +122,7 @@ export const Profile = ({ navigation }) => {
             bg={bg}
             borderRadius="6"
           >
-            <Text>My Bookings</Text>
+            <Text>{t('My Bookings')}</Text>
             <Flex flexDirection={'row'}>
               <Text mr="3">{user.bookings.length}</Text>
               <Icon name="right" size={20} color={iconbg} />
