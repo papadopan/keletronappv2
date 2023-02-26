@@ -28,7 +28,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
   });
 
   const { booking, date } = route.params;
-  const { mutate, isSuccess, isError, data } = useAddBooking();
+  const { mutate, isSuccess, isError, data, isLoading } = useAddBooking();
 
   useEffect(() => {
     if (isSuccess && data) {
@@ -152,7 +152,9 @@ export const Booking = ({ route, navigation }: BookingProps) => {
               )}
             </Box>
           </Box>
-          <Button onPress={() => handleSubmit()}>Κράτηση</Button>
+          <Button onPress={() => handleSubmit()} isLoading={isLoading}>
+            Κράτηση
+          </Button>
         </Flex>
       )}
     </Formik>
