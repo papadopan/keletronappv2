@@ -8,17 +8,18 @@
  * @format
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
 
 import { Auth } from './components/Auth';
 import { WelcomeNavigator } from './components/Welcome/WelcomeNAvigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppNavigator } from 'types/navigation';
-import { useColorModeValue } from 'native-base';
+import { Flex, Spinner, useColorModeValue } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
 
 import * as Sentry from '@sentry/react-native';
+import { useGetInfo } from 'hooks';
 
 Sentry.init({
   dsn: 'https://321e1c02f53e4b93877f2fd9faca2685@o4504728769921024.ingest.sentry.io/4504729015615488',
@@ -35,8 +36,15 @@ const App = ({ navigation }) => {
     backgroundColor: isDarkMode ? '#262626' : 'white',
     flex: 1
   };
+  const { isSuccess, isLoading } = useGetInfo();
 
-  return (
+  return isLoading ? (
+    <SafeAreaView style={{ flex: 1 }}>
+      <Flex justifyContent={'center'} alignItems="center" flex={1}>
+        <Spinner size={'lg'} />
+      </Flex>
+    </SafeAreaView>
+  ) : (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
       <NavigationContainer
@@ -52,9 +60,12 @@ const App = ({ navigation }) => {
           }
         }}
       >
-        <Stack.Navigator screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="WelcomeNavigator" component={WelcomeNavigator} />
+        <Stack.Navigator
+          screenOptions={{ headerShown: false }}
+          initialRouteName={isSuccess ? 'Auth' : 'WelcomeNavigator'}
+        >
           <Stack.Screen name="Auth" component={Auth} />
+          <Stack.Screen name="WelcomeNavigator" component={WelcomeNavigator} />
         </Stack.Navigator>
       </NavigationContainer>
     </SafeAreaView>

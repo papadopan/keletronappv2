@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import {
   Button,
   Center,
@@ -8,25 +8,8 @@ import {
   Image,
   useColorModeValue
 } from 'native-base';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const Welcome = ({ navigation }) => {
-  const checkIfUserExists = async () => {
-    try {
-      const value = await AsyncStorage.getItem('@userId');
-      // it means that the user is already logged inf
-      if (value) {
-        navigation.navigate('Auth');
-      }
-    } catch (e) {
-      // error reading value
-    }
-  };
-
-  useEffect(() => {
-    checkIfUserExists();
-  }, []);
-
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
 
   return (
