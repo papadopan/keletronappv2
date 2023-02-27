@@ -16,6 +16,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { useGetInfo } from 'hooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTranslation } from 'react-i18next';
+import i18n from '../../../../i18n';
 
 export const Profile = ({ navigation }) => {
   const { data, isLoading, isError } = useGetInfo();
@@ -75,20 +76,24 @@ export const Profile = ({ navigation }) => {
         </Text>
       </Center>
       <Stack space={4}>
-        <Flex
-          flexDirection="row"
-          justifyContent="space-between"
-          backgroundColor="white"
-          padding="5"
-          borderRadius="6"
-          bg={bg}
-        >
-          <Text>{t('language')}</Text>
-          <Flex flexDirection={'row'}>
-            <Text mr="3">Greek</Text>
-            <Icon name="right" size={20} color={iconbg} />
+        <Pressable onPress={() => navigation.navigate('Language')}>
+          <Flex
+            flexDirection="row"
+            justifyContent="space-between"
+            backgroundColor="white"
+            padding="5"
+            borderRadius="6"
+            bg={bg}
+          >
+            <Text>{t('language')}</Text>
+            <Flex flexDirection={'row'}>
+              <Text mr="3">
+                {i18n.language === 'en' ? 'English' : 'Ελληνικά'}
+              </Text>
+              <Icon name="right" size={20} color={iconbg} />
+            </Flex>
           </Flex>
-        </Flex>
+        </Pressable>
         <Flex
           flexDirection="row"
           justifyContent="space-between"

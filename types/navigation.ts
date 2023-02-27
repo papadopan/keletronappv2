@@ -32,6 +32,7 @@ export type BookingParamList = {
 
 export type ProfilePage = {
   ProfilePage: undefined;
+  Language: undefined;
   Preview: { item: BookingType };
   PreviewList: { bookings: BookingType[] };
 };

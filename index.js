@@ -7,9 +7,9 @@ import App from './App';
 import { name as appName } from './app.json';
 import { NativeBaseProvider } from 'native-base';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import React from 'react';
-import './i18n';
+import React, { useEffect } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import i18n from './i18n';
 
 // Create a client
 const queryClient = new QueryClient();
@@ -33,6 +33,18 @@ const colorModeManager = {
 };
 
 const Root = () => {
+  const setLanguage = async () => {
+    try {
+      const lang = await AsyncStorage.getItem('@lang');
+      i18n.changeLanguage(lang);
+    } catch (e) {
+      i18n.changeLanguage('el');
+    }
+  };
+  useEffect(() => {
+    setLanguage();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <NativeBaseProvider colorModeManager={colorModeManager}>

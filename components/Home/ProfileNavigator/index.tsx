@@ -5,6 +5,7 @@ import { Profile } from './Profile';
 import { ProfilePage } from 'types/navigation';
 import { Preview } from './Preview';
 import { PreviewList } from './PreviewList';
+import { Language } from './Language';
 
 const Stack = createNativeStackNavigator<ProfilePage>();
 
@@ -21,6 +22,11 @@ export const ProfileNavigator = () => {
         name="PreviewList"
         component={PreviewList}
         options={{ title: 'My Bookings' }}
+      />
+      <Stack.Screen
+        name="Language"
+        component={Language}
+        options={{ title: 'Language Options' }}
       />
     </Stack.Navigator>
   );
