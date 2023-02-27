@@ -14,6 +14,7 @@ import { useGetSchedule, useGetBookingsByDate } from 'hooks';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useIsFocused } from '@react-navigation/native';
 import { getDayFromNumber } from '../helpers';
+import { useTranslation } from 'react-i18next';
 
 const AVAILABLE_COURTS_FOR_BOOKING = 2;
 
@@ -92,6 +93,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
   const bg = useColorModeValue('white', 'warmGray.700');
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
   const text = useColorModeValue('darkText', 'lightText');
+  const { t } = useTranslation();
   if (isBookingsOfTodayLoading || isScheduleLoading) {
     return (
       <Box
@@ -158,18 +160,18 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                   {booking.isKeletron ? (
                     <Box>
                       <Text mt={2} textAlign="center" color={text}>
-                        Προπονήσεις Κέλετρον
+                        {t('keletron sessions')}
                       </Text>
                     </Box>
                   ) : new Date(`${currentDay}T${booking.time}Z`).getTime() <
                     new Date().getTime() ? (
-                    <Text m={2}>Η συγκεκριμενη ώρα δεν είναι διαθέσιμη</Text>
+                    <Text m={2}>{t('not available slot')}</Text>
                   ) : (
                     <>
                       <Text m={2}>
                         {AVAILABLE_COURTS_FOR_BOOKING -
                           booking.reservations.length}{' '}
-                        γηπεδα διαθεσιμα
+                        {t('available courts')}
                       </Text>
                       <Button
                         onPress={() =>
@@ -184,7 +186,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                           0
                         }
                       >
-                        Κράτηση
+                        {t('book')}
                       </Button>
                     </>
                   )}

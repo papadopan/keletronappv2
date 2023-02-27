@@ -15,6 +15,7 @@ import { useAddBooking } from 'hooks';
 import { useQueryClient } from '@tanstack/react-query';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StackActions } from '@react-navigation/native';
+import { useTranslation } from 'react-i18next';
 
 export const Booking = ({ route, navigation }: BookingProps) => {
   const formikRef = useRef(null);
@@ -26,7 +27,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
   const addNewUser = () => ({
     name: ''
   });
-
+  const { t } = useTranslation();
   const { booking, date } = route.params;
   const { mutate, isSuccess, isError, data, isLoading } = useAddBooking();
 
@@ -92,25 +93,27 @@ export const Booking = ({ route, navigation }: BookingProps) => {
                 <Text fontSize={'lg'} fontWeight={700}>
                   {booking.time}
                 </Text>
-                <Text fontSize={'sm'}>Ώρα </Text>
+                <Text fontSize={'sm'}>{t('time')} </Text>
               </Flex>
               <Flex mb={5}>
                 <Text fontSize={'lg'} fontWeight={700}>
                   {date}
                 </Text>
                 <Text fontSize={'sm'} textAlign="right">
-                  Ημερομηνία
+                  {t('date')}
                 </Text>
               </Flex>
             </Flex>
             <Text textAlign={'center'} fontSize="xl" mb={8} letterSpacing="xl">
-              Αντίπαλοι
+              {t('opponents')}
             </Text>
             <Box p={4} bg={bg} borderRadius={6}>
               {values.players.map((player, index) => (
                 <Flex key={index} mb={3}>
                   <FormControl mb={4}>
-                    <FormControl.Label>Παίκτης {index + 1}</FormControl.Label>
+                    <FormControl.Label>
+                      {t('player')} {index + 1}
+                    </FormControl.Label>
                     <Input
                       size={'xl'}
                       variant="underlined"
@@ -146,14 +149,14 @@ export const Booking = ({ route, navigation }: BookingProps) => {
                       ])
                     }
                   >
-                    νέος παίκτης
+                    {t('new player')}
                   </Button>
                 </Box>
               )}
             </Box>
           </Box>
           <Button onPress={() => handleSubmit()} isLoading={isLoading}>
-            Κράτηση
+            {t('book')}
           </Button>
         </Flex>
       )}

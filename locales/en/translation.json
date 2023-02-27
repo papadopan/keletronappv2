@@ -4,6 +4,19 @@
     "My Bookings": "My Bookings",
     "new booking": "new booking",
     "theme": "Theme",
-    "language": "Language"
+    "language": "Language",
+    "not available slot": "not available slot",
+    "keletron sessions": "Keletron sessions",
+    "available courts": "available courts",
+    "book": "Book",
+    "time": "Time",
+    "date": "Date",
+    "opponents": "Opponents",
+    "new player": "new player",
+    "player": "Player",
+    "have fun": "have fun",
+    "cancel": "Cancel",
+    "cancel booking successful": "Booking was canceled",
+    "active booking": "Active Bookings"
   }
 }

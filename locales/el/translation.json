@@ -4,6 +4,19 @@
     "My Bookings": "Οι Κρατήσεις μου",
     "new booking": "νέα κράτηση",
     "theme": "Θέμα",
-    "language": "Γλώσσα"
+    "language": "Γλώσσα",
+    "not available slot": "Η συγκεκριμενη ώρα δεν είναι διαθέσιμη",
+    "keletron sessions": "προπονήσεις Κέλετρον",
+    "available courts": "διαθέσιμα γήπεδα",
+    "book": "Κράτηση",
+    "time": "'Ωρα",
+    "date": "Ημερομηνία",
+    "opponents": "Αντίπαλοι",
+    "new player": "νέος παίκτης",
+    "player": "Παίκτης",
+    "have fun": "Καλή διασκέδαση",
+    "cancel": "Διαγραφή",
+    "cancel booking successful": "Η κράτηση σας διεγράφη επιτυχώς",
+    "active booking": "Ενεργές κρατήσεις"
   }
 }

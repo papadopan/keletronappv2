@@ -14,9 +14,11 @@ import { Pressable } from 'react-native';
 import { MyDate } from '../../../fragmenrs/Date';
 import type { BookingType } from '../../../../types/bookings';
 import type { PreviewListProps } from 'types/navigation';
+import { useTranslation } from 'react-i18next';
 
 export const PreviewList = ({ navigation, route }: PreviewListProps) => {
   const { bookings } = route.params;
+  const { t } = useTranslation();
 
   const isActiveBooking = (item: BookingType) => {
     const now = new Date().getTime();
@@ -56,7 +58,7 @@ export const PreviewList = ({ navigation, route }: PreviewListProps) => {
         alignItems={'center'}
         direction="row"
       >
-        <Text>Ενεργές κρατήσεις</Text>
+        <Text>{t('active booking')}</Text>
         <Switch
           size="sm"
           isChecked={validBookings}

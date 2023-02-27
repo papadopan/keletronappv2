@@ -14,6 +14,7 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { useDeleteBooking } from 'hooks';
 import { useQueryClient } from '@tanstack/react-query';
 import { Image } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
 type ItemProps = {
   time_slot: string;
@@ -25,7 +26,7 @@ type ItemProps = {
 
 export const Preview = ({ route, navigation }) => {
   const { item }: { item: ItemProps } = route.params;
-
+  const { t } = useTranslation();
   const { mutate, isLoading, isSuccess } = useDeleteBooking();
   const queryClient = useQueryClient();
 
@@ -49,7 +50,7 @@ export const Preview = ({ route, navigation }) => {
             <Flex flexDirection={'row'} alignItems="center">
               <Alert.Icon mr={3} />
               <Box>
-                <Text>Η κράτηση σας διεγράφη επιτυχώς</Text>
+                <Text>{t('cancel booking successful')}</Text>
               </Box>
             </Flex>
           </Alert>
@@ -68,14 +69,14 @@ export const Preview = ({ route, navigation }) => {
             <Text fontSize={'lg'} fontWeight={700}>
               {item.time_slot}
             </Text>
-            <Text fontSize={'sm'}>Ώρα</Text>
+            <Text fontSize={'sm'}>{t('time')}</Text>
           </Flex>
           <Flex mb={5}>
             <Text fontSize={'lg'} fontWeight={700}>
               {item.date_booking}
             </Text>
             <Text fontSize={'sm'} textAlign="right">
-              Ημερομηνία
+              {t('date')}
             </Text>
           </Flex>
         </Flex>
@@ -98,7 +99,7 @@ export const Preview = ({ route, navigation }) => {
               source={require('assets/success.png')}
               style={{ width: 150, height: 150 }}
             />
-            <Text>Καλή διασκέδαση</Text>
+            <Text>{t('have fun')}</Text>
           </Center>
         </Box>
       </Box>
@@ -108,7 +109,7 @@ export const Preview = ({ route, navigation }) => {
         onPress={() => mutate(item.id)}
         isLoading={isLoading}
       >
-        Διαγραφή
+        {t('cancel')}
       </Button>
     </Flex>
   );
