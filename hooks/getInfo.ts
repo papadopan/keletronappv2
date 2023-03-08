@@ -27,6 +27,10 @@ export const useGetInfo = () => {
   const api = useGetApi();
   return useQuery(['user'], async () => {
     const id = await AsyncStorage.getItem('@userId');
+    if (!id) {
+      throw new Error('No user id found');
+    }
+
     return request(`${api()}/graphql`, query, {
       userId: id
     });

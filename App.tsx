@@ -36,7 +36,7 @@ const App = ({ navigation }) => {
     backgroundColor: isDarkMode ? '#262626' : 'white',
     flex: 1
   };
-  const { isSuccess, isLoading } = useGetInfo();
+  const { isLoading, isError } = useGetInfo();
 
   return isLoading ? (
     <SafeAreaView style={{ flex: 1 }}>
@@ -62,7 +62,7 @@ const App = ({ navigation }) => {
       >
         <Stack.Navigator
           screenOptions={{ headerShown: false }}
-          initialRouteName={isSuccess ? 'Auth' : 'WelcomeNavigator'}
+          initialRouteName={isError ? 'WelcomeNavigator' : 'Auth'}
         >
           <Stack.Screen name="Auth" component={Auth} />
           <Stack.Screen name="WelcomeNavigator" component={WelcomeNavigator} />
