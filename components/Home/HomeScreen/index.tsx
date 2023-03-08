@@ -17,6 +17,7 @@ import { useTranslation } from 'react-i18next';
 export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { data, isLoading } = useGetMyBookings();
   const { data: user, isSuccess: isUserFetched } = useGetInfo();
+
   const bg = useColorModeValue('warmGray.200', 'trueGray.800');
   const box = useColorModeValue('light.100', 'trueGray.700');
   const text = useColorModeValue('darkText', 'lightText');

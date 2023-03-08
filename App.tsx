@@ -8,8 +8,8 @@
  * @format
  */
 
-import React, { useEffect } from 'react';
-import { SafeAreaView, StatusBar, useColorScheme } from 'react-native';
+import React from 'react';
+import { SafeAreaView, StatusBar } from 'react-native';
 
 import { Auth } from './components/Auth';
 import { WelcomeNavigator } from './components/Welcome/WelcomeNAvigator';
