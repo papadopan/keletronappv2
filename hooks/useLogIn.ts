@@ -2,7 +2,7 @@ import { useGetApi } from './useGetApi';
 import { gql } from '@apollo/client';
 import { useMutation } from '@tanstack/react-query';
 import request from 'graphql-request';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import { storage } from '../mmkv';
 
 type Credentials = {
   password: string;
@@ -23,7 +23,7 @@ const mutation = gql`
 
 const storeData = async (value: string) => {
   try {
-    await AsyncStorage.setItem('@userId', value);
+    storage.set('@userId', value);
   } catch (e) {
     // saving error
   }

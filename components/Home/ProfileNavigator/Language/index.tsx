@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Flex, useColorModeValue, Text, Divider, VStack } from 'native-base';
 import i18n from '../../../../i18n';
 import { Pressable } from 'react-native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import Icon from 'react-native-vector-icons/AntDesign';
+import { storage } from '../../../../mmkv';
 
 type lang = 'en' | 'el';
 type Languages = Array<{
@@ -20,7 +20,7 @@ export const Language = () => {
   const [currentLang, setCurrentLang] = useState(i18n.language);
   const updateLanguage = async (lang: lang) => {
     try {
-      await AsyncStorage.setItem('@lang', lang);
+      storage.set('@lang', lang);
       i18n.changeLanguage(lang);
       setCurrentLang(lang);
     } catch (e) {}

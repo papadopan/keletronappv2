@@ -14,16 +14,16 @@ import {
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { useGetInfo } from 'hooks';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useTranslation } from 'react-i18next';
 import i18n from '../../../../i18n';
+import { storage } from '../../../../mmkv';
 
 export const Profile = ({ navigation }) => {
   const { data, isLoading, isError } = useGetInfo();
 
   const signOut = async () => {
     try {
-      await AsyncStorage.removeItem('@userId');
+      storage.delete('@userId');
       navigation.navigate('WelcomeNavigator', { screen: 'Welcome' });
     } catch (e) {}
   };

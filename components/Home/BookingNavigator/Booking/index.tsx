@@ -13,9 +13,9 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { BookingProps } from 'types/navigation';
 import { useAddBooking } from 'hooks';
 import { useQueryClient } from '@tanstack/react-query';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import { StackActions } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
+import { storage } from '../../../../mmkv';
 
 export const Booking = ({ route, navigation }: BookingProps) => {
   const formikRef = useRef(null);
@@ -53,7 +53,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
 
   const getUsersId = async () => {
     try {
-      return await AsyncStorage.getItem('@userId');
+      return storage.getString('@userId');
     } catch (e) {}
   };
 
