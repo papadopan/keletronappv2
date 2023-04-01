@@ -18,6 +18,7 @@ const query = gql`
       last_name
       first_name
       email
+      admin
       id
     }
   }
