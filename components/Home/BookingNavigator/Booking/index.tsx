@@ -11,7 +11,7 @@ import {
 import { Formik } from 'formik';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { BookingProps } from 'types/navigation';
-import { useAddBooking } from 'hooks';
+import { useAddBooking, useGetInfo } from 'hooks';
 import { useQueryClient } from '@tanstack/react-query';
 import { StackActions } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
@@ -30,6 +30,7 @@ export const Booking = ({ route, navigation }: BookingProps) => {
   const { t } = useTranslation();
   const { booking, date } = route.params;
   const { mutate, isSuccess, isError, data, isLoading } = useAddBooking();
+  const { data: user, isFetched: isUserAvailable } = useGetInfo();
 
   useEffect(() => {
     if (isSuccess && data) {
@@ -59,14 +60,26 @@ export const Booking = ({ route, navigation }: BookingProps) => {
 
   const handleBooking = async (v: { players: { name: string }[] }) => {
     const userId = await getUsersId();
+    if (!isUserAvailable) {
+      console.log('---', user);
+    }
+
+    /**
+     * Filter out empty players
+     */
+    const players = v.players.filter(
+      (player: { name: string }) => player.name.trim().length > 0
+    );
+
     mutate({
       time_slot: booking.time,
       date_booking: date,
       userId: Number(userId),
-      opponents: v.players.map((player: { name: string }) =>
-        player.name.trim()
-      ),
-      num_players: v.players.length + 1,
+      opponents: [
+        user.getInfo.first_name + ' ' + user.getInfo.last_name,
+        ...players.map(p => p.name)
+      ],
+      num_players: players.length + 1,
       court: 'court1'
     });
   };
