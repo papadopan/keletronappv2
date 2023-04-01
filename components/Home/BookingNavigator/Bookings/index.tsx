@@ -15,10 +15,11 @@ import Icon from 'react-native-vector-icons/AntDesign';
 import { useIsFocused } from '@react-navigation/native';
 import { getDayFromNumber } from '../helpers';
 import { useTranslation } from 'react-i18next';
+import AdminInfo from '../AdminInfo';
 
 const AVAILABLE_COURTS_FOR_BOOKING = 2;
 
-type Bookings = {
+export type Bookings = {
   court?: string;
   date_booking: string;
   id: number;
@@ -50,11 +51,13 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
     { time: '19:00', reservations: [] },
     { time: '20:00', reservations: [] }
   ];
+
   const today = new Date().toLocaleString('sv-SE', {
     day: 'numeric',
     month: 'numeric',
     year: 'numeric'
   });
+
   const [currentDay, setCurrentDay] = useState<string>(today);
   const [currentBookings, setCurrentBookings] =
     useState<DAILY_SCHEDULE[]>(bookings);
@@ -173,6 +176,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                           booking.reservations.length}{' '}
                         {t('available courts')}
                       </Text>
+                      <AdminInfo reservations={booking.reservations} />
                       <Button
                         onPress={() =>
                           navigation.navigate('Booking', {
