@@ -1,55 +1,55 @@
 {
   "images" : [
     {
-      "filename" : "tenis logo-1-20@2x.png",
+      "filename" : "40.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
-      "filename" : "tenis logo-1-20@3x.png",
+      "filename" : "60.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
-      "filename" : "tenis logo-1-29@2x.png",
+      "filename" : "58.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
-      "filename" : "tenis logo-1-29@3x.png",
+      "filename" : "87.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
-      "filename" : "tenis logo-1-40@2x.png",
+      "filename" : "80.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "tenis logo-1-40@3x.png",
+      "filename" : "120 1.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "tenis logo-1-60@2x.png",
+      "filename" : "120.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "tenis logo-1-60@3x.png",
+      "filename" : "180.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "tenis logo-1-1024.png",
+      "filename" : "1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
