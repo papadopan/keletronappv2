@@ -1,0 +1,27 @@
+version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
+options: "838ff545f70c012c466b5b26d649e53a2a7d7ebfdcde55e3a264009cc286ba0e"
+build_start_time: [1682614229, 638041973]
+build_end_time: [1682614232, 901250839]
+inputs:
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/Heartbeat.swift"
+  : [1682613457, 196441650]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatController.swift"
+  : [1682613457, 196767330]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatStorage.swift"
+  : [1682613457, 196966171]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatsBundle.swift"
+  : [1682613457, 197125434]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/HeartbeatsPayload.swift"
+  : [1682613457, 197479724]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/RingBuffer.swift"
+  : [1682613457, 196545124]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/Storage.swift"
+  : [1682613457, 196320772]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/StorageFactory.swift"
+  : [1682613457, 197591781]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/WeakContainer.swift"
+  : [1682613457, 197345733]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/_ObjC_HeartbeatController.swift"
+  : [1682613457, 196653842]
+  ? "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/FirebaseCoreInternal/FirebaseCore/Internal/Sources/HeartbeatLogging/_ObjC_HeartbeatsPayload.swift"
+  : [1682613457, 196864604]

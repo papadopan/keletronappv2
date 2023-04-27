@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
+options: "0723dd0458011b3ac5f3dd8e68afe7fbddf666a61237824eba8e1ba329021795"
+build_start_time: [1682614232, 93158006]
+build_end_time: [1682614232, 110661029]
+inputs:
+  "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/Sentry/Sources/Swift/Sentry.swift": !private [1682613588, 353344678]

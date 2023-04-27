@@ -1,0 +1,6 @@
+version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
+options: "70671bb5086f5f42f7d631ad170c6ccb679ec2171dba2d210ecfe140cbf36962"
+build_start_time: [1682614229, 635735034]
+build_end_time: [1682614229, 663177967]
+inputs:
+  "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/YogaKit/YogaKit/Source/YGLayoutExtensions.swift": !private [1682613597, 506119251]

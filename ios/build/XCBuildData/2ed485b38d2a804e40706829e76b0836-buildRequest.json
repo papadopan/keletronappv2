@@ -1,0 +1,715 @@
+{
+  "_buildCommand2" : {
+    "command" : "prepareForIndexing",
+    "enableIndexBuildArena" : false,
+    "targets" : null
+  },
+  "buildCommand" : "build",
+  "configuredTargets" : [
+    {
+      "guid" : "PACKAGE-TARGET:openssl_grpc"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:openssl_grpc"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:Firebase"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseABTesting"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAnalytics"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAnalyticsOnDeviceConversion"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAnalyticsOnDeviceConversionTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAnalyticsSwift"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAnalyticsSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAnalyticsSwiftTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAnalyticsTarget"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAnalyticsWithoutAdIdSupport"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAnalyticsWithoutAdIdSupportTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAnalyticsWithoutAdIdSupportWrapper"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAnalyticsWrapper"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAppCheck"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAppCheck"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAppCheckInterop"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAppDistribution"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAppDistribution-Beta"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAppDistributionTarget"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAuth"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAuth"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseAuthCombine-Community"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAuthCombineSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseAuthInterop"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseCore"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseCoreDiagnostics"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseCoreExtension"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseCoreInternal"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseCrashlytics"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseCrashlytics"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseDatabase"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseDatabase"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseDatabaseSwift"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseDatabaseSwift"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseDynamicLinks"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseDynamicLinks"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseDynamicLinksTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseFirestore"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseFirestore"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseFirestoreCombine-Community"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseFirestoreCombineSwift"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseFirestoreSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseFirestoreSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseFirestoreSwiftTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseFirestoreTarget"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseFunctions"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseFunctions"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseFunctionsCombine-Community"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseFunctionsCombineSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseInAppMessaging"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseInAppMessaging-Beta"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseInAppMessagingSwift"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseInAppMessagingSwift-Beta"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseInAppMessagingTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseInAppMessaging_iOS"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseInstallations"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseInstallations"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseMLModelDownloader"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseMLModelDownloader"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseMessaging"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseMessaging"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseMessagingInterop"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebasePerformance"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebasePerformance"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebasePerformanceTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseRemoteConfig"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseRemoteConfig"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseRemoteConfigSwift"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseRemoteConfigSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseSharedSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseStorage"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseStorage"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FirebaseStorageCombine-Community"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseStorageCombineSwift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FirebaseStorageInternal"
+    },
+    {
+      "guid" : "PACKAGE-RESOURCE:FirebaseInAppMessaging_iOS"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GTMSessionFetcher"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GTMSessionFetcherCore"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GTMSessionFetcherCore"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GTMSessionFetcherFull"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GTMSessionFetcherFull"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GTMSessionFetcherLogView"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GTMSessionFetcherLogView"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GoogleAppMeasurement"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GoogleAppMeasurementOnDeviceConversion"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleAppMeasurementOnDeviceConversionTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleAppMeasurementTarget"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GoogleAppMeasurementWithoutAdIdSupport"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleAppMeasurementWithoutAdIdSupportTarget"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleDataTransport"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GoogleDataTransport"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULAppDelegateSwizzler"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULEnvironment"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULISASwizzler"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULLogger"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULMethodSwizzler"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULNSData"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULNetwork"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULReachability"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULSwizzlerTestHelpers"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:GULUserDefaults"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-AppDelegateSwizzler"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-Environment"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-ISASwizzler"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-Logger"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-MethodSwizzler"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-NSData"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-Network"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-Reachability"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-SwizzlerTestHelpers"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:GoogleUtilities-UserDefaults"
+    },
+    {
+      "guid" : "12d9f67834611000717ef1e9f619f2387ceb6b36bcfc2fb90f69ac96de4975d6"
+    },
+    {
+      "guid" : "12d9f67834611000717ef1e9f619f238b8656357b4e3c9cbdedf6d0daf7e7987"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42674427677ed50870bbe9310a50295dc1"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42e5ef25d99749cb20bb4d119377e3e84e"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4286042bd33ca5b6f63ed208e47f4815a6"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d8e73feadee6a8e5c14524fc300acaed"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d57b8bce60a0f11113f4cff532db68d3"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42a408a4c1f668e62161cdeba76f57d50c"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd422fcb5e27d041e48b96b3ab14ce32d5f2"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42020791fd2e7b7ddc8fb2658339c42e16"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42566ec9a1d71c4629f4f85ecb735ce614"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd423da17a3564c774dfaa331fa07754d2bc"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd422947ffc8de9c69eb03c189cddc0821ea"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd421ca021c0ed54ed1b0513db9ff3592f1f"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42333c367a5ad59a119c516e4bb9ae309b"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd426e42eceb1bd795246e099578b019bf84"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd428949851368aa6a65087a3243d931d19a"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42f354d16dbe33f7921b9c7894b6314788"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42011fbacf681e0e0b3d194bef2032eee8"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d131dfa8ac276c879861faf7e84c681d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42261e4b86afd7ab43dc9d9245fb2391a4"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d3c8dfff2c580c352f83d3850ad17775"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42718890dfdac589615663a02d43d9af3e"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd424b66627581f014928b58fa8e742c39bd"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd428cc9286addbac7e4dfb2bcfefa2147d6"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4270a150a630b0d3653757854b577a74fa"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4279d4193c5dee11543e157dbf364e8319"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd424f74581f289c3d04e7d8c581b3b61025"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42f10882e1684b8a3dfdec597bc0a47af3"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42f194d7e47ab254ba2a6d06e72f2415bf"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42131a0f60962edf14a3da92326d164480"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42650b3e063cc256af3d0882a8c7681898"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d73e6141dad5f9e27449d2f84c6c840d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd422de0466ffc5d2f1b15e2e12011732b0b"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42a7392c161caa6d0b1654ae1e78a0198b"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd427a0125ba4ee630e44b9ed10a25355108"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d89b60816d28e5bcea47625ef5ae536d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd429e44888496e2d80289c044674611b67a"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4216ccc6a448791730cacdb21a9e7ac1d7"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42d941184e59de435d83f89ca45dee3730"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42091e10ab92ef02a5d90ffb84b380567b"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd423e463c0b90ea125684ba7eb9113494aa"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42e7b84e77d81f627ef4f2242eaccd8244"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4208a6dbb8c97eefa16f6fbf22c990d75a"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42910fa9beadcabc9002e7df8237095f7a"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42ebc7ecedcb2662e020fbe40219037c35"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42fa7387fd1c471430f783250399affb7d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4264659373449de067851926134c3cbf14"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42c90a4a6b290eeb7ddea1e96890fe901c"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4260ede1f54b970703d65b78528dc46332"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd425b488b482aa6e0241e5ae01c089591e6"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42b21f076cce9ff9b56c3759904876e47c"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd428116ad125b513d3398d4b12fe16ffe4d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42f4fc4aab8bc4bf1a2b4a72026d43ecc1"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42385d1659a286d66522a7e17b144d6123"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4252854aa9ec1d83a582b4d5d9e3479b6b"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4222148d3c7f54d7c04be4807e292253f6"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42491413bebd0f86b9e7986bec61cb0f8c"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd420b3a858ff741fa64c0226527d7742c7d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4263b660fee120f6db00fe6566a55b7649"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42fa6cda9512c557d6544f6b8ae96692cc"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42c5d73258386a00e816210f94f8e68360"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42ee18626476b5bb85bc963dc60cccfbdc"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42cd8b369b5c76b74292bdc1432c1a4054"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd422dcb74c98d23e370cd284bcf4d0a46e7"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42b7cbd6928e589e6ea7e2866f501cf79b"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd427b060192ebeb2d4884039464d549af4c"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42ca69da9f98e79ad6e01218ebf172bb5d"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4270eb6c084dab8d99d944a2b6002e8726"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4294bd4c3e165ef433698ed71449e5f4c6"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd425359e436dcebf0060478512ecb6e85e3"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42e28573a98be11a0cbe48902dc8bf1477"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4242b6e4893b766c2006d76211168cc493"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4241c37c8672207dbaefd73a988733ecc0"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd428a0c906256f34e384122bc9ad98a8197"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd420062393f91a1d2d94e3e5ed3a5aa5da9"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd42b396360ecab59120eac14f1badc0c923"
+    },
+    {
+      "guid" : "8699adb1dd336b26511df848a716bd4243da46c3cccb848ea2c260430ea23e05"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FBLPromises"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FBLPromises"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:FBLPromisesTestHelpers"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:FBLPromisesTestHelpers"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:Promises"
+    },
+    {
+      "guid" : "PLAYGROUND-PRODUCT:Promises_Sources-PLAYGROUND-TARGET:/Users/antoniospapadopoulos/Library/Developer/Xcode/DerivedData/KeletronAppv2-amgcokljqekqxhahmicpmlghlnvz/SourcePackages/checkouts/promises/Promises.playground"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:Promises"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:PromisesTestHelpers"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:PromisesTestHelpers"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:SwiftProtobuf"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:SwiftProtobuf"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:SwiftProtobufPlugin"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:SwiftProtobufPlugin"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:SwiftProtobufPluginLibrary"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:SwiftProtobufPluginLibrary"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:protoc-gen-swift"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:protoc-gen-swift-6C69A13E691DF668-testable"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:abseil"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:abseil"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:gRPC-Core"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:gRPC-Core"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:gRPC-cpp"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:gRPC-cpp"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:leveldb"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:leveldb"
+    },
+    {
+      "guid" : "PACKAGE-PRODUCT:nanopb"
+    },
+    {
+      "guid" : "PACKAGE-TARGET:nanopb"
+    }
+  ],
+  "containerPath" : "/Users/antoniospapadopoulos/Development/keletronappv2/ios/KeletronAppv2.xcworkspace",
+  "continueBuildingAfterErrors" : true,
+  "enableIndexBuildArena" : false,
+  "hideShellScriptEnvironment" : false,
+  "parameters" : {
+    "action" : "build",
+    "activeArchitecture" : "undefined_arch",
+    "activeRunDestination" : {
+      "disableOnlyActiveArch" : true,
+      "platform" : "iphoneos",
+      "sdk" : "iphoneos16.1",
+      "sdkVariant" : "iphoneos",
+      "supportedArchitectures" : [
+        "armv4t",
+        "armv5",
+        "armv6",
+        "armv7",
+        "armv7f",
+        "armv7s",
+        "armv7k",
+        "arm64",
+        "arm64e"
+      ],
+      "targetArchitecture" : "undefined_arch"
+    },
+    "arenaInfo" : {
+      "buildIntermediatesPath" : "",
+      "buildProductsPath" : "",
+      "derivedDataPath" : "/Users/antoniospapadopoulos/Library/Developer/Xcode/DerivedData",
+      "indexDataStoreFolderPath" : "/Users/antoniospapadopoulos/Library/Developer/Xcode/DerivedData/KeletronAppv2-amgcokljqekqxhahmicpmlghlnvz/Index.noindex/DataStore",
+      "indexEnableDataStore" : true,
+      "indexPCHPath" : "/Users/antoniospapadopoulos/Library/Developer/Xcode/DerivedData/KeletronAppv2-amgcokljqekqxhahmicpmlghlnvz/Index.noindex/PrecompiledHeaders",
+      "pchPath" : ""
+    },
+    "configurationName" : "Debug",
+    "overrides" : {
+      "synthesized" : {
+        "table" : {
+          "ENABLE_PREVIEWS" : "NO"
+        }
+      }
+    }
+  },
+  "qos" : "default",
+  "schemeCommand" : "launch",
+  "schemeCommand2" : "launch",
+  "showNonLoggedProgress" : true,
+  "useDryRun" : true,
+  "useImplicitDependencies" : true,
+  "useLegacyBuildLocations" : false,
+  "useParallelTargets" : true
+}

@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.7.1 (swiftlang-5.7.1.135.3 clang-1400.0.29.51)"
+options: "c2802121b9ddf33514e95264e7585cb8ebd864bd8be5e09f04c53173ec4dd220"
+build_start_time: [1682614229, 637789011]
+build_end_time: [1682614229, 667258024]
+inputs:
+  "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/SentryPrivate/Sources/Swift/MetricKit/SentryMXCallStackTree.swift": !private [1682613588, 427668094]
+  "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/SentryPrivate/Sources/Swift/MetricKit/SentryMXManager.swift": !private [1682613588, 427493572]
+  "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/SentryPrivate/Sources/Swift/Sentry.swift": !private [1682613588, 427833080]
+  "/Users/antoniospapadopoulos/Development/keletronappv2/ios/Pods/SentryPrivate/Sources/Swift/SwiftDescriptor.swift": !private [1682613588, 427146673]
