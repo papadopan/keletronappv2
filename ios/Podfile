@@ -6,10 +6,11 @@ install! 'cocoapods', :deterministic_uuids => false
 
 target 'KeletronAppv2' do
   config = use_native_modules!
+  $RNFirebaseAsStaticFramework = true
+  use_modular_headers!
 
-  # Flags change depending on the env values.
+# Flags change depending on the env values.
   flags = get_default_flags()
-
   use_react_native!(
     :path => config[:reactNativePath],
     # Hermes is now enabled by default. Disable by setting this flag to false.
