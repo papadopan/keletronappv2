@@ -99,8 +99,6 @@ namespace JS {
                             onError:(RCTResponseSenderBlock)onError;
 - (void)getCurrentReduceMotionState:(RCTResponseSenderBlock)onSuccess
                             onError:(RCTResponseSenderBlock)onError;
-- (void)getCurrentPrefersCrossFadeTransitionsState:(RCTResponseSenderBlock)onSuccess
-                                           onError:(RCTResponseSenderBlock)onError;
 - (void)getCurrentReduceTransparencyState:(RCTResponseSenderBlock)onSuccess
                                   onError:(RCTResponseSenderBlock)onError;
 - (void)getCurrentVoiceOverState:(RCTResponseSenderBlock)onSuccess
