@@ -1,0 +1,29 @@
+diff --git a/node_modules/react-native/scripts/cocoapods/codegen_utils.rb b/node_modules/react-native/scripts/cocoapods/codegen_utils.rb
+index 6fcbb15..f946262 100644
+--- a/node_modules/react-native/scripts/cocoapods/codegen_utils.rb
++++ b/node_modules/react-native/scripts/cocoapods/codegen_utils.rb
+@@ -84,7 +84,7 @@ class CodegenUtils
+           'source' => { :git => '' },
+           'header_mappings_dir' => './',
+           'platforms' => {
+-            'ios' => '11.0',
++            'ios' => '12.0',
+           },
+           'source_files' => "**/*.{h,mm,cpp}",
+           'pod_target_xcconfig' => { "HEADER_SEARCH_PATHS" =>
+diff --git a/node_modules/react-native/scripts/react_native_pods.rb b/node_modules/react-native/scripts/react_native_pods.rb
+index 34dc213..f7e8550 100644
+--- a/node_modules/react-native/scripts/react_native_pods.rb
++++ b/node_modules/react-native/scripts/react_native_pods.rb
+@@ -278,9 +278,9 @@ def __apply_Xcode_12_5_M1_post_install_workaround(installer)
+     target.build_configurations.each do |config|
+       # ensure IPHONEOS_DEPLOYMENT_TARGET is at least 11.0
+       deployment_target = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f
+-      should_upgrade = deployment_target < 11.0 && deployment_target != 0.0
++      should_upgrade = deployment_target < 12.0 && deployment_target != 0.0
+       if should_upgrade
+-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
++        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+       end
+     end
+   end
