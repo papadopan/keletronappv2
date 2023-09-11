@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Box,
   Button,
@@ -10,18 +10,53 @@ import {
 } from 'native-base';
 import Emoji from 'react-native-emoji';
 import { MainScreenBookings } from '../../fragmenrs/MainScreenBookings';
-import { useGetInfo, useGetMyBookings } from 'hooks';
+import { useGetInfo, useGetMyBookings, useUpdateUser } from 'hooks';
 import { HomeScreenProps } from 'types/navigation';
 import { useTranslation } from 'react-i18next';
+import messaging from '@react-native-firebase/messaging';
 
 export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { data, isLoading } = useGetMyBookings();
   const { data: user, isSuccess: isUserFetched } = useGetInfo();
+  const { mutate } = useUpdateUser();
 
   const bg = useColorModeValue('warmGray.200', 'trueGray.800');
   const box = useColorModeValue('light.100', 'trueGray.700');
   const text = useColorModeValue('darkText', 'lightText');
   const { t } = useTranslation();
+
+  async function requestUserPermission() {
+    const authStatus = await messaging().requestPermission();
+    const enabled =
+      authStatus === messaging.AuthorizationStatus.AUTHORIZED ||
+      authStatus === messaging.AuthorizationStatus.PROVISIONAL;
+
+    // make sure to update in case the token is not registered in the account
+    if (enabled && user.getInfo?.notificationToken) {
+      const token = await messaging().getToken();
+      mutate({
+        email: user.getInfo?.email,
+        fields: { notificationToken: token }
+      });
+    }
+  }
+
+  useEffect(() => {
+    requestUserPermission();
+    // Assume a message-notification contains a "type" property in the data payload of the screen to open
+  }, []);
+
+  messaging().onMessage(async remoteMessage => {
+    console.log('Message received!', remoteMessage);
+  });
+
+  // messaging().onNotification(notification => {
+  //   console.log('Notification received!', notification);
+  // });
+
+  // messaging().onNotificationOpened(notificationOpen => {
+  //   console.log('Notification opened!', notificationOpen);
+  // });
 
   return (
     <Flex padding="5" bg={bg} flex={1}>

@@ -11,3 +11,4 @@ export { useGetApi } from './useGetApi';
 export { useLogIn } from './useLogIn';
 export { useSignUp } from './useSignUp';
 export { useUpdateForgottenPassword } from './useUpdateForgottenPassword';
+export { useUpdateUser } from './useUpdateUser';
