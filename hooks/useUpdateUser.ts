@@ -9,7 +9,7 @@ type Credentials = {
   password?: string;
   city?: string;
   country?: string;
-  notificationToken?: string;
+  token_id?: string;
 };
 
 const mutation = gql`
