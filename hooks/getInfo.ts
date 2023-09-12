@@ -20,7 +20,7 @@ const query = gql`
       email
       admin
       id
-      notificationToken
+      token_id
     }
   }
 `;

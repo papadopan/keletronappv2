@@ -32,7 +32,7 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
       authStatus === messaging.AuthorizationStatus.PROVISIONAL;
 
     // make sure to update in case the token is not registered in the account
-    if (enabled && user.getInfo?.token_id) {
+    if (enabled && !user.getInfo?.token_id) {
       const token = await messaging().getToken();
       mutate({
         email: user.getInfo?.email,
