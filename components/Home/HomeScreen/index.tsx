@@ -44,6 +44,9 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   useEffect(() => {
     requestUserPermission();
     // Assume a message-notification contains a "type" property in the data payload of the screen to open
+    messaging().onNotificationOpenedApp(remoteMessage => {
+      console.log('Check', remoteMessage);
+    });
   }, []);
 
   messaging().onMessage(async remoteMessage => {
