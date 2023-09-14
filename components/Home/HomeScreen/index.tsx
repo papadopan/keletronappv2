@@ -20,8 +20,6 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { data: user, isSuccess: isUserFetched } = useGetInfo();
   const { mutate } = useUpdateUser();
 
-  const [message, setMessage] = useState('');
-
   const bg = useColorModeValue('warmGray.200', 'trueGray.800');
   const box = useColorModeValue('light.100', 'trueGray.700');
   const text = useColorModeValue('darkText', 'lightText');
@@ -48,14 +46,13 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
     // Assume a message-notification contains a "type" property in the data payload of the screen to open
     messaging().onNotificationOpenedApp(remoteMessage => {
       console.log('Notification Opened App:', remoteMessage);
-      setMessage('Notification Opened App');
     });
 
     messaging()
       .getInitialNotification()
       .then(remoteMessage => {
         console.log('Initial Notification:', remoteMessage);
-        setMessage('Initial Notification');
+        navigation.navigate('Bookings');
       });
   }, []);
 
@@ -64,9 +61,6 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
       <Flex flexDirection={'row'} alignItems="center" mb={50}>
         <Text fontSize={'2xl'} mr="3" color={text}>
           {t('hey')} {isUserFetched ? user.getInfo?.first_name : ''}
-        </Text>
-        <Text fontSize={'2xl'} mr="3" color={text}>
-          {message}
         </Text>
         <Emoji name="smiley" style={{ fontSize: 30 }} />
       </Flex>
