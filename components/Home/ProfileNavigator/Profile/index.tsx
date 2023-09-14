@@ -36,6 +36,7 @@ export const Profile = ({ navigation }) => {
     );
 
   const user = data.getInfo;
+  const isAdmin = user.admin;
   if (isError || !user)
     return (
       <Box flex={1} alignItems="center" justifyContent={'center'}>
@@ -134,6 +135,23 @@ export const Profile = ({ navigation }) => {
             </Flex>
           </Flex>
         </Pressable>
+        {isAdmin && (
+          <Pressable onPress={() => navigation.navigate('BookingList')}>
+            <Flex
+              flexDirection="row"
+              justifyContent="space-between"
+              backgroundColor="white"
+              padding="5"
+              bg={bg}
+              borderRadius="6"
+            >
+              <Text>{t('All Bookings')}</Text>
+              <Flex flexDirection={'row'}>
+                <Icon name="right" size={20} color={iconbg} />
+              </Flex>
+            </Flex>
+          </Pressable>
+        )}
         <Flex>
           <Button
             onPress={signOut}
