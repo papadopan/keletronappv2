@@ -208,9 +208,10 @@ export const SignUp = ({ navigation }) => {
                   <Alert mt={4} status="error">
                     <Flex flexDirection={'row'} alignItems="center">
                       <Alert.Icon mr={2} />
-                      {error.response.errors.map((e: { message: string }) => (
-                        <Text>{e.message}</Text>
-                      ))}
+                      {isError &&
+                        error?.response?.errors.map(
+                          (e: { message: string }) => <Text>{e.message}</Text>
+                        )}
                     </Flex>
                   </Alert>
                 )}
