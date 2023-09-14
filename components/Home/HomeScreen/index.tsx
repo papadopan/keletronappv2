@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Button,
@@ -19,6 +19,8 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const { data, isLoading } = useGetMyBookings();
   const { data: user, isSuccess: isUserFetched } = useGetInfo();
   const { mutate } = useUpdateUser();
+
+  const [message, setMessage] = useState('');
 
   const bg = useColorModeValue('warmGray.200', 'trueGray.800');
   const box = useColorModeValue('light.100', 'trueGray.700');
@@ -45,27 +47,26 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
     requestUserPermission();
     // Assume a message-notification contains a "type" property in the data payload of the screen to open
     messaging().onNotificationOpenedApp(remoteMessage => {
-      console.log('Check', remoteMessage);
+      console.log('Notification Opened App:', remoteMessage);
+      setMessage('Notification Opened App');
     });
+
+    messaging()
+      .getInitialNotification()
+      .then(remoteMessage => {
+        console.log('Initial Notification:', remoteMessage);
+        setMessage('Initial Notification');
+      });
   }, []);
-
-  messaging().onMessage(async remoteMessage => {
-    console.log('Message received!', remoteMessage);
-  });
-
-  // messaging().onNotification(notification => {
-  //   console.log('Notification received!', notification);
-  // });
-
-  // messaging().onNotificationOpened(notificationOpen => {
-  //   console.log('Notification opened!', notificationOpen);
-  // });
 
   return (
     <Flex padding="5" bg={bg} flex={1}>
       <Flex flexDirection={'row'} alignItems="center" mb={50}>
         <Text fontSize={'2xl'} mr="3" color={text}>
           {t('hey')} {isUserFetched ? user.getInfo?.first_name : ''}
+        </Text>
+        <Text fontSize={'2xl'} mr="3" color={text}>
+          {message}
         </Text>
         <Emoji name="smiley" style={{ fontSize: 30 }} />
       </Flex>
