@@ -128,7 +128,7 @@ export const ActivationEmail = ({ navigation }) => {
               </Flex>
             </Alert>
           )}
-          <Button onPress={() => handleSubmit()} isLoading={false}>
+          <Button onPress={() => handleSubmit()} isLoading={false} size={'lg'}>
             Activate
           </Button>
         </Flex>
@@ -183,7 +183,7 @@ export const ActivationEmail = ({ navigation }) => {
             </Box>
           </Box>
 
-          <Button onPress={() => handleSubmit()} isLoading={false}>
+          <Button onPress={() => handleSubmit()} isLoading={false} size={'lg'}>
             Get Code
           </Button>
         </Flex>

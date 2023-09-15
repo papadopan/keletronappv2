@@ -190,7 +190,11 @@ export const ForgotPassword = ({ navigation }) => {
             >
               I already have code
             </Button>
-            <Button onPress={() => handleSubmit()} isLoading={false}>
+            <Button
+              onPress={() => handleSubmit()}
+              isLoading={false}
+              size={'lg'}
+            >
               Get my code
             </Button>
           </Flex>

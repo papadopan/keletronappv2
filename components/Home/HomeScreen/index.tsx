@@ -43,13 +43,6 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
   useEffect(() => {
     requestUserPermission();
-    // Assume a message-notification contains a "type" property in the data payload of the screen to open
-    // messaging().onNotificationOpenedApp(remoteMessage => {
-    //   console.log('Notification Opened App:', remoteMessage);
-    //   navigation.navigate('Profile', {
-    //     screen: 'BookingList'
-    //   });
-    // });
 
     messaging()
       .getInitialNotification()
@@ -59,7 +52,6 @@ export const HomeScreen = ({ navigation }: HomeScreenProps) => {
             screen: 'BookingList'
           });
         }
-        console.log('Initial Notification:', remoteMessage);
       });
   }, []);
 

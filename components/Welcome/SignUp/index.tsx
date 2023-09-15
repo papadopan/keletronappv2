@@ -216,7 +216,11 @@ export const SignUp = ({ navigation }) => {
                   </Alert>
                 )}
               </Box>
-              <Button onPress={() => handleSubmit()} isLoading={isLoading}>
+              <Button
+                onPress={() => handleSubmit()}
+                isLoading={isLoading}
+                size={'lg'}
+              >
                 Sign Up
               </Button>
             </Stack>

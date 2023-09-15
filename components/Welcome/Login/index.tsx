@@ -19,7 +19,7 @@ import { useLogIn } from 'hooks';
 import { useEffect } from 'react';
 
 export const Login = ({ navigation }) => {
-  const { mutate, error, isSuccess, isError } = useLogIn();
+  const { mutate, error, isSuccess, isError, isLoading } = useLogIn();
 
   useEffect(() => {
     if (isSuccess) {
@@ -113,7 +113,7 @@ export const Login = ({ navigation }) => {
                     </Flex>
                   </Alert>
                 )}
-                <Stack space={2} mt={8}>
+                <Stack space={1} mt={8}>
                   <Button
                     variant="link"
                     onPress={() => navigation.navigate('ForgotPassword')}
@@ -128,7 +128,11 @@ export const Login = ({ navigation }) => {
                   </Button>
                 </Stack>
               </Box>
-              <Button onPress={() => handleSubmit()} isLoading={false}>
+              <Button
+                onPress={() => handleSubmit()}
+                isLoading={isLoading}
+                size={'lg'}
+              >
                 Log In
               </Button>
             </Stack>
