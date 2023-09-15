@@ -14,15 +14,25 @@ import {
   ScrollView,
   KeyboardAvoidingView
 } from 'native-base';
-import { Formik } from 'formik';
+import { useForm, Controller } from 'react-hook-form';
+import { useSignUp } from 'hooks';
 
-import { SignupSchema } from '../../../schema/signup';
-import { useActivateAccount, useSignUp } from 'hooks';
+type Inputs = {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+};
 
 export const SignUp = ({ navigation }) => {
-  const { mutate, isLoading, error, data, isSuccess, isError } = useSignUp();
-  const { isSuccess: isActivated, mutate: activate } = useActivateAccount();
+  const { mutate, isLoading, data, isSuccess, isError } = useSignUp();
   const toast = useToast();
+
+  const {
+    control,
+    handleSubmit,
+    formState: { errors }
+  } = useForm<Inputs>();
 
   useEffect(() => {
     if (isSuccess) {
@@ -39,64 +49,21 @@ export const SignUp = ({ navigation }) => {
           </Alert>
         )
       });
+      navigation.navigate('ActivationCode', { email: data.signup.email });
     }
-    if (isActivated) {
-      toast.show({
-        render: () => (
-          <Alert status={'success'}>
-            <Flex flexDirection={'row'} alignItems="center">
-              <Alert.Icon mr={2} />
-              <Text>Account activated</Text>
-            </Flex>
-          </Alert>
-        )
-      });
-      navigation.navigate('LogIn');
-    }
-  }, [isSuccess, isActivated]);
+  }, [isSuccess]);
 
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
 
-  return isSuccess ? (
-    <ScrollView
-      _contentContainerStyle={{
-        justifyContent: 'space-between',
-        flex: 1
-      }}
-      padding={5}
-      bg={screenbg}
-    >
-      <Formik
-        initialValues={{
-          code: '',
-          email: data?.signup.email
-        }}
-        onSubmit={v => activate(v)}
-      >
-        {({ handleChange, handleSubmit, values }) => (
-          <Stack space={5} justifyContent="space-between" flex={1}>
-            <Box>
-              <FormControl isRequired mb={6}>
-                <FormControl.Label>Code</FormControl.Label>
-                <Input
-                  size={'xl'}
-                  variant="underlined"
-                  p={2}
-                  placeholder="123456"
-                  onChangeText={handleChange('code')}
-                  value={values.code}
-                  maxLength={7}
-                />
-              </FormControl>
-            </Box>
-            <Button onPress={() => handleSubmit()} isLoading={isLoading}>
-              Activate Account
-            </Button>
-          </Stack>
-        )}
-      </Formik>
-    </ScrollView>
-  ) : (
+  if (isError) {
+    return (
+      <Box>
+        <Text>There is an error, try again</Text>
+      </Box>
+    );
+  }
+
+  return (
     <ScrollView
       _contentContainerStyle={{
         justifyContent: 'space-between',
@@ -106,126 +73,130 @@ export const SignUp = ({ navigation }) => {
       bg={screenbg}
     >
       <KeyboardAvoidingView flex={1}>
-        <Formik
-          initialValues={{
-            first_name: '',
-            last_name: '',
-            email: '',
-            password: ''
-          }}
-          onSubmit={v => mutate(v)}
-          validationSchema={SignupSchema}
-        >
-          {({ handleChange, handleSubmit, values, errors, touched }) => (
-            <Stack space={5} justifyContent="space-between" flex={1}>
-              <Box>
-                <FormControl
-                  isRequired
-                  mb={6}
-                  isInvalid={errors.first_name ? true : undefined}
-                >
-                  <FormControl.Label>First Name</FormControl.Label>
-                  <Input
-                    size={'xl'}
-                    variant="underlined"
-                    p={2}
-                    placeholder="John"
-                    onChangeText={handleChange('first_name')}
-                    value={values.first_name}
-                  />
-                  <FormControl.ErrorMessage
-                    leftIcon={<WarningOutlineIcon size="xs" />}
+        <Stack flex={1} justifyContent={'space-between'}>
+          <Stack space={4}>
+            <Controller
+              control={control}
+              rules={{ required: 'Το πεδίο είναι υποχρεωτικό' }}
+              name="first_name"
+              render={({ field }) => {
+                return (
+                  <FormControl
+                    isRequired
+                    isInvalid={errors.first_name ? true : undefined}
                   >
-                    {errors.first_name}
-                  </FormControl.ErrorMessage>
-                </FormControl>
-                <FormControl
-                  isRequired
-                  mb={4}
-                  isInvalid={errors.last_name ? true : undefined}
-                >
-                  <FormControl.Label>Last Name</FormControl.Label>
-                  <Input
-                    size={'xl'}
-                    variant="underlined"
-                    p={2}
-                    placeholder="Doe"
-                    value={values.last_name}
-                    onChangeText={handleChange('last_name')}
-                  />
-                  <FormControl.ErrorMessage
-                    leftIcon={<WarningOutlineIcon size="xs" />}
+                    <FormControl.Label>Όνομα</FormControl.Label>
+                    <Input
+                      size={'xl'}
+                      p={3}
+                      onChangeText={value => field.onChange(value)}
+                      value={field.value}
+                      placeholder="Όνομα"
+                    />
+
+                    <FormControl.ErrorMessage
+                      leftIcon={<WarningOutlineIcon size="xs" />}
+                    >
+                      {errors?.first_name?.message}
+                    </FormControl.ErrorMessage>
+                  </FormControl>
+                );
+              }}
+            />
+            <Controller
+              control={control}
+              rules={{ required: 'Το πεδίο είναι υποχρεωτικό' }}
+              name="last_name"
+              render={({ field }) => {
+                return (
+                  <FormControl
+                    isRequired
+                    isInvalid={errors.last_name ? true : undefined}
                   >
-                    {errors.last_name}
-                  </FormControl.ErrorMessage>
-                </FormControl>
-                <FormControl
-                  isRequired
-                  mb={4}
-                  isInvalid={errors.email ? true : undefined}
-                >
-                  <FormControl.Label>Email</FormControl.Label>
-                  <Input
-                    size={'xl'}
-                    variant="underlined"
-                    type="text"
-                    p={2}
-                    value={values.email}
-                    onChangeText={handleChange('email')}
-                    placeholder="john@doe.com"
-                    keyboardType="email-address"
-                  />
-                  <FormControl.ErrorMessage
-                    leftIcon={<WarningOutlineIcon size="xs" />}
+                    <FormControl.Label>Επίθετο</FormControl.Label>
+                    <Input
+                      size={'2xl'}
+                      p={3}
+                      onChangeText={value => field.onChange(value)}
+                      value={field.value}
+                      placeholder="Επίθετο"
+                    />
+                    <FormControl.ErrorMessage
+                      leftIcon={<WarningOutlineIcon size="xs" />}
+                    >
+                      {errors?.last_name?.message}
+                    </FormControl.ErrorMessage>
+                  </FormControl>
+                );
+              }}
+            />
+            <Controller
+              control={control}
+              rules={{ required: 'Το πεδίο είναι υποχρεωτικό' }}
+              name="email"
+              render={({ field }) => {
+                return (
+                  <FormControl
+                    isRequired
+                    isInvalid={errors.email ? true : undefined}
                   >
-                    {errors.email}
-                  </FormControl.ErrorMessage>
-                </FormControl>
-                <FormControl
-                  isRequired
-                  isInvalid={errors.password ? true : undefined}
-                >
-                  <FormControl.Label>Password</FormControl.Label>
-                  <Input
-                    size={'xl'}
-                    variant="underlined"
-                    type="password"
-                    value={values.password}
-                    onChangeText={handleChange('password')}
-                    p={2}
-                    placeholder="Password"
-                  />
-                  <FormControl.HelperText>
-                    Must be atleast 6 characters.
-                  </FormControl.HelperText>
-                  <FormControl.ErrorMessage
-                    leftIcon={<WarningOutlineIcon size="xs" />}
+                    <FormControl.Label>Email</FormControl.Label>
+                    <Input
+                      size={'2xl'}
+                      p={3}
+                      onChangeText={value => field.onChange(value)}
+                      value={field.value}
+                      placeholder="Email"
+                    />
+                    <FormControl.ErrorMessage
+                      leftIcon={<WarningOutlineIcon size="xs" />}
+                    >
+                      {errors?.email?.message}
+                    </FormControl.ErrorMessage>
+                  </FormControl>
+                );
+              }}
+            />
+            <Controller
+              control={control}
+              rules={{ required: 'Το πεδίο είναι υποχρεωτικό', minLength: 6 }}
+              name="password"
+              render={({ field }) => {
+                return (
+                  <FormControl
+                    isRequired
+                    isInvalid={errors.password ? true : undefined}
                   >
-                    {errors.password}
-                  </FormControl.ErrorMessage>
-                </FormControl>
-                {isError && (
-                  <Alert mt={4} status="error">
-                    <Flex flexDirection={'row'} alignItems="center">
-                      <Alert.Icon mr={2} />
-                      {isError &&
-                        error?.response?.errors.map(
-                          (e: { message: string }) => <Text>{e.message}</Text>
-                        )}
-                    </Flex>
-                  </Alert>
-                )}
-              </Box>
-              <Button
-                onPress={() => handleSubmit()}
-                isLoading={isLoading}
-                size={'lg'}
-              >
-                Sign Up
-              </Button>
-            </Stack>
-          )}
-        </Formik>
+                    <FormControl.Label>Password</FormControl.Label>
+                    <Input
+                      size={'2xl'}
+                      p={3}
+                      onChangeText={value => field.onChange(value)}
+                      value={field.value}
+                      placeholder="Password"
+                    />
+                    <FormControl.HelperText>
+                      Τουλάχιστον 6 χαρακτήρες.
+                    </FormControl.HelperText>
+                    <FormControl.ErrorMessage
+                      leftIcon={<WarningOutlineIcon size="xs" />}
+                    >
+                      {errors?.password?.message ||
+                        'Το πεδίο χρειάζεται τουλάχιστον 6 χαρακτήρες'}
+                    </FormControl.ErrorMessage>
+                  </FormControl>
+                );
+              }}
+            />
+          </Stack>
+          <Button
+            size={'lg'}
+            onPress={handleSubmit(data => mutate(data))}
+            isLoading={isLoading}
+          >
+            SignUp
+          </Button>
+        </Stack>
       </KeyboardAvoidingView>
     </ScrollView>
   );
