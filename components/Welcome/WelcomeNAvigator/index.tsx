@@ -5,6 +5,7 @@ import { Welcome } from '../index';
 import { Login } from '../Login';
 import { SignUp } from '../SignUp';
 import { ForgotPassword } from '../ForgotPassword';
+import { ActivationCode } from '../ActivationCode';
 import { ActivationEmail } from '../ActivationEmail';
 import type { WelcomeScreen } from 'types/navigation';
 
@@ -19,6 +20,7 @@ export const WelcomeNavigator = () => {
       />
       <Stack.Screen name="LogIn" component={Login} />
       <Stack.Screen name="SignUp" component={SignUp} />
+      <Stack.Screen name="ActivationCode" component={ActivationCode} />
       <Stack.Screen
         name="ForgotPassword"
         component={ForgotPassword}
