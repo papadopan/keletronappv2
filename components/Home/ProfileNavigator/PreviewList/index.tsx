@@ -11,7 +11,7 @@ import {
 } from 'native-base';
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Pressable } from 'react-native';
-import { MyDate } from '../../../fragmenrs/Date';
+import { MyDate } from '../../../fragments/Date';
 import type { BookingType } from '../../../../types/bookings';
 import type { PreviewListProps } from 'types/navigation';
 import { useTranslation } from 'react-i18next';

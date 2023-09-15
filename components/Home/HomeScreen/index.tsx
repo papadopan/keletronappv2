@@ -9,7 +9,7 @@ import {
   useColorModeValue
 } from 'native-base';
 import Emoji from 'react-native-emoji';
-import { MainScreenBookings } from '../../fragmenrs/MainScreenBookings';
+import { MainScreenBookings } from '../../fragments/MainScreenBookings';
 import { useGetInfo, useGetMyBookings, useUpdateUser } from 'hooks';
 import { HomeScreenProps } from 'types/navigation';
 import { useTranslation } from 'react-i18next';
