@@ -25,7 +25,7 @@ type Inputs = {
 };
 
 export const SignUp = ({ navigation }) => {
-  const { mutate, isLoading, data, isSuccess, isError } = useSignUp();
+  const { mutate, isLoading, data, isSuccess, isError, error } = useSignUp();
   const toast = useToast();
 
   const {
@@ -56,11 +56,14 @@ export const SignUp = ({ navigation }) => {
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
 
   if (isError) {
-    return (
-      <Box>
-        <Text>There is an error, try again</Text>
-      </Box>
-    );
+    <Alert mt={4} status="error">
+      <Flex flexDirection={'row'} alignItems="center">
+        <Alert.Icon mr={2} />
+        {error?.response?.errors.map((e: { message: string }) => (
+          <Text>{e.message}</Text>
+        ))}
+      </Flex>
+    </Alert>;
   }
 
   return (
