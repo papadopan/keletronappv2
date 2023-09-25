@@ -8,8 +8,9 @@ import {
   Image,
   useColorModeValue
 } from 'native-base';
+import { WelcomeScreenProps } from 'types/navigation';
 
-export const Welcome = ({ navigation }) => {
+export const Welcome = ({ navigation }: WelcomeScreenProps) => {
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
 
   return (

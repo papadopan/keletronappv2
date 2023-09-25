@@ -15,13 +15,17 @@ import {
 import { useForm, Controller } from 'react-hook-form';
 
 import { useActivateAccount } from 'hooks';
+import { ActivationCodeScreenProps } from 'types/navigation';
 
 type Inputs = {
   code: string;
   email: string;
 };
 
-export const ActivationCode = ({ navigation, route }) => {
+export const ActivationCode = ({
+  navigation,
+  route
+}: ActivationCodeScreenProps) => {
   const {
     isSuccess: isActivated,
     mutate: activate,

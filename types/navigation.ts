@@ -1,4 +1,3 @@
-import { ActivationCode } from './../components/Welcome/ActivationCode/index';
 import type { NativeStackScreenProps } from '@react-navigation/native-stack';
 import type { BookingType } from './bookings';
 
@@ -13,7 +12,7 @@ export type WelcomeScreen = {
   SignUp: undefined;
   ForgotPassword: undefined;
   ActivationEmail: { email: string };
-  ActivationCode: undefined;
+  ActivationCode: { email: string };
 };
 
 export type AuthScreen = {
@@ -51,3 +50,12 @@ export type BookingsScreenProps = NativeStackScreenProps<
 >;
 
 export type HomeScreenProps = NativeStackScreenProps<RootHomeParamList, 'Home'>;
+export type WelcomeScreenProps = NativeStackScreenProps<
+  WelcomeScreen,
+  'Welcome'
+>;
+export type SignUpScreenProps = NativeStackScreenProps<WelcomeScreen, 'SignUp'>;
+export type ActivationCodeScreenProps = NativeStackScreenProps<
+  WelcomeScreen,
+  'ActivationCode'
+>;
