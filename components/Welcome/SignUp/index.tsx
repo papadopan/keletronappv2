@@ -16,6 +16,7 @@ import {
 } from 'native-base';
 import { useForm, Controller } from 'react-hook-form';
 import { useSignUp } from 'hooks';
+import { SignUpScreenProps } from 'types/navigation';
 
 type Inputs = {
   first_name: string;
@@ -24,7 +25,7 @@ type Inputs = {
   password: string;
 };
 
-export const SignUp = ({ navigation }) => {
+export const SignUp = ({ navigation }: SignUpScreenProps) => {
   const { mutate, isLoading, data, isSuccess, isError, error } = useSignUp();
   const toast = useToast();
 
@@ -54,17 +55,6 @@ export const SignUp = ({ navigation }) => {
   }, [isSuccess]);
 
   const screenbg = useColorModeValue('warmGray.200', 'trueGray.800');
-
-  if (isError) {
-    <Alert mt={4} status="error">
-      <Flex flexDirection={'row'} alignItems="center">
-        <Alert.Icon mr={2} />
-        {error?.response?.errors.map((e: { message: string }) => (
-          <Text>{e.message}</Text>
-        ))}
-      </Flex>
-    </Alert>;
-  }
 
   return (
     <ScrollView
@@ -177,6 +167,7 @@ export const SignUp = ({ navigation }) => {
                       onChangeText={value => field.onChange(value)}
                       value={field.value}
                       placeholder="Password"
+                      type="password"
                     />
                     <FormControl.HelperText>
                       Τουλάχιστον 6 χαρακτήρες.
@@ -191,6 +182,16 @@ export const SignUp = ({ navigation }) => {
                 );
               }}
             />
+            {isError && (
+              <Alert mt={4} status="error">
+                <Flex flexDirection={'row'} alignItems="center">
+                  <Alert.Icon mr={2} />
+                  {error?.response?.errors.map((e: { message: string }) => (
+                    <Text>{e.message}</Text>
+                  ))}
+                </Flex>
+              </Alert>
+            )}
           </Stack>
           <Button
             size={'lg'}
