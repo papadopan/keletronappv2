@@ -15,7 +15,7 @@
 		40B9090C498550EC3282907D /* Pods_KeletronAppv2_KeletronAppv2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902F92BFB7CEB083C4CE232E /* Pods_KeletronAppv2_KeletronAppv2Tests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D139748E2930135E000179FC /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = D139748D2930135E000179FC /* Fonts */; };
-		D1AE84632A793399008D2FDC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1AE84622A793399008D2FDC /* GoogleService-Info.plist */; };
+		D1A5551F2AEFAA1C0020CB73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1A5551E2AEFAA1C0020CB73 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +46,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-KeletronAppv2-KeletronAppv2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeletronAppv2-KeletronAppv2Tests.release.xcconfig"; path = "Target Support Files/Pods-KeletronAppv2-KeletronAppv2Tests/Pods-KeletronAppv2-KeletronAppv2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		902F92BFB7CEB083C4CE232E /* Pods_KeletronAppv2_KeletronAppv2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeletronAppv2_KeletronAppv2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D139748D2930135E000179FC /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
-		D1AE84622A793399008D2FDC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/KeletronApp/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D1A5551E2AEFAA1C0020CB73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1C3E55729A2A9B500F6D2CE /* KeletronAppv2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = KeletronAppv2.entitlements; path = KeletronAppv2/KeletronAppv2.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -91,6 +91,7 @@
 		13B07FAE1A68108700A75B9A /* KeletronAppv2 */ = {
 			isa = PBXGroup;
 			children = (
+				D1A5551E2AEFAA1C0020CB73 /* GoogleService-Info.plist */,
 				D1C3E55729A2A9B500F6D2CE /* KeletronAppv2.entitlements */,
 				D139748D2930135E000179FC /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -98,7 +99,6 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
-				D1AE84622A793399008D2FDC /* GoogleService-Info.plist */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = KeletronAppv2;
@@ -254,7 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D139748E2930135E000179FC /* Fonts in Resources */,
-				D1AE84632A793399008D2FDC /* GoogleService-Info.plist in Resources */,
+				D1A5551F2AEFAA1C0020CB73 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
