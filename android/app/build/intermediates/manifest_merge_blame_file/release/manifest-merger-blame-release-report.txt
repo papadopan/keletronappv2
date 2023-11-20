@@ -1,0 +1,344 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.keletronappv2"
+4    android:versionCode="7"
+5    android:versionName="7.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="33"
+8-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:4:5-67
+11-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.WAKE_LOCK" />
+12-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:5-68
+12-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:10:22-65
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:5-79
+13-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:22-76
+14    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+14-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:25:5-77
+14-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:25:22-74
+15    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+15-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:28:5-82
+15-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:28:22-79
+16
+17    <application
+17-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:6:5-25:19
+18        android:name="com.keletronappv2.MainApplication"
+18-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:7:7-38
+19        android:allowBackup="false"
+19-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:11:7-34
+20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+20-->[androidx.core:core:1.7.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/63a3df243d2d102452600006144a86df/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+21        android:extractNativeLibs="false"
+22        android:icon="@mipmap/ic_launcher"
+22-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:9:7-41
+23        android:label="@string/app_name"
+23-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:8:7-39
+24        android:roundIcon="@mipmap/ic_launcher_round"
+24-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:10:7-52
+25        android:theme="@style/AppTheme" >
+25-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:12:7-38
+26        <activity
+26-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:13:7-24:18
+27            android:name="com.keletronappv2.MainActivity"
+27-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:14:9-37
+28            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+28-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:16:9-118
+29            android:exported="true"
+29-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:19:9-32
+30            android:label="@string/app_name"
+30-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:15:9-41
+31            android:launchMode="singleTask"
+31-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:17:9-40
+32            android:windowSoftInputMode="adjustResize" >
+32-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:18:9-51
+33            <intent-filter>
+33-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:20:9-23:25
+34                <action android:name="android.intent.action.MAIN" />
+34-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:21:13-65
+34-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:21:21-62
+35
+36                <category android:name="android.intent.category.LAUNCHER" />
+36-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:22:13-73
+36-->/Users/antoniospapadopoulos/Development/keletronappv2/android/app/src/main/AndroidManifest.xml:22:23-70
+37            </intent-filter>
+38        </activity>
+39
+40        <service
+40-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:9-16:40
+41            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingHeadlessService"
+41-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-103
+42            android:exported="false" />
+42-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-37
+43        <service
+43-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:9-23:19
+44            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingService"
+44-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-95
+45            android:exported="false" >
+45-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:19:13-37
+46            <intent-filter>
+46-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:29
+47                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+47-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-78
+47-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:25-75
+48            </intent-filter>
+49        </service>
+50
+51        <receiver
+51-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:9-32:20
+52            android:name="io.invertase.firebase.messaging.ReactNativeFirebaseMessagingReceiver"
+52-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-96
+53            android:exported="true"
+53-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-36
+54            android:permission="com.google.android.c2dm.permission.SEND" >
+54-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-73
+55            <intent-filter>
+55-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-31:29
+56                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+56-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:17-81
+56-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:25-78
+57            </intent-filter>
+58        </receiver>
+59
+60        <meta-data
+60-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:34:9-36:36
+61            android:name="firebase_messaging_auto_init_enabled"
+61-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:35:13-64
+62            android:value="true" />
+62-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:36:13-33
+63        <meta-data
+63-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:37:9-39:32
+64            android:name="com.google.firebase.messaging.default_notification_channel_id"
+64-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:38:13-89
+65            android:value="" />
+65-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:39:13-29
+66        <meta-data
+66-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:40:9-42:47
+67            android:name="com.google.firebase.messaging.default_notification_color"
+67-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:41:13-84
+68            android:resource="@color/white" />
+68-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:42:13-44
+69        <meta-data
+69-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:11:9-13:36
+70            android:name="app_data_collection_default_enabled"
+70-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:12:13-63
+71            android:value="true" />
+71-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:13-33
+72
+73        <service
+73-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:9-23:19
+74            android:name="com.google.firebase.components.ComponentDiscoveryService"
+74-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:16:13-84
+75            android:directBootAware="true"
+75-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:17:13-43
+76            android:exported="false" >
+76-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:18:13-37
+77            <meta-data
+77-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:85
+78                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
+78-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-120
+79                android:value="com.google.firebase.components.ComponentRegistrar" />
+79-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:22:17-82
+80            <meta-data
+80-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:55:13-57:85
+81                android:name="com.google.firebase.components:com.google.firebase.messaging.FirebaseMessagingRegistrar"
+81-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:56:17-119
+82                android:value="com.google.firebase.components.ComponentRegistrar" />
+82-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:57:17-82
+83            <meta-data
+83-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/01c73569445d2d210899140299b7df8f/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:27:13-29:85
+84                android:name="com.google.firebase.components:com.google.firebase.datatransport.TransportRegistrar"
+84-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/01c73569445d2d210899140299b7df8f/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:28:17-115
+85                android:value="com.google.firebase.components.ComponentRegistrar" />
+85-->[com.google.firebase:firebase-datatransport:18.1.7] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/01c73569445d2d210899140299b7df8f/transformed/jetified-firebase-datatransport-18.1.7/AndroidManifest.xml:29:17-82
+86            <meta-data
+86-->[com.google.firebase:firebase-installations:17.1.3] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/f9e5434a5cb54931c1bcb7166b23d84b/transformed/jetified-firebase-installations-17.1.3/AndroidManifest.xml:17:13-19:85
+87                android:name="com.google.firebase.components:com.google.firebase.installations.FirebaseInstallationsRegistrar"
+87-->[com.google.firebase:firebase-installations:17.1.3] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/f9e5434a5cb54931c1bcb7166b23d84b/transformed/jetified-firebase-installations-17.1.3/AndroidManifest.xml:18:17-127
+88                android:value="com.google.firebase.components.ComponentRegistrar" />
+88-->[com.google.firebase:firebase-installations:17.1.3] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/f9e5434a5cb54931c1bcb7166b23d84b/transformed/jetified-firebase-installations-17.1.3/AndroidManifest.xml:19:17-82
+89        </service>
+90
+91        <provider
+91-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:25:9-29:38
+92            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
+92-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:26:13-88
+93            android:authorities="com.keletronappv2.reactnativefirebaseappinitprovider"
+93-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:27:13-86
+94            android:exported="false"
+94-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:28:13-37
+95            android:initOrder="99" />
+95-->[:react-native-firebase_app] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-35
+96
+97        <meta-data
+97-->[:sentry_react-native] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@sentry/react-native/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:13:9-15:37
+98            android:name="io.sentry.auto-init"
+98-->[:sentry_react-native] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@sentry/react-native/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:14:13-47
+99            android:value="false" />
+99-->[:sentry_react-native] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@sentry/react-native/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:15:13-34
+100
+101        <receiver
+101-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:31:9-38:20
+102            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+102-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:32:13-78
+103            android:exported="true"
+103-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:33:13-36
+104            android:permission="com.google.android.c2dm.permission.SEND" >
+104-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:34:13-73
+105            <intent-filter>
+105-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:29:13-31:29
+106                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+106-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:17-81
+106-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:30:25-78
+107            </intent-filter>
+108        </receiver>
+109        <!--
+110             FirebaseMessagingService performs security checks at runtime,
+111             but set to not exported to explicitly avoid allowing another app to call it.
+112        -->
+113        <service
+113-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:44:9-51:19
+114            android:name="com.google.firebase.messaging.FirebaseMessagingService"
+114-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:45:13-82
+115            android:directBootAware="true"
+115-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:46:13-43
+116            android:exported="false" >
+116-->[com.google.firebase:firebase-messaging:23.1.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/cc49bd0f2435a4e9f49a29f43b313b48/transformed/jetified-firebase-messaging-23.1.2/AndroidManifest.xml:47:13-37
+117            <intent-filter android:priority="-500" >
+117-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:20:13-22:29
+118                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+118-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:17-78
+118-->[:react-native-firebase_messaging] /Users/antoniospapadopoulos/Development/keletronappv2/node_modules/@react-native-firebase/messaging/android/build/intermediates/merged_manifest/release/AndroidManifest.xml:21:25-75
+119            </intent-filter>
+120        </service>
+121        <service
+121-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/02c358359c0d3d98f526fd28e7b24db4/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:28:9-34:19
+122            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+122-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/02c358359c0d3d98f526fd28e7b24db4/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:29:13-103
+123            android:exported="false" >
+123-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/02c358359c0d3d98f526fd28e7b24db4/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:30:13-37
+124            <meta-data
+124-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/02c358359c0d3d98f526fd28e7b24db4/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:31:13-33:39
+125                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+125-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/02c358359c0d3d98f526fd28e7b24db4/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:32:17-94
+126                android:value="cct" />
+126-->[com.google.android.datatransport:transport-backend-cct:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/02c358359c0d3d98f526fd28e7b24db4/transformed/jetified-transport-backend-cct-3.1.8/AndroidManifest.xml:33:17-36
+127        </service>
+128        <service
+128-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/933e3b9bb683dc105d82d7802eeca4d1/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:26:9-30:19
+129            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+129-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/933e3b9bb683dc105d82d7802eeca4d1/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:27:13-117
+130            android:exported="false"
+130-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/933e3b9bb683dc105d82d7802eeca4d1/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:28:13-37
+131            android:permission="android.permission.BIND_JOB_SERVICE" >
+131-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/933e3b9bb683dc105d82d7802eeca4d1/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:29:13-69
+132        </service>
+133
+134        <receiver
+134-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/933e3b9bb683dc105d82d7802eeca4d1/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:32:9-34:40
+135            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+135-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/933e3b9bb683dc105d82d7802eeca4d1/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:33:13-132
+136            android:exported="false" />
+136-->[com.google.android.datatransport:transport-runtime:3.1.8] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/933e3b9bb683dc105d82d7802eeca4d1/transformed/jetified-transport-runtime-3.1.8/AndroidManifest.xml:34:13-37
+137
+138        <provider
+138-->[com.google.firebase:firebase-common:20.3.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/d4660eeb160c7d464bc2b3352b129d55/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:25:9-30:39
+139            android:name="com.google.firebase.provider.FirebaseInitProvider"
+139-->[com.google.firebase:firebase-common:20.3.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/d4660eeb160c7d464bc2b3352b129d55/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:26:13-77
+140            android:authorities="com.keletronappv2.firebaseinitprovider"
+140-->[com.google.firebase:firebase-common:20.3.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/d4660eeb160c7d464bc2b3352b129d55/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:27:13-72
+141            android:directBootAware="true"
+141-->[com.google.firebase:firebase-common:20.3.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/d4660eeb160c7d464bc2b3352b129d55/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:28:13-43
+142            android:exported="false"
+142-->[com.google.firebase:firebase-common:20.3.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/d4660eeb160c7d464bc2b3352b129d55/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:29:13-37
+143            android:initOrder="100" />
+143-->[com.google.firebase:firebase-common:20.3.2] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/d4660eeb160c7d464bc2b3352b129d55/transformed/jetified-firebase-common-20.3.2/AndroidManifest.xml:30:13-36
+144
+145        <activity
+145-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:23:9-27:75
+146            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+146-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:24:13-93
+147            android:excludeFromRecents="true"
+147-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:25:13-46
+148            android:exported="false"
+148-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:26:13-37
+149            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+149-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:27:13-72
+150        <!--
+151            Service handling Google Sign-In user revocation. For apps that do not integrate with
+152            Google Sign-In, this service will never be started.
+153        -->
+154        <service
+154-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:33:9-37:51
+155            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+155-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:34:13-89
+156            android:exported="true"
+156-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:35:13-36
+157            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+157-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:36:13-107
+158            android:visibleToInstantApps="true" />
+158-->[com.google.android.gms:play-services-auth:20.5.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/79cc38a383ce7d2b0f222b361e2d8c43/transformed/jetified-play-services-auth-20.5.0/AndroidManifest.xml:37:13-48
+159
+160        <activity
+160-->[com.google.android.gms:play-services-base:18.0.1] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/f88b5a2c0b62a187e4b15b1bc1640873/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+161            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+161-->[com.google.android.gms:play-services-base:18.0.1] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/f88b5a2c0b62a187e4b15b1bc1640873/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+162            android:exported="false"
+162-->[com.google.android.gms:play-services-base:18.0.1] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/f88b5a2c0b62a187e4b15b1bc1640873/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+163            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+163-->[com.google.android.gms:play-services-base:18.0.1] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/f88b5a2c0b62a187e4b15b1bc1640873/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+164
+165        <meta-data
+165-->[com.google.android.gms:play-services-basement:18.2.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/848222d3c17729ae4f1be3102d767c6b/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
+166            android:name="com.google.android.gms.version"
+166-->[com.google.android.gms:play-services-basement:18.2.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/848222d3c17729ae4f1be3102d767c6b/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
+167            android:value="@integer/google_play_services_version" />
+167-->[com.google.android.gms:play-services-basement:18.2.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/848222d3c17729ae4f1be3102d767c6b/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
+168
+169        <provider
+169-->[androidx.emoji2:emoji2:1.0.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/b6fe4da57007a43d86a66ba4c66459bd/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+170            android:name="androidx.startup.InitializationProvider"
+170-->[androidx.emoji2:emoji2:1.0.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/b6fe4da57007a43d86a66ba4c66459bd/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
+171            android:authorities="com.keletronappv2.androidx-startup"
+171-->[androidx.emoji2:emoji2:1.0.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/b6fe4da57007a43d86a66ba4c66459bd/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
+172            android:exported="false" >
+172-->[androidx.emoji2:emoji2:1.0.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/b6fe4da57007a43d86a66ba4c66459bd/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
+173            <meta-data
+173-->[androidx.emoji2:emoji2:1.0.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/b6fe4da57007a43d86a66ba4c66459bd/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+174                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+174-->[androidx.emoji2:emoji2:1.0.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/b6fe4da57007a43d86a66ba4c66459bd/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
+175                android:value="androidx.startup" />
+175-->[androidx.emoji2:emoji2:1.0.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/b6fe4da57007a43d86a66ba4c66459bd/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
+176            <meta-data
+176-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/bc74a39e1ea23fea00bfcf2682a93948/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+177                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+177-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/bc74a39e1ea23fea00bfcf2682a93948/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+178                android:value="androidx.startup" />
+178-->[androidx.lifecycle:lifecycle-process:2.4.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/bc74a39e1ea23fea00bfcf2682a93948/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+179        </provider> <!-- 'android:authorities' must be unique in the device, across all apps -->
+180        <provider
+180-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:14:9-17:40
+181            android:name="io.sentry.android.core.SentryInitProvider"
+181-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:15:13-69
+182            android:authorities="com.keletronappv2.SentryInitProvider"
+182-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:16:13-70
+183            android:exported="false" />
+183-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:17:13-37
+184        <provider
+184-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:18:9-22:39
+185            android:name="io.sentry.android.core.SentryPerformanceProvider"
+185-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:19:13-76
+186            android:authorities="com.keletronappv2.SentryPerformanceProvider"
+186-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:20:13-77
+187            android:exported="false"
+187-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:21:13-37
+188            android:initOrder="200" />
+188-->[io.sentry:sentry-android-core:6.14.0] /Users/antoniospapadopoulos/.gradle/caches/transforms-3/a6fa5c6cafa8ad33b568142ad50202b9/transformed/jetified-sentry-android-core-6.14.0/AndroidManifest.xml:22:13-36
+189    </application>
+190
+191</manifest>
