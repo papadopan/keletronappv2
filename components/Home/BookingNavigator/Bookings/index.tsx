@@ -17,7 +17,9 @@ import { getDayFromNumber } from '../helpers';
 import { useTranslation } from 'react-i18next';
 import AdminInfo from '../AdminInfo';
 
-const AVAILABLE_COURTS_FOR_BOOKING = 2;
+const AVAILABLE_COURTS_FOR_BOOKING = (time: string) => {
+  return time < '17:00' ? 3 : 2;
+};
 
 export type Bookings = {
   court?: string;
@@ -172,7 +174,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                   ) : (
                     <>
                       <Text m={2}>
-                        {AVAILABLE_COURTS_FOR_BOOKING -
+                        {AVAILABLE_COURTS_FOR_BOOKING(booking.time) -
                           booking.reservations.length}{' '}
                         {t('available courts')}
                       </Text>
@@ -185,7 +187,7 @@ export const Bookings = ({ navigation }: BookingsScreenProps) => {
                           })
                         }
                         isDisabled={
-                          AVAILABLE_COURTS_FOR_BOOKING -
+                          AVAILABLE_COURTS_FOR_BOOKING(booking.time) -
                             booking.reservations.length ===
                           0
                         }
