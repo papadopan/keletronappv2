@@ -12,10 +12,10 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		37AC15BE542EA9E412817681 /* Pods_KeletronAppv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19FE38A2CFB52917FEF42AA5 /* Pods_KeletronAppv2.framework */; };
+		3B463F782B827F4F00F74E73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3B463F772B827F4F00F74E73 /* GoogleService-Info.plist */; };
 		40B9090C498550EC3282907D /* Pods_KeletronAppv2_KeletronAppv2Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 902F92BFB7CEB083C4CE232E /* Pods_KeletronAppv2_KeletronAppv2Tests.framework */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		D139748E2930135E000179FC /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = D139748D2930135E000179FC /* Fonts */; };
-		D1A5551F2AEFAA1C0020CB73 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D1A5551E2AEFAA1C0020CB73 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,13 +40,13 @@
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = KeletronAppv2/main.m; sourceTree = "<group>"; };
 		19FE38A2CFB52917FEF42AA5 /* Pods_KeletronAppv2.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeletronAppv2.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B4392A12AC88292D35C810B /* Pods-KeletronAppv2.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeletronAppv2.debug.xcconfig"; path = "Target Support Files/Pods-KeletronAppv2/Pods-KeletronAppv2.debug.xcconfig"; sourceTree = "<group>"; };
+		3B463F772B827F4F00F74E73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-KeletronAppv2.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeletronAppv2.release.xcconfig"; path = "Target Support Files/Pods-KeletronAppv2/Pods-KeletronAppv2.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-KeletronAppv2-KeletronAppv2Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeletronAppv2-KeletronAppv2Tests.debug.xcconfig"; path = "Target Support Files/Pods-KeletronAppv2-KeletronAppv2Tests/Pods-KeletronAppv2-KeletronAppv2Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = KeletronAppv2/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-KeletronAppv2-KeletronAppv2Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KeletronAppv2-KeletronAppv2Tests.release.xcconfig"; path = "Target Support Files/Pods-KeletronAppv2-KeletronAppv2Tests/Pods-KeletronAppv2-KeletronAppv2Tests.release.xcconfig"; sourceTree = "<group>"; };
 		902F92BFB7CEB083C4CE232E /* Pods_KeletronAppv2_KeletronAppv2Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KeletronAppv2_KeletronAppv2Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D139748D2930135E000179FC /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Fonts; path = "../node_modules/react-native-vector-icons/Fonts"; sourceTree = "<group>"; };
-		D1A5551E2AEFAA1C0020CB73 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1C3E55729A2A9B500F6D2CE /* KeletronAppv2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = KeletronAppv2.entitlements; path = KeletronAppv2/KeletronAppv2.entitlements; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -91,7 +91,7 @@
 		13B07FAE1A68108700A75B9A /* KeletronAppv2 */ = {
 			isa = PBXGroup;
 			children = (
-				D1A5551E2AEFAA1C0020CB73 /* GoogleService-Info.plist */,
+				3B463F772B827F4F00F74E73 /* GoogleService-Info.plist */,
 				D1C3E55729A2A9B500F6D2CE /* KeletronAppv2.entitlements */,
 				D139748D2930135E000179FC /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -254,7 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D139748E2930135E000179FC /* Fonts in Resources */,
-				D1A5551F2AEFAA1C0020CB73 /* GoogleService-Info.plist in Resources */,
+				3B463F782B827F4F00F74E73 /* GoogleService-Info.plist in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -277,7 +277,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "\nexport SENTRY_PROPERTIES=sentry.properties\nexport EXTRA_PACKAGER_ARGS=\"--sourcemap-output $DERIVED_FILE_DIR/main.jsbundle.map\"\nset -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT \\\"../node_modules/@sentry/cli/bin/sentry-cli react-native xcode $REACT_NATIVE_XCODE\\\"\"\n\n/bin/sh ../node_modules/@sentry/react-native/scripts/collect-modules.sh\n";
+			shellScript = "
+";
 		};
 		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
