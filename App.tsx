@@ -12,7 +12,7 @@ import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 
 import { Auth } from './components/Auth';
-import { WelcomeNavigator } from './components/Welcome/WelcomeNavigator';
+import { WelcomeNavigator } from './components/Welcome/WelcomeNAvigator';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { AppNavigator } from 'types/navigation';
 import { Flex, Spinner, useColorModeValue } from 'native-base';
